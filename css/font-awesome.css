@@ -236,6 +236,9 @@
 .fa-user:before {
   content: "\f007";
 }
+.fa-bars:before {
+  content: "\f0c9";
+}
 .fa-film:before {
   content: "\f008";
 }
