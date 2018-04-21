@@ -1,9 +1,4 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -198,10 +193,81 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<h3>Hot Offers</h3>
 			<div class="agile_top_brands_grids">
+			<?php 
+			$sdd_db_host='127.0.0.1'; 
+			$sdd_db_name='site'; 
+			$sdd_db_user='root'; 
+			$sdd_db_pass=''; 
+			$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
+			if(!$conn)
+			{
+				throw new Exception('Connection with DB fail');
+			}
+			if(!mysql_select_db($sdd_db_name, $conn)) 
+			{
+				throw new Exception("Cant select DB {$ssd_db_name}!");
+			}
+			$result = mysql_query('SELECT * FROM `products`', $conn); 
+			if(!$result)
+			{
+				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+			}
+
+			while($row = mysql_fetch_array($result))
+			{
+				printProducts($row['id'], $row['name'], $row['description'], $row['price']);
+				
+			}
+			
+			function printProducts($id, $name, $description, $price) {
+				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
 						<div class="agile_top_brand_left_grid">
-							<div class="tag"><img src="images/tag.png" alt=" " class="img-responsive" /></div>
+							<div class="agile_top_brand_left_grid1">
+								<figure>
+									<div class="snipcart-item block" >
+										<div class="snipcart-thumb">
+											<a href="single.html"><img title=" " alt=" " src="images/1.png" /></a>		
+											<p>'.$name.'</p>
+											<p id="asd">'.$description.'</p>
+											<h4>'.$price.'</h4>
+										</div>
+										<div class="snipcart-details top_brand_home_details">
+											<form action="checkout.html" method="post">
+												<fieldset>
+													<input type="hidden" name="cmd" value="_cart" />
+													<input type="hidden" name="add" value="1" />
+													<input type="hidden" name="business" value=" " />
+													<input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+													<input type="hidden" name="amount" value="7.99" />
+													<input type="hidden" name="id" value="'.$id.'" />
+													<input type="hidden" name="discount_amount" value="1.00" />
+													<input type="hidden" name="currency_code" value="USD" />
+													<input type="hidden" name="return" value=" " />
+													<input type="hidden" name="cancel_return" value=" " />
+													<input type="submit" name="submit" value="Add to cart" class="button" />
+												</fieldset>
+													
+											</form>
+									
+										</div>
+									</div>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
+				';
+			}
+			
+			
+			?>
+			
+				<div class="col-md-3 top_brand_left">
+					<div class="hover14 column">
+						<div class="agile_top_brand_left_grid">
+							
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block" >
@@ -234,6 +300,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
+				
+				
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
 						<div class="agile_top_brand_left_grid">
