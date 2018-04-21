@@ -126,6 +126,7 @@
 					echo '<td>'.$summ.'</td>';
 					echo '<td>'.$additional.'</td>';
 					
+					if ($status == 0){
 					echo '<td>
 					<form action="confirm.php" method="post" id="success_form">';
 						echo '<input type="hidden" name="id" value="'.$id.'"/>';
@@ -140,7 +141,10 @@
 					echo 
 					'<button type="submit" class="btn btn-danger" value="Submit">Отказать</button>
 					</form></td>';
-					
+					}else{
+					echo '<td></td>';
+					echo '<td></td>';
+					}
 					
 				
 				
