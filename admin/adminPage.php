@@ -30,15 +30,15 @@
 
 
                     <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard <span class="badge">Included</span></a>
+                        <a href="index.php" ><i class="fa fa-desktop "></i>Dashboard <span class="badge">Included</span></a>
                     </li>
                    
 
                     <li>
-                        <a href="ui.html"><i class="fa fa-table "></i>UI Elements  <span class="badge">Included</span></a>
+                        <a href="ui.php"><i class="fa fa-table "></i>Текущие заказ <span class="badge">Included</span></a>
                     </li>
                     <li>
-                        <a href="blank.html"><i class="fa fa-edit "></i>Blank Page  <span class="badge">Included</span></a>
+                        <a href="orders.php"><i class="fa fa-edit "></i>Blank Page  <span class="badge">Included</span></a>
                     </li>
               
                 </ul>
@@ -111,9 +111,9 @@
 					 
 					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 						  <div class="div-square">
-							   <a href="blank.html" >
+							   <a href="orders.php" >
 	 <i class="fa fa-envelope-o fa-5x"></i>
-						  <h4>Mail Box</h4>
+						  <h4>Текущие заказы</h4>
 						  </a>
 						  </div>
 						 
@@ -189,5 +189,6 @@
     <script  type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/validator.min.js"></script>
 	<script type="text/javascript" src="form-scripts.js"></script>
+	
    
 </body>
