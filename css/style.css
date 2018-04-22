@@ -262,7 +262,6 @@ ul.dropdown-menu.drp-mnu li a i {
     width: 20%;
     background: #f5f5f5;
     position: fixed;
-    top: 5;
     left: 0;
 }
 .wthree_banner_bottom_left_grid_sub{
@@ -927,6 +926,9 @@ button.submit.check_out{
 	-webkit-animation: shine .75s;
 	animation: shine .75s;
 }
+.hovr{
+    display: none;
+}
 @-webkit-keyframes shine {
 	100% {
 		left: 125%;
@@ -937,6 +939,9 @@ button.submit.check_out{
 		left: 125%;
 	}
 }
+    .paymennt{
+        margin-left: 19%
+    }
 /*-- //top-brands --*/
 /*-- top-products --*/
 .w3l_fresh_vegetables_grids{
@@ -1088,6 +1093,7 @@ button.submit.check_out{
 /*-- //newsletter --*/
 /*-- footer --*/
 .footer{
+    margin-bottom: 0px;
 	padding:2em 0;
 	background:#212121;
 }
@@ -2558,10 +2564,10 @@ td.invert-image a img {
     width: 40px;
 	height:40px;
     padding: 8px 0px;
-    color: #A9A9A9;
+
     line-height: 24px;
     border: 1px solid #E5E5E5;
-    background-color: #E5E5E5;
+
     text-align: center;
     display: inline-block;
 	margin-right: 3px;
@@ -2802,7 +2808,7 @@ input.checkbox:checked:after {
   display: block;
 }
 .container {
-    margin-left: 370px;
+    margin-left: 19%;
 }
 .form-module h2 {
     margin: 0 0 1.5em;
@@ -2889,6 +2895,9 @@ input.checkbox:checked:after {
 	.snipcart-details {
 		width: 93%;
 	}
+    .container{
+        width: 80%;
+    }
 	.view h4 {
 		margin: 4.5em 0 0;
 	}
@@ -3076,6 +3085,7 @@ input.checkbox:checked:after {
 	.agile_footer_grids_w3_footer {
 		width: 35%;
 	}
+
 	.w3_footer_grid {
 		padding-left: 0;
 	}
@@ -3240,7 +3250,7 @@ input.checkbox:checked:after {
 		padding: 0 .7em;
 	}
 	.container {
-		width: 815px;
+		width: 80%;
 
 	}
 	.w3ls_logo_products_left1:nth-child(3) {
@@ -3594,7 +3604,7 @@ input.checkbox:checked:after {
 		margin: 0 auto;
 	}
 	.container {
-		width: 765px;
+		width: 80%;
 	}
 	.modal-dialog {
 		width: 710px;
@@ -3648,6 +3658,7 @@ input.checkbox:checked:after {
 		left: 39% !important;
 	}
 	.container {
+        margin-left: 0%;
 		width: 750px;
 	}
 	.w3ls_logo_products_left1:nth-child(3) {
@@ -4187,7 +4198,9 @@ input.checkbox:checked:after {
 	}
 	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
 		padding: 2em 1em;
+
 	}
+
 	.w3l_fruit {
 		margin-bottom: 1.5em !important;
 	}
