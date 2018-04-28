@@ -50,6 +50,20 @@ span.glyphicon.glyphicon-shopping-cart.my-cart-icon.my-cart-icon-affix {
 .snipcart-thumb a {
     display: block;
     text-align: center;
+    position:relative;
+}
+.description{
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+    background:rgba(255,255,255, 0.7);
+    padding:5px;
+    display:none;
+}
+.snipcart-thumb:hover .description{
+    display:description;
 }
 .my-cart-icon-affix i {
     background: #84C639 !important;
@@ -524,6 +538,7 @@ ul.dropdown-menu.drp-mnu li a i {
     bottom: 0%;
     left: 46%;
 }
+
 .agile_top_brand_left_grid{
 	background: #FFFFFF;
     padding: .5em;
@@ -1572,6 +1587,7 @@ button.submit.check_out{
 	margin:1em 0;
 }
 .w3ls_w3l_banner_nav_right_grid{
+    margin-top: 2em;
 	padding:0 0 5em;
 }
 .w3ls_w3l_banner_nav_right_grid_head_grid ul li{
@@ -2228,6 +2244,7 @@ ul.wmuSliderPagination {
     padding-top: 1em;
 }
 .w3agile_event_grid_right{
+    height: 110px;
 	border-left: 1px solid #D2D2D2;
     padding-left: 3em;
     border-bottom: 1px solid #D2D2D2;

@@ -1,5 +1,11 @@
 <?php
-	$sdd_db_host='127.0.0.1'; 
+$name=$_POST['name'];
+$email=$_POST['email'];
+$comment=$_POST['Message'];
+$time=date("d.m.y G:i:s");
+
+
+$sdd_db_host='127.0.0.1'; 
 	$sdd_db_name='site'; 
 	$sdd_db_user='root'; 
 	$sdd_db_pass=''; 
@@ -13,23 +19,13 @@
 		throw new Exception("Cant select DB {$ssd_db_name}!");
 	}
 	$result = mysql_query('SELECT * FROM `products`', $conn); 
-	if(!$result)
-	{
-		throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+
+		
+
+	if(!$email){
 	}
-	
+	else{
 
-	$FIO=mysql_real_escape_string($_POST['ФИО']);
-	$number=mysql_real_escape_string($_POST['Номер']);
-	$adress=mysql_real_escape_string($_POST['Адрес']);
-	$order=mysql_real_escape_string($_POST['order']);
-	$total=mysql_real_escape_string($_POST['total']);
-
-	/*$result = mysql_query('INSERT INTO `orders` (products, client_name, address, summ, additional)VALUES('.$order.', '.$FIO.', '.$adress.', '.$total.', '.$number.')');
-	if(!$result)
-			{
-				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-			}*/
 
 	$servername = "localhost";
 	$username = "root";
@@ -37,14 +33,13 @@
 	$dbname = "site";
 	$conn2 = new mysqli($servername, $username, $password, $dbname);
 
-	$stmt = $conn2->prepare ('INSERT INTO orders (products, client_name, address, summ, additional)VALUES(?,?,?,?,?)');
-	$stmt->bind_param('sssds',$order, $FIO, $adress, $total, $number);
-
+	$stmt = $conn2->prepare ("INSERT INTO comments (name, comm, timee, email)VALUES(?,?,?,?)");
+	$stmt->bind_param('ssss',$name, $email, $comment, $time);
 	$stmt->execute();
 	if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));}
-			
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- font-awesome icons -->
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
 <!-- //font-awesome icons -->
-
+<!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
 <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -84,7 +79,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 <body>
 <!-- header -->
-	<?php
+	
+<?php
 include("template/temp.php");
 headerr();
 ?>
@@ -106,73 +102,79 @@ headerr();
 <!-- //script-for sticky-nav -->
 	
 <!-- //header -->
+
 <!-- banner -->
+	<?php
+	sideMenu();
+	?>
+		<div class="w3l_banner_nav_right">
+<!-- mail -->
+<div class="mail">
 <?php
-sideMenu();
+  
 
+$sdd_db_host='127.0.0.1'; 
+$sdd_db_name='site'; 
+$sdd_db_user='root'; 
+$sdd_db_pass=''; 
+$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
+if(!$conn)
+{
+	throw new Exception('Connection with DB fail');
+}
+if(!mysql_select_db($sdd_db_name, $conn)) 
+{
+	throw new Exception("Cant select DB {$ssd_db_name}!");
+}
+$result = mysql_query('SELECT * FROM `comments`', $conn); 
+if(!$result)
+{
+	throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+}
+while($row = mysql_fetch_array($result))
+{
+	printcomm($row['id'], $row['name'], $row['comm'], $row['timee']);
+}
+
+	
+
+	function printcomm($id,$name,$comm,$time){
+	echo '
+	<div style="border-bottom:2px solid red";>
+	<h2>'.$name.'</h2>
+	<h4>'.$comm.'</h4>
+	<h4>'.$time.'</h4>
+	</div>
+';}
 ?>
-<!-- banner -->
+			<div class="agileinfo_mail_grids">
+				<div class="col-md-8 agileinfo_mail_grid_right">
+					<form action="comments.php" method="post">
+						<div class="col-md-6 wthree_contact_left_grid">
+							
+							<input type="text" name="name" value="" required="" placeholder="Имя">
+							<label class="control-label">Email:</label>
+							<input type="email" name="email" value="" required="" placeholder="Почта">
+						</div>
+						<div class="clearfix"> </div>
 
-<!-- payment -->
-	<div class="paymennt">
-		<div class="privacy about">
-			<h3>Все готово!</h3>
-			<h5>Ваш заказ принят к рассмотрению, через пару минут вам перезвонят для уточнения заказа!<h5>
-			<form action="index.php" method="post" class="creditly-card-form agileinfo_form">
-
-						<section class="creditly-wrapper wthree, w3_agileits_wrapper">
-							<div class="information-wrapper">
-								<button class="submit check_out">Обратно</button>
-							</div>
-						</section>
+						<textarea  name="Message"  required="" placeholder="Комментарий"></textarea>
+						<input type="submit" value="Submit">
 					</form>
-	         
-
+				</div>
+				<div class="clearfix"> </div>
+			</div>
 		</div>
+<!-- //mail -->
 		</div>
-<!-- //payment -->
 		<div class="clearfix"></div>
-
+	</div>
 <!-- //banner -->
-
-
 <!-- footer -->
-<?php
-footerr();
-
-?>
+	<?php
+	footerr();
+	?>
 <!-- //footer -->
-<!-- js -->
-
-<!-- //js -->
-<!-- script-for sticky-nav -->
-	<script>
-	$(document).ready(function() {
-		 var navoffeset=$(".agileits_header").offset().top;
-		 $(window).scroll(function(){
-			var scrollpos=$(window).scrollTop(); 
-			if(scrollpos >=navoffeset){
-				$(".agileits_header").addClass("fixed");
-			}else{
-				$(".agileits_header").removeClass("fixed");
-			}
-		 });
-		 
-	});
-	</script>
-<!-- //script-for sticky-nav -->
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
-</script>
-<!-- start-smoth-scrolling -->
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script>
@@ -206,7 +208,7 @@ $(document).ready(function(){
 			});
 	</script>
 <!-- //here ends scrolling icon -->
-<!--<script src="js/minicart.js"></script>
+<script src="js/minicart.js"></script>
 <script>
 		paypal.minicart.render();
 
@@ -220,9 +222,13 @@ $(document).ready(function(){
 			for (i = 0; i < len; i++) {
 				total += items[i].get('quantity');
 			}
+
+			if (total < 3) {
+				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+				evt.preventDefault();
+			}
 		});
 
-	</script>-->
-
+	</script>s
 </body>
 </html>
