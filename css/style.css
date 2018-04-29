@@ -135,6 +135,7 @@ input[type="submit"],#PPMiniCart .minicart-submit,.w3ls_vegetables ul li a,input
 .w3l_header_right{
 	float: right;
     padding-right: 2em;
+    display: none;
 }
 .w3l_header_right{
     float: right;
@@ -530,15 +531,7 @@ ul.dropdown-menu.drp-mnu li a i {
 	position:relative;
 	font-size: 2.5em;
 }
-.top-brands h3:after,.fresh-vegetables h3:after,.mail h3:after,.w3_login h3:after,.testimonials h3:after,.w3ls_w3l_banner_nav_right_grid h3:after,h3.title:after,.faq h3:after,.services h3:after,.about h3:after,.team h3:after,.events h3:after{
-	content: '';
-    background: #FA1818;
-    height: 2px;
-    width: 8%;
-    position: absolute;
-    bottom: 0%;
-    left: 46%;
-}
+
 
 .agile_top_brand_left_grid{
 	background: #FFFFFF;
@@ -1310,6 +1303,7 @@ button.submit.check_out{
 .w3l_banner_nav_right_banner6{
 	background:url(../images/head.png) no-repeat 0px 0px;
 	background-size:cover;
+    text-align: center;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
@@ -1785,9 +1779,7 @@ h2.typoh2{
 		font-size: 14px;
 		margin-bottom: 10px;
 	}
-    .logo_products{
-    padding:0 0 1em;
-}
+
 	h2.typoh2 {
 		font-size: 1.5em;
 	}
@@ -3140,6 +3132,7 @@ input.checkbox:checked:after {
 	.w3l_banner_nav_right_banner3, .w3l_banner_nav_right_banner4, .w3l_banner_nav_right_banner5, .w3l_banner_nav_right_banner6, .w3l_banner_nav_right_banner7, .w3l_banner_nav_right_banner8, .w3l_banner_nav_right_banner9, .w3l_banner_nav_right_banner10 {
 		min-height: 225px;
 		padding-top: 5.5em;
+
 	}
 	.view p {
 		padding: 10px 10px 0px;
@@ -3235,8 +3228,17 @@ input.checkbox:checked:after {
 	}
 	.w3l_banner_nav_right_banner3 h3, .w3l_banner_nav_right_banner4 h3, .w3l_banner_nav_right_banner5 h3, .w3l_banner_nav_right_banner6 h3, .w3l_banner_nav_right_banner7 h3, .w3l_banner_nav_right_banner8 h3, .w3l_banner_nav_right_banner9 h3, .w3l_banner_nav_right_banner10 h3 {
 		margin-left: 7em;
+        width: 100%;
 	}
-	.w3l_banner_nav_right_banner3_btml h4 {
+    .w3l_banner_nav_right_banner6{
+        background:url(../images/head.png) 100% 100% no-repeat ;
+        background-size:cover;
+    text-align: center;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+	}
+    .w3l_banner_nav_right_banner3_btml h4 {
 		font-size: 1.3em;
 	}
 	.top-brands h3, .fresh-vegetables h3, .mail h3, .testimonials h3, .w3_login h3, .w3ls_w3l_banner_nav_right_grid h3, h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
@@ -3679,6 +3681,7 @@ input.checkbox:checked:after {
 	}
 	.w3l_header_right {
 		padding-left: 1.5em;
+        display: block;
 	}
     .w3l_header_left {
         padding-left: 1.5em;
@@ -3766,6 +3769,7 @@ input.checkbox:checked:after {
 }
 @media (max-width: 767px){
 	.w3l_banner_nav_left {
+        display:none;
 		float: none;
 		width: 100%;
 		background: #f5f5f5;
@@ -3871,9 +3875,7 @@ input.checkbox:checked:after {
 	#PPMiniCart form {
 		max-height: 400px !important;
 	}
-	.fixed {
-		position: relative;
-	}
+
 	.w3l_search {
 		margin: .1em 0 1em 5em;
 	}

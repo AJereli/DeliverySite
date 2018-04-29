@@ -43,6 +43,22 @@ echo '
 function headerr(){
 echo '
 	<div class="agileits_header">
+		<div class="w3l_header_right">
+			<ul>
+				<li class="dropdown profile_details_drop">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars" aria-hidden="true"></i><span class="caret"></span></a>
+					<div class="mega-dropdown-menu">
+						<div class="w3ls_vegetables">
+							<ul class="dropdown-menu drp-mnu">
+								<li><a href="roll.php">Роллы</a></li>
+								<li><a href="wok.php">Вок</a></li>
+
+							</ul>
+						</div>                  
+					</div>	
+				</li>
+			</ul>
+		</div>
 		<div class="product_list_header">  
 			<form action="#" method="post" class="last">
                 <fieldset>
@@ -121,7 +137,7 @@ function footerr(){
 	echo '<div class="footer">
 		<div class="container">
 			<div class="clearfix"> </div>
-<!--			<div class="agile_footer_grids">
+<!--		<div class="agile_footer_grids">
 				<div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
 					<div class="w3_footer_grid_bottom">
 						<h5>connect with us</h5>
