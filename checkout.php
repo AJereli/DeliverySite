@@ -52,17 +52,15 @@ sideMenu();
 					</thead>
 					<tbody>
 	      	<?php  
-	      	$sdd_db_name='site'; 
-			$sdd_db_user='root'; 
-			$sdd_db_pass=''; 
-			$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
+	      	
+			$conn = mysql_connect($db_host,$db_user,$_db_pass); 
 			if(!$conn)
 			{
 				throw new Exception('Connection with DB fail');
 			}
-			if(!mysql_select_db($sdd_db_name, $conn)) 
+			if(!mysql_select_db($db_name, $conn)) 
 			{
-				throw new Exception("Cant select DB {$ssd_db_name}!");
+				throw new Exception("Cant select DB {$db_name}!");
 			}
 			$result = mysql_query('SELECT * FROM `products`', $conn); 
 			if(!$result)
@@ -92,17 +90,15 @@ sideMenu();
 			}
 			echo '<h4>В вашем списке покупок: <span>'.$all.'</span></h4>';?>
 			<?php
-			$sdd_db_name='site'; 
-			$sdd_db_user='root'; 
-			$sdd_db_pass=''; 
-			$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
+			 
+			$conn = mysql_connect($db_host,$db_user,$db_pass); 
 			if(!$conn)
 			{
 				throw new Exception('Connection with DB fail');
 			}
-			if(!mysql_select_db($sdd_db_name, $conn)) 
+			if(!mysql_select_db($db_name, $conn)) 
 			{
-				throw new Exception("Cant select DB {$ssd_db_name}!");
+				throw new Exception("Cant select DB {$db_name}!");
 			}
 			$result = mysql_query('SELECT * FROM `products`', $conn); 
 			if(!$result)
