@@ -1,13 +1,53 @@
+﻿
+<?php 
+	$array = array();
+?>
 <!DOCTYPE html>
 <html>
-<? include("template/temp.php"); 
-head();
-?>
+<head>
+
+	<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+
+<!-- Put this script tag to the place, where the Share button will be -->
+
+<title>Рыжий Патрик | Доставка еды</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
+<!-- //font-awesome icons -->
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
 	
 <body>
 <!-- header -->
-	<?php
-
+<?php
+include("template/temp.php");
 headerr();
 ?>
 <!-- script-for sticky-nav -->
@@ -26,29 +66,18 @@ headerr();
 	});
 	</script>
 <!-- //script-for sticky-nav -->
-	
-<!-- //header -->
-<!-- products-breadcrumb -->
-	<div class="products-breadcrumb">
-		<div class="container">
-			<ul>
-				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
-				<li>Branded Foods</li>
-			</ul>
-		</div>
-	</div>
-<!-- //products-breadcrumb -->
-<!-- banner -->
-	<?php
+<?php
 sideMenu();
-	?>
-		<div class="w3l_banner_nav_right">
-			
-			<div class="w3ls_w3l_banner_nav_right_grid">
-				<h3>Роллы</h3>
-				<div class="w3ls_w3l_banner_nav_right_grid1">
-				
-				<?php 
+?>
+
+<!-- banner -->
+
+<!-- top-brands -->
+	<div class="top-brands">
+		<div class="container">
+			<h3>Лучшие предложения</h3>
+			<div class="agile_top_brands_grids">
+			<?php 
 			$sdd_db_host='127.0.0.1'; 
 			$sdd_db_name='site'; 
 			$sdd_db_user='root'; 
@@ -62,7 +91,7 @@ sideMenu();
 			{
 				throw new Exception("Cant select DB {$ssd_db_name}!");
 			}
-			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "ролл")', $conn); 
+			$result = mysql_query('SELECT * FROM `products`', $conn); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
@@ -70,11 +99,11 @@ sideMenu();
 
 			while($row = mysql_fetch_array($result))
 			{
-				printProducts($row['id'], $row['name'], $row['description'], $row['price']);
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$row['img_path']);
 				
 			}
 			
-			function printProducts($id, $name, $description, $price) {
+			function printProducts($id, $name, $description, $price,$image) {
 				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
@@ -89,6 +118,9 @@ sideMenu();
 											</div>
 											<a href="single.php"><img title=" " alt=" " src="images/'.$image.'.png" /></a>		
 											<p>'.$name.'</p>
+											<div style="height:4em;overflow: hidden;margin-bottom:0.5em;">
+												<p style="margin:0 0 0;">'.$description.'</p>
+											</div>
 											<h4>'.$price.' р.</h4>
 										</div>
 										<div class="snipcart-details top_brand_home_details">
@@ -120,12 +152,16 @@ sideMenu();
 			
 			
 			?>
+						
+				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="clearfix"></div>
+		<div style="margin-left: 19%; margin: 2em;">
+		<h3>Так же у нас есть услуга Заказ к времени!</h3>
+		<h4>В момент утверждения заказа вы можете указать что вам нужно доставить заказ к конкретному времени и ваша любимая еда окажется в нужное время в нужном месте. главное не забыть про заказ, а то выйдет довольно интересный сюрприз)</h4>
 	</div>
-<!-- //banner -->
-
+	
+<!-- //top-brands -->
 <!-- footer -->
 	<?php
 	footerr();
@@ -179,12 +215,9 @@ $(document).ready(function(){
 				total += items[i].get('quantity');
 			}
 
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-				evt.preventDefault();
-			}
 		});
 
 	</script>
 </body>
 </html>
+			

@@ -1,13 +1,14 @@
+﻿
+<?php 
+	$array = array();
+?>
 <!DOCTYPE html>
 <html>
-<? include("template/temp.php"); 
-head();
-?>
+<? include("template/temp.php"); head();?>
 	
 <body>
 <!-- header -->
-	<?php
-
+<?php
 headerr();
 ?>
 <!-- script-for sticky-nav -->
@@ -26,55 +27,36 @@ headerr();
 	});
 	</script>
 <!-- //script-for sticky-nav -->
-	
-<!-- //header -->
-<!-- products-breadcrumb -->
-	<div class="products-breadcrumb">
-		<div class="container">
-			<ul>
-				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
-				<li>Branded Foods</li>
-			</ul>
-		</div>
-	</div>
-<!-- //products-breadcrumb -->
-<!-- banner -->
-	<?php
+<?php
 sideMenu();
-	?>
-		<div class="w3l_banner_nav_right">
+?>
+<!-- banner -->
+
+<!-- top-brands -->
+	<div class="top-brands">
+		<div class="container">
+			<h3>Лучшие предложения</h3>
+			<div class="agile_top_brands_grids">
+			<?php 
 			
-			<div class="w3ls_w3l_banner_nav_right_grid">
-				<h3>Роллы</h3>
-				<div class="w3ls_w3l_banner_nav_right_grid1">
-				
-				<?php 
-			$sdd_db_host='127.0.0.1'; 
-			$sdd_db_name='site'; 
-			$sdd_db_user='root'; 
-			$sdd_db_pass=''; 
-			$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
-			if(!$conn)
-			{
-				throw new Exception('Connection with DB fail');
-			}
-			if(!mysql_select_db($sdd_db_name, $conn)) 
-			{
-				throw new Exception("Cant select DB {$ssd_db_name}!");
-			}
-			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "ролл")', $conn); 
+			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			$result = $conn->query('SELECT * FROM `products`'); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
 			}
 
-			while($row = mysql_fetch_array($result))
+			while($row = $result->fetch_assoc())
 			{
-				printProducts($row['id'], $row['name'], $row['description'], $row['price']);
+				$image = "placeholder.jpg";
+				if ($row['image'] != ""){
+					$image = $row['image'];
+				}
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'], $image);
 				
 			}
 			
-			function printProducts($id, $name, $description, $price) {
+			function printProducts($id, $name, $description, $price, $image) {
 				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
@@ -87,7 +69,7 @@ sideMenu();
 												<h2>Пример</h2>
 												Пример блока, при наведении на который появляется другой блок.
 											</div>
-											<a href="single.php"><img title=" " alt=" " src="images/'.$image.'.png" /></a>		
+											<img title=" " width="185" height="155"  alt=" " src="images/'.$image.'" />	
 											<p>'.$name.'</p>
 											<h4>'.$price.' р.</h4>
 										</div>
@@ -120,12 +102,15 @@ sideMenu();
 			
 			
 			?>
+						
+				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="clearfix"></div>
+		<div style="margin-left: 19%; margin: 2em;">
+		<h3>Так же у нас есть услуга: заказ ко времени!</h3>
+		<h4>В момент утверждения заказа вы можете указать что вам нужно доставить заказ к конкретному времени и ваша любимая еда окажется в нужное время в нужном месте. главное не забыть про заказ, а то выйдет довольно интересный сюрприз)</h4>
 	</div>
-<!-- //banner -->
-
+<!-- //top-brands -->
 <!-- footer -->
 	<?php
 	footerr();
@@ -179,10 +164,6 @@ $(document).ready(function(){
 				total += items[i].get('quantity');
 			}
 
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-				evt.preventDefault();
-			}
 		});
 
 	</script>

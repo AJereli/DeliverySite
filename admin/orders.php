@@ -1,21 +1,10 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-      <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Responsive Admin</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-</head>
+<?
+include("config.php");
+printHead();
+?>
 <body>
-     
-           
           
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
@@ -32,36 +21,13 @@
                 </div>
               
                  <span class="logout-spn" >
-                  <a href="#" style="color:#fff;">LOGOUT</a>  
+                  <a href="#" style="color:#fff;">Выйти</a>  
 
                 </span>
             </div>
         </div>
         <!-- /. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-                 
-
- <li >
-                        <a href="index.php" ><i class="fa fa-desktop "></i>Главная </a>
-                    </li>
-                   
-
-                    <li>
-                        <a href="ui.php"><i class="fa fa-table "></i>UI Elements  </a>
-                    </li>
-                    <li class="active-link">
-                        <a href="orders.php"><i class="fa fa-edit "></i>Текущие заказы</a>
-                    </li>
-
-
-
-               
-                </ul>
-                            </div>
-
-        </nav>
+        <? printSideMenu() ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -90,12 +56,10 @@
                                 </thead>
                                 <tbody>
 		<?php 
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "site";
 
-			$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 			
 			
 			$sql = "SELECT * FROM orders ORDER BY id DESC LIMIT 20";
@@ -165,26 +129,7 @@
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
-    <div class="footer">
-      
-    
-             <div class="row">
-                <div class="col-lg-12" >
-                    &copy;  2014 yourdomain.com | Design by: <a href="http://binarytheme.com" style="color:#fff;"  target="_blank">www.binarytheme.com</a>
-                </div>
-        </div>
-        </div>
-          
-
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
-    <script type="text/javascript" src="confirm.js"></script>
+    <? printFooter(); ?>
    
 </body>
 </html>
