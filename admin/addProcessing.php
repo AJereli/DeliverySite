@@ -78,15 +78,11 @@ if ($errorMSG === ""){
 		die("Connection failed: " . $conn->connect_error);
 	} 
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
-	printf("Errormessage: %s\n", $conn->error);
-	echo "$image_name: " . $image_name;
-	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
-	    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 
-printf("Errormessage: %s\n", $conn->error);
+	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
+
 	$stmt->execute();
 		printf("Errormessage: %s\n", $conn->error);
-    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 
 	echo "Позиция теперь на своем месте!";
 	$stmt->close();
