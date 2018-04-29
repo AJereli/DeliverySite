@@ -56,11 +56,11 @@ sideMenu();
 
 			while($row = mysql_fetch_array($result))
 			{
-				printProducts($row['id'], $row['name'], $row['description'], $row['price']);
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$row['image']);
 				
 			}
 			
-			function printProducts($id, $name, $description, $price) {
+			function printProducts($id, $name, $description, $price, $image) {
 				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
@@ -73,7 +73,7 @@ sideMenu();
 												<h2>Пример</h2>
 												Пример блока, при наведении на который появляется другой блок.
 											</div>
-											<a href="single.php"><img title=" " alt=" " src="images/'.$image.'" /></a>		
+											<img title=" " alt=" " src="images/'.$image.'" />	
 											<p>'.$name.'</p>
 											<h4>'.$price.' р.</h4>
 										</div>
