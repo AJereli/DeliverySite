@@ -67,12 +67,10 @@
 								<textarea id="description" class="form-control" rows="5" placeholder="Введи описание, бро!" required></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
-							     <label class="btn btn-primary" for="my-file-selector">
-									<input id="file" type="file" style="display:none" 
-									onchange="$('#upload-file-info').html(this.files[0].name)">
-									Выбрать картинку
-								</label>
-								<span class='label label-info' id="upload-file-info"></span>
+							<label class="btn btn-primary" for="my-file-selector">
+							          <input type="file" name="file"  id="file" >
+							</label>
+		<span class='label label-info' id="upload-file-info"></span>
 
 							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>

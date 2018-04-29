@@ -44,7 +44,7 @@ if (empty($_POST["description"])) {
     $description = $_POST["description"];
 }
 
-if (!isset($_FILES['file']){
+if (!isset($_FILES['file'])){
 	$errorMSG .= "Необходимо выбрать картинку";
 }else{
 	$file = $_FILES['file'];
@@ -73,7 +73,7 @@ if ($errorMSG === ""){
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	$stmt = $conn->prepare('INSERT INTO products (name, description, price) VALUES (?, ?, ?, ?)');
+	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)');
 	
 	$stmt->bind_param("sss", $name, $description, $price, $image_name);
 
