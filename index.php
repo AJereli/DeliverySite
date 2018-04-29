@@ -89,9 +89,7 @@ sideMenu();
 													<input type="hidden" name="item_name" value="'.$name.'" />
 													<input type="hidden" name="amount" value="'.$price.'" />
 													<input type="hidden" name="id" value="'.$id.'" />
-													<input type="hidden" name="currency_code" value="" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
+													
 													<input type="submit" name="submit" value="В корзину" class="button" />
 												</fieldset>
 													

@@ -106,7 +106,7 @@ sideMenu();
 						next($_POST);
 						$all+=$quantit;
 						array_push($items, getItemJsonStr($row['name'], $quantit,$row["price"] ));
-						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$row['image'] ,$quantit,$in);
+						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$_POST['image'] ,$quantit,$in);
 						$order=$order.$row["name"]." ".$quantit."шт., ";
 						$total+=$row["price"]*$quantit;
 
