@@ -68,7 +68,7 @@ sideMenu();
 
 			}
 			$all=0;
-			while($row = $result->fetch_assoc()))
+			while($row = $result->fetch_assoc())
 			{
 				for (reset($_POST); ($key = key($_POST)); next($_POST))
 					{
