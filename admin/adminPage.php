@@ -1,4 +1,4 @@
-<body>
+﻿<body>
      
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,7 +31,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>Добавить заказ</h2>   
+                     <h2>Добавить позицию</h2>   
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -67,6 +67,13 @@
 								<textarea id="description" class="form-control" rows="5" placeholder="Введи описание, бро!" required></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
+							     <label class="btn btn-primary" for="my-file-selector">
+									<input id="file" type="file" style="display:none" 
+									onchange="$('#upload-file-info').html(this.files[0].name)">
+									Выбрать картинку
+								</label>
+								<span class='label label-info' id="upload-file-info"></span>
+
 							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>
 							<div class="clearfix"></div>
@@ -78,7 +85,7 @@
 				  
 							
 
-				
+				<!--
 					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 						  <div class="div-square">
 							   <a href="blank.html" >
@@ -137,7 +144,7 @@
                       <h4>Support</h4>
                       </a>
                       </div>
-                     
+                      -->
                      
                   </div>
 				</div>
