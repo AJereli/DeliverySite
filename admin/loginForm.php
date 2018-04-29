@@ -24,8 +24,9 @@
 
 <?
 
+include("config.php");
 
-$link=mysqli_connect("localhost", "root", "", "site");
+$link=mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 if(isset($_POST['submit']))
 {

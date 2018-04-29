@@ -90,12 +90,10 @@
                                 </thead>
                                 <tbody>
 		<?php 
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "site";
 
-			$conn = new mysqli($servername, $username, $password, $dbname);
+include("config.php");
+
+			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 			
 			
 			$sql = "SELECT * FROM orders ORDER BY id DESC LIMIT 20";
