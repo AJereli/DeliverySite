@@ -39,22 +39,14 @@ sideMenu();
 			<div class="agile_top_brands_grids">
 			<?php 
 			
-			$conn = mysql_connect($db_host,$db_user,$db_pass); 
-			if(!$conn)
-			{
-				throw new Exception('Connection with DB fail');
-			}
-			if(!mysql_select_db($db_name, $conn)) 
-			{
-				throw new Exception("Cant select DB {$db_name}!");
-			}
-			$result = mysql_query('SELECT * FROM `products`', $conn); 
+			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			$result = $conn->query('SELECT * FROM `products`'); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
 			}
 
-			while($row = mysql_fetch_array($result))
+			while($row = $result->fetch_assoc())
 			{
 				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$row['image']);
 				

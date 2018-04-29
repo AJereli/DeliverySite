@@ -9,8 +9,6 @@ $time=date("d.m.y G:i:s");
 	
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	
-	$res = $conn->query('SELECT * FROM `products`');
-
 	if($email){
 		$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
