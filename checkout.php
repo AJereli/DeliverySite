@@ -6,7 +6,6 @@
 <body>
 <!-- header -->
 <?php
-
 headerr();
 ?>
 <!-- script-for sticky-nav -->
