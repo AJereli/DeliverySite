@@ -61,13 +61,6 @@ sideMenu();
 			$result = $conn->query('SELECT * FROM `products`'); 
 
 
-			$i=0;
-
-			for (reset($_POST); ($key = key($_POST)); next($_POST))
-			{
-				
-				echo "key " . $key . " val: " . $_POST[$key] . "<br>";
-			}
 			$all=0;
 			while($row = $result->fetch_assoc())
 			{
@@ -123,7 +116,7 @@ sideMenu();
 			
 			$json = '{"items": [' . join(',', $items) . "]}";
 			
-			echo $json;
+			//echo $json;
 			
 			function printProducts($id, $name, $description, $price, $image, $quantit, $in) 
 			{
@@ -143,12 +136,11 @@ sideMenu();
 						<td class="invert">'.$name.'</td>
 						
 						<td class="invert">'.$price.'</td>
-						<td class="invert">
+						<--! <td class="invert">
 							<div class="rem">
 								<div class="close'.$in.'"> </div>
 							</div>
-
-						</td>
+						</td> -->
 					</tr>
 			';}
 			echo '
