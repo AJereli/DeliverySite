@@ -48,7 +48,11 @@ sideMenu();
 
 			while($row = $result->fetch_assoc())
 			{
-				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$row['image']);
+				$image = "placeholder.jpg";
+				if ($row['image'] != ""){
+					$image = $row['image'];
+				}
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'], $image);
 				
 			}
 			
