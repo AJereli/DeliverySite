@@ -136,7 +136,7 @@ sideMenu();
 						<td class="invert">'.$name.'</td>
 						
 						<td class="invert">'.$price.'</td>
-						<--! <td class="invert">
+						<!-- <td class="invert">
 							<div class="rem">
 								<div class="close'.$in.'"> </div>
 							</div>
