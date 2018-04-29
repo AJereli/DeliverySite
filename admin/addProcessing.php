@@ -23,6 +23,7 @@ $errorCode = $file['error'];
   function make_upload($file){	
 	$image_name = mt_rand(0, 10000) . $file['name'];
 	move_uploaded_file($file['tmp_name'], '../images/' . $image_name);
+	return $image_name;
   }
 
 $errorMSG = "";
@@ -53,13 +54,13 @@ if (!isset($_FILES['file'])){
 }
 $type = $_POST["type"];
 if ($errorMSG === ""){
-
+    $image_name = "";
 	if(isset($_FILES['file'])) {
 		 
 		  $check = can_upload($_FILES['file']);
 		
 		  if($check === true){
-			make_upload($_FILES['file']);
+			$image_name = image_namemamake_upload($_FILES['file']);
 			echo "<strong>Файл успешно загружен!</strong>\n";
 		  }
 		  else{
