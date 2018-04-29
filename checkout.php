@@ -103,7 +103,7 @@ sideMenu();
 					{	
 						$image = "placeholder.jpg";
 						if ($_POST['image'] != ""){
-							$image = $_POST['image']
+							$image = $_POST['image'];
 						}
 							
 						$in+=1;
