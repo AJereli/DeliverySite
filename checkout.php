@@ -53,20 +53,13 @@ sideMenu();
 					<tbody>
 	      	<?php  
 	      	
-			$conn = mysql_connect($db_host,$db_user,$_db_pass); 
-			if(!$conn)
-			{
-				throw new Exception('Connection with DB fail');
+			$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+			if ($mysqli->connect_errno) {
+				throw new Exception(mysqli_connect_errno());
 			}
-			if(!mysql_select_db($db_name, $conn)) 
-			{
-				throw new Exception("Cant select DB {$db_name}!");
-			}
-			$result = mysql_query('SELECT * FROM `products`', $conn); 
-			if(!$result)
-			{
-				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-			}
+			$result = $conn->query('SELECT * FROM `products`'); 
+
 
 			$i=0;
 
@@ -75,7 +68,7 @@ sideMenu();
 
 			}
 			$all=0;
-			while($row = mysql_fetch_array($result))
+			while($row = $result->fetch_assoc()))
 			{
 				for (reset($_POST); ($key = key($_POST)); next($_POST))
 					{
@@ -91,26 +84,14 @@ sideMenu();
 			echo '<h4>В вашем списке покупок: <span>'.$all.'</span></h4>';?>
 			<?php
 			 
-			$conn = mysql_connect($db_host,$db_user,$db_pass); 
-			if(!$conn)
-			{
-				throw new Exception('Connection with DB fail');
-			}
-			if(!mysql_select_db($db_name, $conn)) 
-			{
-				throw new Exception("Cant select DB {$db_name}!");
-			}
-			$result = mysql_query('SELECT * FROM `products`', $conn); 
-			if(!$result)
-			{
-				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-			}
+			
+			$result = $conn->query('SELECT * FROM `products`'); 
 			
 
 			$order;
 			$in=0;
 			$total=0;
-			while($row = mysql_fetch_array($result))
+			while($row = $result->fetch_assoc())
 			{
 				for (reset($_POST); ($key = key($_POST)); next($_POST))
 				{
@@ -128,7 +109,7 @@ sideMenu();
 				}
 			}
 
-			function printProducts($id, $name, $description, $price, $image, $quantit,$in) 
+			function printProducts($id, $name, $description, $price, $image, $quantit, $in) 
 			{
 				echo'
 					<tr class="rem'.$in.'">
