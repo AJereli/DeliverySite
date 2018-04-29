@@ -71,7 +71,13 @@
 							          <input type="file" name="file" id="file" >
 							</label>
 							<span class='label label-info' id="upload-file-info"></span>
-
+							
+							<select name="type" size="1"  form="contactForm">
+								<option>Roll</option>
+								<option>Wok</option>
+							
+							</select>
+							
 							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>
 							<div class="clearfix"></div>

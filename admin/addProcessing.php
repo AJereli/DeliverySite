@@ -2,12 +2,12 @@
 include("config.php");
 function can_upload($file){
     if($file['name'] == '')
-		return 'Вы не выбрали файл.';
+		return 'Вы не выбрали файл.\n';
 
 $errorCode = $file['error'];
 
 	if($file['size'] == 0)
-		return 'Файл слишком большой.';
+		return 'Файл слишком большой.\n';
 	
 	$getMime = explode('.', $file['name']);
 	$mime = strtolower(end($getMime));
@@ -15,7 +15,7 @@ $errorCode = $file['error'];
 	$types = array('jpg', 'png', 'gif', 'bmp', 'jpeg');
 	
 	if(!in_array($mime, $types))
-		return 'Недопустимый тип файла.';
+		return 'Недопустимый тип файла.\n';
 	
 	return true;
   }
@@ -32,6 +32,7 @@ if (empty($_POST["name"])) {
 } else {
     $name = $_POST["name"];
 }
+
 
 if (empty($_POST["price"])) {
     $errorMSG .= "Надо ввести цену\n";
@@ -50,7 +51,7 @@ if (!isset($_FILES['file'])){
 }else{
 	$file = $_FILES['file'];
 }
-
+$type = $_POST["type"];
 if ($errorMSG === ""){
 
 	if(isset($_FILES['file'])) {
@@ -59,7 +60,7 @@ if ($errorMSG === ""){
 		
 		  if($check === true){
 			make_upload($_FILES['file']);
-			echo "<strong>Файл успешно загружен!</strong>";
+			echo "<strong>Файл успешно загружен!</strong>\n";
 		  }
 		  else{
 
@@ -75,9 +76,9 @@ if ($errorMSG === ""){
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)');
+	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
 	
-	$stmt->bind_param("ssss", $name, $description, $price, $image_name);
+	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
 
 	$stmt->execute();
 		
