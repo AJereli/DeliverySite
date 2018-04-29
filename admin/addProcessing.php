@@ -62,7 +62,7 @@ if ($errorMSG === ""){
 		  if($check === true){
 			$image_name = make_upload($_FILES['file']);
 			echo "<strong>Файл успешно загружен!</strong>\n";
-		  }]
+		  }
 		  else{
 
 			echo "<strong>".$check."</strong>";  
