@@ -9,13 +9,13 @@ if (empty($_POST["name"])) {
 }
 
 if (empty($_POST["price"])) {
-    $errorMSG .= "Ну как без цены то";
+    $errorMSG .= "Надо ввести цену";
 } else {
     $price = $_POST["price"];
 }
 
 if (empty($_POST["description"])) {
-    $errorMSG .= "Без описания тож никуда";
+    $errorMSG .= "Надо ввести описание";
 } else {
     $description = $_POST["description"];
 }
@@ -25,7 +25,7 @@ if ($errorMSG === ""){
 include("config.php");
 
 	try {
-	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name;
+	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
