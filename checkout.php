@@ -96,7 +96,7 @@ sideMenu();
 			$order;
 			$in=0;
 			$total=0;
-			$json = '{"items": [';
+			
 			
 			$items = array();
 			
@@ -121,7 +121,7 @@ sideMenu();
 				}
 			}
 			
-			$json .= $json . join(',', $items) . "]}";
+			$json = '{"items": [' . join(',', $items) . "]}";
 			
 			echo $json;
 			
