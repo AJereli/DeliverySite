@@ -6,7 +6,6 @@
 <body>
 <!-- header -->
 <?php
-
 headerr();
 ?>
 <!-- script-for sticky-nav -->
@@ -53,32 +52,17 @@ sideMenu();
 					</thead>
 					<tbody>
 	      	<?php  
-	      	$sdd_db_name='site'; 
-			$sdd_db_user='root'; 
-			$sdd_db_pass=''; 
-			$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
-			if(!$conn)
-			{
-				throw new Exception('Connection with DB fail');
-			}
-			if(!mysql_select_db($sdd_db_name, $conn)) 
-			{
-				throw new Exception("Cant select DB {$ssd_db_name}!");
-			}
-			$result = mysql_query('SELECT * FROM `products`', $conn); 
-			if(!$result)
-			{
-				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-			}
+	      	
+			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-			$i=0;
-
-			for (reset($_POST); ($key = key($_POST)); next($_POST))
-			{
-
+			if ($conn->connect_errno) {
+				throw new Exception(mysqli_connect_errno());
 			}
+			$result = $conn->query('SELECT * FROM `products`'); 
+
+
 			$all=0;
-			while($row = mysql_fetch_array($result))
+			while($row = $result->fetch_assoc())
 			{
 				for (reset($_POST); ($key = key($_POST)); next($_POST))
 					{
@@ -93,70 +77,75 @@ sideMenu();
 			}
 			echo '<h4>В вашем списке покупок: <span>'.$all.'</span></h4>';?>
 			<?php
-			$sdd_db_name='site'; 
-			$sdd_db_user='root'; 
-			$sdd_db_pass=''; 
-			$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
-			if(!$conn)
-			{
-				throw new Exception('Connection with DB fail');
+			
+
+			function getItemJsonStr ($name, $quantit, $price){
+				return '{"item": {"name": "'.$name.'","quantit":'.$quantit.',"amount":'.$price.'}}';
 			}
-			if(!mysql_select_db($sdd_db_name, $conn)) 
-			{
-				throw new Exception("Cant select DB {$ssd_db_name}!");
-			}
-			$result = mysql_query('SELECT * FROM `products`', $conn); 
-			if(!$result)
-			{
-				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-			}
+			
+			$result = $conn->query('SELECT * FROM `products`'); 
 			
 
 			$order;
 			$in=0;
 			$total=0;
-			while($row = mysql_fetch_array($result))
+			
+			
+			$items = array();
+			
+			
+			
+			while($row = $result->fetch_assoc())
 			{
 				for (reset($_POST); ($key = key($_POST)); next($_POST))
 				{
 					if($row['name']==$_POST[$key])
 					{	
+						$image = "placeholder.jpg";
+						if ($_POST['image'] != ""){
+							$image = $_POST['image'];
+						}
+							
 						$in+=1;
 						$quantit=prev($_POST);
 						next($_POST);
 						$all+=$quantit;
-						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$row['img_path'] ,$quantit,$in);
+						array_push($items, getItemJsonStr($row['name'], $quantit,$row["price"] ));
+						printProducts($row["id"], $row["name"], $row["description"], $row["price"], $image, $quantit,$in);
 						$order=$order.$row["name"]." ".$quantit."шт., ";
 						$total+=$row["price"]*$quantit;
 
 					}	
 				}
 			}
-
-			function printProducts($id, $name, $description, $price, $image, $quantit,$in) 
+			
+			$json = '{"items": [' . join(',', $items) . "]}";
+			
+			//echo $json;
+			
+			function printProducts($id, $name, $description, $price, $image, $quantit, $in) 
 			{
 				echo'
 					<tr class="rem'.$in.'">
 					 	<td class="invert">'.$in.'</td>
-						<td class="invert-image"><a href="single.html"><img src="images/'.$image.'.png" alt=" " class="img-responsive"></a></td>
+						<td class="invert-image"><img src="images/'.$image.'" alt=" " class="img-responsive"></td>
 						<td class="invert">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           
-									<div class="entry value-minus">&nbsp;</div>
+									<!--<div class="entry value-minus">&nbsp;</div>-->
 									<div class="entry value">'.$quantit.'</div>
-									<div class="entry value-plus active">&nbsp;</div>
+									<!--<div class="entry value-plus active">&nbsp;</div>-->
 								</div>
 							</div>
 						</td>
 						<td class="invert">'.$name.'</td>
 						
 						<td class="invert">'.$price.'</td>
-						<td class="invert">
+						<!-- <td class="invert">
 							<div class="rem">
 								<div class="close'.$in.'"> </div>
 							</div>
-
-						</td>
+						</td> -->
 					</tr>
 			';}
 			echo '
@@ -205,8 +194,10 @@ sideMenu();
 								<?php
 									$val=$_POST['o'];
 									$total=$_POST['t'];
+									
 									echo '<input type="hidden" name="order" value="'.$val.'" />';
 									echo '<input type="hidden" name="total" value="'.$total.'" />';
+									echo '<input type="hidden" name="json" value="'.$json.'" />';
 								?>
 								<button class="submit check_out">Подтвердить</button>
 							</div>

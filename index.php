@@ -85,12 +85,11 @@ sideMenu();
 													<input type="hidden" name="cmd" value="_cart" />
 													<input type="hidden" name="add" value="1" />
 													<input type="hidden" name="business" value=" " />
+													<input type="hidden" name="image" value="'.$image.'" />
 													<input type="hidden" name="item_name" value="'.$name.'" />
 													<input type="hidden" name="amount" value="'.$price.'" />
 													<input type="hidden" name="id" value="'.$id.'" />
-													<input type="hidden" name="currency_code" value="" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
+													
 													<input type="submit" name="submit" value="В корзину" class="button" />
 												</fieldset>
 													
