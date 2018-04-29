@@ -101,12 +101,17 @@ sideMenu();
 				{
 					if($row['name']==$_POST[$key])
 					{	
+						$image = "placeholder.jpg";
+						if ($_POST['image'] != ""){
+							$image = $_POST['image']
+						}
+							
 						$in+=1;
 						$quantit=prev($_POST);
 						next($_POST);
 						$all+=$quantit;
 						array_push($items, getItemJsonStr($row['name'], $quantit,$row["price"] ));
-						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$_POST['image'] ,$quantit,$in);
+						printProducts($row["id"], $row["name"], $row["description"], $row["price"], $image, $quantit,$in);
 						$order=$order.$row["name"]." ".$quantit."шт., ";
 						$total+=$row["price"]*$quantit;
 
