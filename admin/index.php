@@ -1,4 +1,8 @@
-<? session_start();?>
+<? session_start();
+	if (!isset($_SESSION['access_token'])){
+		header('Location: login.php')
+	}
+?>
 <?
 include("config.php");
 echo '<html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,8 +17,6 @@ echo '<html xmlns="http://www.w3.org/1999/xhtml">
 print $_SESSION['access_token'];
 	if (isset($_SESSION['access_token'])){
 		include("adminPage.php");
-	}else{
-		include("loginForm.php");
 	}
 	echo '<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
