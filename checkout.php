@@ -87,7 +87,7 @@ sideMenu();
 			
 
 			function getItemJsonStr ($name, $quantit, $price){
-				return '{"item": {"name": '.$name.',"quantit":'.$quantit.',"amount":'.$price.'}}';
+				return '{"item": {"name": "'.$name.'","quantit":'.$quantit.',"amount":'.$price.'}}';
 			}
 			
 			$result = $conn->query('SELECT * FROM `products`'); 
