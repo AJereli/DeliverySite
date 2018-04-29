@@ -1,41 +1,23 @@
 <?php
-	$sdd_db_host='127.0.0.1'; 
-	$sdd_db_name='site'; 
-	$sdd_db_user='root'; 
-	$sdd_db_pass=''; 
-	$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
-	if(!$conn)
-	{
-		throw new Exception('Connection with DB fail');
-	}
-	if(!mysql_select_db($sdd_db_name, $conn)) 
-	{
-		throw new Exception("Cant select DB {$ssd_db_name}!");
-	}
-	$result = mysql_query('SELECT * FROM `products`', $conn); 
-	if(!$result)
-	{
-		throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-	}
 	
 
-	$FIO=mysql_real_escape_string($_POST['ФИО']);
-	$number=mysql_real_escape_string($_POST['Номер']);
-	$adress=mysql_real_escape_string($_POST['Адрес']);
-	$order=mysql_real_escape_string($_POST['order']);
-	$total=mysql_real_escape_string($_POST['total']);
+	$FIO = mysql_real_escape_string($_POST['ФИО']);
+	$number = mysql_real_escape_string($_POST['Номер']);
+	$adress = mysql_real_escape_string($_POST['Адрес']);
+	$order = mysql_real_escape_string($_POST['order']);
+	$total = mysql_real_escape_string($_POST['total']);
 
-	/*$result = mysql_query('INSERT INTO `orders` (products, client_name, address, summ, additional)VALUES('.$order.', '.$FIO.', '.$adress.', '.$total.', '.$number.')');
-	if(!$result)
-			{
-				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-			}*/
+	if ($FIO == "" || $number == "" || $adress == "" || $order == "" || $total == ""){
+		echo "Что-то пошло не так<br>";
+		echo '<a href="http://rpatrik.ru">На главную</a>';
+		exit();
+	}
 
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
 	$dbname = "site";
-	$conn2 = new mysqli($servername, $username, $password, $dbname);
+	$conn2 = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
 	$stmt = $conn2->prepare ('INSERT INTO orders (products, client_name, address, summ, additional)VALUES(?,?,?,?,?)');
 	$stmt->bind_param('sssds',$order, $FIO, $adress, $total, $number);

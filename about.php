@@ -1,9 +1,4 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Доставка еды Ялта. Доставка роллов Ялта. Доставка суши Ялта. Доставка лапши Ялта. Вок Ялта. Суши Ялта. Роллы Ялта" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
@@ -70,7 +64,7 @@ sideMenu();
 		<div class="w3l_banner_nav_right">
 <!-- about -->
 		<div class="privacy about">
-			<h3>Рыжий Патрик Кафе бар</h3>
+			<h3>Рыжий Патрик Кафе-бар</h3>
 			<p class="animi">
 			</p>
 			<div class="agile_about_grids">
@@ -98,7 +92,9 @@ sideMenu();
 		<div class="clearfix"></div>
 	</div>
 <!-- //banner -->
-
+<div class="map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2846.1690417421282!2d34.151171315938555!3d44.49120297910139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDI5JzI4LjMiTiAzNMKwMDknMTIuMSJF!5e0!3m2!1sru!2s!4v1524929511123" style="border:0"></iframe>
+	</div>
 <!-- footer -->
 <?php
 footerr();
