@@ -66,7 +66,7 @@ sideMenu();
 			for (reset($_POST); ($key = key($_POST)); next($_POST))
 			{
 				
-				echo "key" . $key . " val: " . $_POST[$key] . "<br>";
+				echo "key " . $key . " val: " . $_POST[$key] . "<br>";
 			}
 			$all=0;
 			while($row = $result->fetch_assoc())
@@ -84,7 +84,11 @@ sideMenu();
 			}
 			echo '<h4>В вашем списке покупок: <span>'.$all.'</span></h4>';?>
 			<?php
-			 
+			
+
+			function getItemJsonStr ($name, $quantit, $price){
+				return '{"item": {"name": '.$name.',"quantit":'.$quantit.',"amount":'.$price.'}}';
+			}
 			
 			$result = $conn->query('SELECT * FROM `products`'); 
 			
@@ -92,6 +96,12 @@ sideMenu();
 			$order;
 			$in=0;
 			$total=0;
+			$json = '{"items": [{';
+			
+			$items = array();
+			
+			
+			
 			while($row = $result->fetch_assoc())
 			{
 				for (reset($_POST); ($key = key($_POST)); next($_POST))
@@ -102,6 +112,7 @@ sideMenu();
 						$quantit=prev($_POST);
 						next($_POST);
 						$all+=$quantit;
+						array_push($items, getItemJsonStr($row['name'], $quantit,$row["price"] ));
 						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$row['image'] ,$quantit,$in);
 						$order=$order.$row["name"]." ".$quantit."шт., ";
 						$total+=$row["price"]*$quantit;
@@ -109,7 +120,11 @@ sideMenu();
 					}	
 				}
 			}
-
+			
+			$json .= $json . join(',', $array) . "]}";
+			
+			echo $json;
+			
 			function printProducts($id, $name, $description, $price, $image, $quantit, $in) 
 			{
 				echo'
@@ -182,8 +197,10 @@ sideMenu();
 								<?php
 									$val=$_POST['o'];
 									$total=$_POST['t'];
+									
 									echo '<input type="hidden" name="order" value="'.$val.'" />';
 									echo '<input type="hidden" name="total" value="'.$total.'" />';
+									echo '<input type="hidden" name="json" value="'.$json.'" />';
 								?>
 								<button class="submit check_out">Подтвердить</button>
 							</div>
