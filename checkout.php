@@ -65,8 +65,8 @@ sideMenu();
 
 			for (reset($_POST); ($key = key($_POST)); next($_POST))
 			{
-				echo $key;
-				echo "<br>" . $_POST[$key];
+				
+				echo "key" . $key . " val: " . $_POST[$key];
 			}
 			$all=0;
 			while($row = $result->fetch_assoc())

@@ -92,7 +92,7 @@ sideMenu();
 	<div class="paymennt">
 		<div class="privacy about">
 			<h3>Все готово!</h3>
-			<h5>Ваш заказ принят к рассмотрению, через пару минут вам перезвонят для уточнения заказа!<h5>
+			<h4>Ваш заказ принят к рассмотрению, через пару минут вам перезвонят для уточнения заказа!<h4>
 			<form action="index.php" method="post" class="creditly-card-form agileinfo_form">
 
 						<section class="creditly-wrapper wthree, w3_agileits_wrapper">
