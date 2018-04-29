@@ -60,9 +60,9 @@ if ($errorMSG === ""){
 		  $check = can_upload($_FILES['file']);
 		
 		  if($check === true){
-			$image_name = image_namemamake_upload($_FILES['file']);
+			$image_name = make_upload($_FILES['file']);
 			echo "<strong>Файл успешно загружен!</strong>\n";
-		  }
+		  }]
 		  else{
 
 			echo "<strong>".$check."</strong>";  
