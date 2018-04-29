@@ -1,8 +1,8 @@
 <?
-$db_host='127.0.0.1'; 
-$db_name='site'; 
-$db_user='root'; 
-$db_pass=''; 
+$db_host='localhost:3306'; 
+$db_name='0499678_site'; 
+$db_user='u0499_patrikRoot'; 
+$db_pass='magicPASSWORD_f1'; 
 
 
 function setupDBConnect() {
