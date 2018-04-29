@@ -46,7 +46,7 @@ sideMenu();
 			}
 			if(!mysql_select_db($db_name, $conn)) 
 			{
-				throw new Exception("Cant select DB {$ssd_db_name}!");
+				throw new Exception("Cant select DB {$db_name}!");
 			}
 			$result = mysql_query('SELECT * FROM `products`', $conn); 
 			if(!$result)
