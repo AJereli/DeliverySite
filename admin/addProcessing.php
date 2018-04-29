@@ -21,7 +21,7 @@ function can_upload($file){
   
   function make_upload($file){	
 	$image_name = mt_rand(0, 10000) . $file['name'];
-	copy($file['tmp_name'], 'img/' . $image_name);
+	copy($file['tmp_name'], 'images/' . $image_name);
   }
 
 $errorMSG = "";
@@ -53,17 +53,17 @@ if (!isset($_FILES['file'])){
 if ($errorMSG === ""){
 
 	if(isset($_FILES['file'])) {
-		  // проверяем, можно ли загружать изображение
+		 
 		  $check = can_upload($_FILES['file']);
 		
 		  if($check === true){
-			// загружаем изображение на сервер
 			make_upload($_FILES['file']);
 			echo "<strong>Файл успешно загружен!</strong>";
 		  }
 		  else{
-			// выводим сообщение об ошибке
-			echo "<strong>$check</strong>";  
+
+			echo "<strong>".$check."</strong>";  
+			exit();
 		  }
 		}
 

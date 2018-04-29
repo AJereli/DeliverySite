@@ -68,7 +68,7 @@
 								<div class="help-block with-errors"></div>
 							</div>
 							<label class="btn btn-primary" for="my-file-selector">
-							          <input type="file" name="file"  id="file" >
+							          <input type="file" name="file" id="file" >
 							</label>
 		<span class='label label-info' id="upload-file-info"></span>
 
