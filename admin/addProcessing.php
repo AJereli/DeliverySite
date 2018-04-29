@@ -77,11 +77,11 @@ if ($errorMSG === ""){
 		die("Connection failed: " . $conn->connect_error);
 	} 
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
-	
+	printf("Errormessage: %s\n", $mysqli->error);
 	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
-
+printf("Errormessage: %s\n", $mysqli->error);
 	$stmt->execute();
-		
+		printf("Errormessage: %s\n", $mysqli->error);
 
 	echo "Позиция теперь на своем месте!";
 	$stmt->close();
