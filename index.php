@@ -69,7 +69,7 @@ sideMenu();
 												<h2>Пример</h2>
 												Пример блока, при наведении на который появляется другой блок.
 											</div>
-											<img title=" " alt=" " src="images/'.$image.'" />	
+											<img title=" " width="185" height="155"  alt=" " src="images/'.$image.'" />	
 											<p>'.$name.'</p>
 											<h4>'.$price.' р.</h4>
 										</div>

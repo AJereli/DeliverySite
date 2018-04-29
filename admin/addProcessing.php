@@ -22,7 +22,7 @@ if (empty($_POST["description"])) {
 
 if ($errorMSG === ""){
 
-include("config.php");
+
 
 	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);

@@ -17,40 +17,21 @@
                 </div>
               
                 <span class="logout-spn" >
-                  <a href="logout.php" style="color:#fff;">LOGOUT</a>  
+                  <a href="logout.php" style="color:#fff;">Выйти</a>  
 
                 </span>
             </div>
         </div>
         <!-- /. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-                 
-
-
-                    <li class="active-link">
-                        <a href="index.php" ><i class="fa fa-desktop "></i>Dashboard <span class="badge">Included</span></a>
-                    </li>
-                   
-
-                    <li>
-                        <a href="ui.php"><i class="fa fa-table "></i>Текущие заказ <span class="badge">Included</span></a>
-                    </li>
-                    <li>
-                        <a href="orders.php"><i class="fa fa-edit "></i>Blank Page  <span class="badge">Included</span></a>
-                    </li>
-              
-                </ul>
-                            </div>
-
-        </nav>
+      <?
+		printSideMenu();
+	  ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>ADMIN DASHBOARD</h2>   
+                     <h2>Добавить заказ</h2>   
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -58,7 +39,7 @@
                 <div class="row">
                     <div class="col-lg-12 ">
                         <div class="alert alert-info">
-                             <strong>Welcome Jhon Doe ! </strong> You Have No pending Task For Today.
+                             Для добавление информации заполните форму ниже
                         </div>
                        
                     </div>
@@ -86,7 +67,7 @@
 								<textarea id="description" class="form-control" rows="5" placeholder="Введи описание, бро!" required></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
-							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">ЩПЕК</button>
+							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>
 							<div class="clearfix"></div>
 						</form>
@@ -167,28 +148,7 @@
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
-    <div class="footer">
-      
-    
-            <div class="row">
-                <div class="col-lg-12" >
-                    &copy;  2018 bestDelivey.ru | Design by: "Знакомые сестры"
-                </div>
-            </div>
-        </div>
-          
-
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
-    <script  type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="js/validator.min.js"></script>
-	<script type="text/javascript" src="form-scripts.js"></script>
+    <? printFooter(); ?>
 	
    
 </body>
