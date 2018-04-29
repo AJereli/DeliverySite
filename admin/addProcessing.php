@@ -1,18 +1,10 @@
 ﻿<?php
-
+include("config.php");
 function can_upload($file){
     if($file['name'] == '')
 		return 'Вы не выбрали файл.';
-	
-echo $file['size'] . '<br>';
-echo $file['type'] . '<br>';
-echo $file['error'] . '<br>';
-echo $file['name']. '<br>';
+
 $errorCode = $file['error'];
-
-
-
-
 
 	if($file['size'] == 0)
 		return 'Файл слишком большой.';
@@ -104,5 +96,6 @@ if ($errorMSG === ""){
 }
 
 
-
 ?>
+<br>
+ <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
