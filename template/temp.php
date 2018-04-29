@@ -57,7 +57,9 @@ echo '
 		<div class="clearfix"> </div>
 	</div>
 	<div class="logo_products">
-			<div class="w3l_banner_nav_right_banner6"></div>
+			<div class="w3l_banner_nav_right_banner6">
+				
+			</div>
 
 		<div class="container">
 			<div class="w3ls_logo_products_left1">

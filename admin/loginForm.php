@@ -45,6 +45,7 @@ if(isset($_POST['submit']))
 		if($data['password'] === hash('sha512', $_POST['password']))
 		{
 			$_SESSION['access_token']= $data['access_token'];
+			echo '<script type="text/javascript">location.href = "index.php";</script>';
 			//print $_SESSION['access_token'];
 			//setcookie("access_token", $data['access_token'], time()+60*60*24*15);
 			
