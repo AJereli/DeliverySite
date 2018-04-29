@@ -78,6 +78,7 @@ if ($errorMSG === ""){
 	} 
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
 	printf("Errormessage: %s\n", $mysqli->error);
+	echo "$image_name: " . $image_name;
 	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
 printf("Errormessage: %s\n", $mysqli->error);
 	$stmt->execute();
