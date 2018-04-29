@@ -576,6 +576,7 @@ ul.dropdown-menu.drp-mnu li a i {
 }
 /*-- cart --*/
 .product_list_header {
+      padding-bottom: 5px;
     float: left;
     margin-left: 7em;
 }
@@ -3231,7 +3232,7 @@ input.checkbox:checked:after {
         width: 100%;
 	}
     .w3l_banner_nav_right_banner6{
-        background:url(../images/head.png) 100% 100% no-repeat ;
+        background-position: center;
         background-size:cover;
     text-align: center;
     height: 100%;
