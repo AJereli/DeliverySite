@@ -1,11 +1,12 @@
 <?php
+	include("config.php");
+	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	
-
-	$FIO = mysql_real_escape_string($_POST['ФИО']);
-	$number = mysql_real_escape_string($_POST['Номер']);
-	$adress = mysql_real_escape_string($_POST['Адрес']);
-	$order = mysql_real_escape_string($_POST['order']);
-	$total = mysql_real_escape_string($_POST['total']);
+	$FIO = $conn->real_escape_string($_POST['ФИО']);
+	$number = $conn->real_escape_string($_POST['Номер']);
+	$adress = $conn->real_escape_string($_POST['Адрес']);
+	$order = $conn->real_escape_string($_POST['order']);
+	$total = $conn->real_escape_string($_POST['total']);
 
 	if ($FIO == "" || $number == "" || $adress == "" || $order == "" || $total == ""){
 		echo "Что-то пошло не так<br>";
@@ -13,13 +14,8 @@
 		exit();
 	}
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "site";
-	$conn2 = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-	$stmt = $conn2->prepare ('INSERT INTO orders (products, client_name, address, summ, additional)VALUES(?,?,?,?,?)');
+	$stmt = $conn->prepare ('INSERT INTO orders (products, client_name, address, summ, additional)VALUES(?,?,?,?,?)');
 	$stmt->bind_param('sssds',$order, $FIO, $adress, $total, $number);
 
 	$stmt->execute();

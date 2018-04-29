@@ -65,7 +65,8 @@ sideMenu();
 
 			for (reset($_POST); ($key = key($_POST)); next($_POST))
 			{
-
+				echo $key;
+				echo "<br>" . $_POST[$key];
 			}
 			$all=0;
 			while($row = $result->fetch_assoc())
@@ -101,7 +102,7 @@ sideMenu();
 						$quantit=prev($_POST);
 						next($_POST);
 						$all+=$quantit;
-						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$row['img_path'] ,$quantit,$in);
+						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$row['image'] ,$quantit,$in);
 						$order=$order.$row["name"]." ".$quantit."шт., ";
 						$total+=$row["price"]*$quantit;
 
@@ -114,13 +115,13 @@ sideMenu();
 				echo'
 					<tr class="rem'.$in.'">
 					 	<td class="invert">'.$in.'</td>
-						<td class="invert-image"><a href="single.html"><img src="images/'.$image.'.png" alt=" " class="img-responsive"></a></td>
+						<td class="invert-image"><img src="images/'.$image.'" alt=" " class="img-responsive"></td>
 						<td class="invert">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           
-									<div class="entry value-minus">&nbsp;</div>
+									<!--<div class="entry value-minus">&nbsp;</div>-->
 									<div class="entry value">'.$quantit.'</div>
-									<div class="entry value-plus active">&nbsp;</div>
+									<!--<div class="entry value-plus active">&nbsp;</div>-->
 								</div>
 							</div>
 						</td>
