@@ -53,9 +53,9 @@ sideMenu();
 					<tbody>
 	      	<?php  
 	      	
-			$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-			if ($mysqli->connect_errno) {
+			if ($conn->connect_errno) {
 				throw new Exception(mysqli_connect_errno());
 			}
 			$result = $conn->query('SELECT * FROM `products`'); 
