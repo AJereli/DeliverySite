@@ -12,15 +12,14 @@ echo '
                 </fieldset>
             </form>
 		</div>
-		<div class="w3l_header_right1">
-			<h2><a href="mail.php">Связъ</a></h2>
-		</div>
+
 		
 		<div class="clearfix"> </div>
 	</div>
 	<div class="logo_products">
-		<div class="container">
+			<div class="w3l_banner_nav_right_banner6"></div>
 
+		<div class="container">
 			<div class="w3ls_logo_products_left1">
 				<ul class="special_items">
 					<li><a href="index.php">Меню</a><i>/</i></li>
@@ -61,8 +60,15 @@ function sideMenu(){
 					<ul class="nav navbar-nav nav_1">
 						<li><a href="roll.php">Роллы</a></li>
 						<li><a href="wok.php">Вок</a></li>
-						<li><a href="https://vk.com/rpatrik">Втентакле</a></li>
-						<li><a href="https://www.instagram.com/rpatrik_yalta/">Инстасрам</a></li>
+						<div style="padding-left:2em;" >
+						<ul class="agileits_social_icons">
+						
+
+<a href="http://vk.com/rpatrik"><img style="width:30px;" src="images/logoVK.png"></a>
+<li style="margin-right: 10px;transition: opacity .3s;">
+<a style="padding-left: 1px;background: #e1306c;" href="https://www.instagram.com/rpatrik_yalta/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						</ul>
+						</div>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</nav>

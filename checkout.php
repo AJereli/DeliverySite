@@ -157,19 +157,20 @@ sideMenu();
 						$quantit=prev($_POST);
 						next($_POST);
 						$all+=$quantit;
-						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$quantit,$in);
+						printProducts($row["id"], $row["name"], $row["description"], $row["price"],$row['img_path'] ,$quantit,$in);
 						$order=$order.$row["name"]." ".$quantit."шт., ";
 						$total+=$row["price"]*$quantit;
+
 					}	
 				}
 			}
 
-			function printProducts($id, $name, $description, $price, $quantit,$in) 
+			function printProducts($id, $name, $description, $price, $image, $quantit,$in) 
 			{
 				echo'
-					<tr class="rem1">
+					<tr class="rem'.$in.'">
 					 	<td class="invert">'.$in.'</td>
-						<td class="invert-image"><a href="single.html"><img src="images/1.png" alt=" " class="img-responsive"></a></td>
+						<td class="invert-image"><a href="single.html"><img src="images/'.$image.'.png" alt=" " class="img-responsive"></a></td>
 						<td class="invert">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           
@@ -184,7 +185,7 @@ sideMenu();
 						<td class="invert">'.$price.'</td>
 						<td class="invert">
 							<div class="rem">
-								<div class="close1"> </div>
+								<div class="close'.$in.'"> </div>
 							</div>
 
 						</td>
@@ -299,6 +300,39 @@ footerr();
 									});	  
 								});
 						   </script>
+						   	<script>$(document).ready(function(c) {
+								$('.close4').on('click', function(c){
+									$('.rem4').fadeOut('slow', function(c){
+										$('.rem4').remove();
+									});
+									});	  
+								});
+						   </script>
+						   <script>$(document).ready(function(c) {
+								$('.close5').on('click', function(c){
+									$('.rem5').fadeOut('slow', function(c){
+										$('.rem5').remove();
+									});
+									});	  
+								});
+						   </script>
+						   <script>$(document).ready(function(c) {
+								$('.close6').on('click', function(c){
+									$('.rem6').fadeOut('slow', function(c){
+										$('.rem6').remove();
+									});
+									});	  
+								});
+						   </script>
+						   <script>$(document).ready(function(c) {
+								$('.close7').on('click', function(c){
+									$('.rem7').fadeOut('slow', function(c){
+										$('.rem7').remove();
+									});
+									});	  
+								});
+						   </script>
+
 
 <!-- //js -->
 <!-- script-for sticky-nav -->

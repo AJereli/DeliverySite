@@ -186,7 +186,7 @@ ul.dropdown-menu.drp-mnu li a i {
     padding-left: 1em;
 }
 .logo_products{
-	padding:4em 0 1em;
+	padding:40.89px 0 1em;
 }
 .w3ls_logo_products_left{
 	float:left;
@@ -214,6 +214,7 @@ ul.dropdown-menu.drp-mnu li a i {
     color: #FA1818;
 }
 .w3ls_logo_products_left1{
+    margin-top: 1em;
 	float: left;
 
     padding-left: 40px;
@@ -919,7 +920,7 @@ button.submit.check_out{
 }
 .top_brand_left{
     margin-bottom: 1em;
-    white-space: nowrap; /* Запрещаем перенос строк */
+ /* Запрещаем перенос строк */
     overflow: hidden; /* Обрезаем все, что не помещается в область */
     text-overflow: ellipsis; /* Добавляем многоточие */
 }
@@ -1307,7 +1308,7 @@ button.submit.check_out{
 	-ms-background-size:cover;
 }
 .w3l_banner_nav_right_banner6{
-	background:url(../images/21.jpg) no-repeat 0px 0px;
+	background:url(../images/head.png) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -1784,6 +1785,9 @@ h2.typoh2{
 		font-size: 14px;
 		margin-bottom: 10px;
 	}
+    .logo_products{
+    padding:0 0 1em;
+}
 	h2.typoh2 {
 		font-size: 1.5em;
 	}
@@ -2522,7 +2526,7 @@ td.invert-image a img {
 .rem{
 	position:relative;
 }
-.close1,.close2,.close3 {
+.close1,.close2,.close3,.close4,.close5,.close6,.close7,.close8,.close9,.close10 {
     background: url('../images/close_1.png') no-repeat 0px 0px;
     cursor: pointer;
     width: 28px;
@@ -2878,6 +2882,14 @@ input.checkbox:checked:after {
     text-decoration: none;
     font-size: 1em;
 }
+#bg {
+        position:fixed;
+        z-index: -1;
+        top:0;
+        left:0; 
+        min-width:100%;
+        min-height:100%;
+}
 /*-- //login --*/
 /*-----start-responsive-design------*/
 @media (max-width:1680px){
@@ -3112,6 +3124,7 @@ input.checkbox:checked:after {
 	#Awesome h4 {
 		padding: 1.9em 0 0;
 	}
+
 	.wthree_banner_btm_pos1 {
 		top: 40%;
 	}
@@ -3808,9 +3821,7 @@ input.checkbox:checked:after {
 	.w3l_search input[type="submit"]:hover {
 		background: url(../images/img-sp.png) no-repeat 10px 5px #84C639;
 	}
-	.logo_products {
-		padding: 8em 0 1em;
-	}
+
 	.container {
 		width: 710px;
 	}
@@ -3873,9 +3884,7 @@ input.checkbox:checked:after {
         padding-left: 2em;
     }
     .
-	.logo_products {
-		padding: 2em 0 1em;
-	}
+
 	ul.dropdown-menu.drp-mnu {
 		top: 100%;
 	}

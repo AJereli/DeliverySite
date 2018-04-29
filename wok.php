@@ -98,11 +98,11 @@ sideMenu();
 
 			while($row = mysql_fetch_array($result))
 			{
-				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$row['image']);
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$row['img_path']);
 				
 			}
 			
-			function printProducts($id, $name, $description, $price) {
+			function printProducts($id, $name, $description, $price, $image) {
 				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
@@ -117,6 +117,9 @@ sideMenu();
 											</div>
 											<a href="single.php"><img title=" " alt=" " src="images/'.$image.'.png" /></a>		
 											<p>'.$name.'</p>
+											<div style="height:4em;overflow: hidden;margin-bottom:0.5em;">
+												<p style="margin:0 0 0;">'.$description.'</p>
+											</div>
 											<h4>'.$price.' р.</h4>
 										</div>
 										<div class="snipcart-details top_brand_home_details">

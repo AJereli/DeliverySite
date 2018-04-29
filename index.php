@@ -5,6 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+
+<!-- Put this script tag to the place, where the Share button will be -->
+
 <title>Рыжий Патрик | Доставка еды</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,6 +69,7 @@ headerr();
 <?php
 sideMenu();
 ?>
+
 <!-- banner -->
 
 <!-- top-brands -->
@@ -92,11 +99,11 @@ sideMenu();
 
 			while($row = mysql_fetch_array($result))
 			{
-				printProducts($row['id'], $row['name'], $row['description'], $row['price']);
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$row['img_path']);
 				
 			}
 			
-			function printProducts($id, $name, $description, $price) {
+			function printProducts($id, $name, $description, $price,$image) {
 				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
@@ -111,6 +118,9 @@ sideMenu();
 											</div>
 											<a href="single.php"><img title=" " alt=" " src="images/'.$image.'.png" /></a>		
 											<p>'.$name.'</p>
+											<div style="height:4em;overflow: hidden;margin-bottom:0.5em;">
+												<p style="margin:0 0 0;">'.$description.'</p>
+											</div>
 											<h4>'.$price.' р.</h4>
 										</div>
 										<div class="snipcart-details top_brand_home_details">
@@ -150,6 +160,7 @@ sideMenu();
 		<h3>Так же у нас есть услуга Заказ к времени!</h3>
 		<h4>В момент утверждения заказа вы можете указать что вам нужно доставить заказ к конкретному времени и ваша любимая еда окажется в нужное время в нужном месте. главное не забыть про заказ, а то выйдет довольно интересный сюрприз)</h4>
 	</div>
+	
 <!-- //top-brands -->
 <!-- footer -->
 	<?php
@@ -209,3 +220,4 @@ $(document).ready(function(){
 	</script>
 </body>
 </html>
+			
