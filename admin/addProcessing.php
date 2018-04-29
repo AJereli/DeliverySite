@@ -4,6 +4,15 @@ function can_upload($file){
     if($file['name'] == '')
 		return 'Вы не выбрали файл.';
 	
+echo $file['size'] . '<br>';
+echo $file['type'] . '<br>';
+echo $file['error'] . '<br>';
+echo $file['name']. '<br>';
+$errorCode = $file['error'];
+
+
+
+
 
 	if($file['size'] == 0)
 		return 'Файл слишком большой.';
@@ -21,31 +30,31 @@ function can_upload($file){
   
   function make_upload($file){	
 	$image_name = mt_rand(0, 10000) . $file['name'];
-	copy($file['tmp_name'], 'images/' . $image_name);
+	move_uploaded_file($file['tmp_name'], '../images/' . $image_name);
   }
 
 $errorMSG = "";
 
 if (empty($_POST["name"])) {
-    $errorMSG = "Имя надо бы ввести";
+    $errorMSG = "Имя надо бы ввести\n";
 } else {
     $name = $_POST["name"];
 }
 
 if (empty($_POST["price"])) {
-    $errorMSG .= "Надо ввести цену";
+    $errorMSG .= "Надо ввести цену\n";
 } else {
     $price = $_POST["price"];
 }
 
 if (empty($_POST["description"])) {
-    $errorMSG .= "Надо ввести описание";
+    $errorMSG .= "Надо ввести описание\n";
 } else {
     $description = $_POST["description"];
 }
 
 if (!isset($_FILES['file'])){
-	$errorMSG .= "Необходимо выбрать картинку";
+	$errorMSG .= "Необходимо выбрать картинку\n";
 }else{
 	$file = $_FILES['file'];
 }
@@ -63,10 +72,11 @@ if ($errorMSG === ""){
 		  else{
 
 			echo "<strong>".$check."</strong>";  
-			exit();
+			
 		  }
 		}
-
+		else {exit();}
+	
 	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
@@ -75,7 +85,7 @@ if ($errorMSG === ""){
 	} 
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)');
 	
-	$stmt->bind_param("sss", $name, $description, $price, $image_name);
+	$stmt->bind_param("ssss", $name, $description, $price, $image_name);
 
 	$stmt->execute();
 		
@@ -89,6 +99,8 @@ if ($errorMSG === ""){
 		echo "Error: " . $e->getMessage();
     }
 	$conn = null;
+}else{
+	echo $errorMSG;
 }
 
 

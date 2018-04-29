@@ -49,28 +49,28 @@
 					<div class="col-sm-6 col-sm-offset-3">
 						<div class="well" style="margin-top: 10%;">
 						<h3>Добавить позицию</h3>
-						<form role="form" id="contactForm" data-toggle="validator" class="shake">
+						<form enctype="multipart/form-data" role="form" method="post" action="addProcessing.php" id="contactForm" data-toggle="validator" class="shake">
 							<div class="row">
 								<div class="form-group col-sm-6">
 									<label for="name" class="h4">Название</label>
-									<input type="text" class="form-control" id="name" placeholder="Название" required data-error="NEW ERROR MESSAGE">
+									<input type="text" class="form-control" name="name" id="name" placeholder="Название" required data-error="NEW ERROR MESSAGE">
 									<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group col-sm-6">
 									<label for="text" class="h4">Цена</label>
-									<input type="text" class="form-control" id="price" placeholder="100" required>
+									<input type="text" class="form-control" name="price" id="price" placeholder="100" required>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="text" class="h4 ">Описание</label>
-								<textarea id="description" class="form-control" rows="5" placeholder="Введи описание, бро!" required></textarea>
+								<textarea id="description" class="form-control" name="description" rows="5" placeholder="Введи описание, бро!" required></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
 							<label class="btn btn-primary" for="my-file-selector">
 							          <input type="file" name="file" id="file" >
 							</label>
-		<span class='label label-info' id="upload-file-info"></span>
+							<span class='label label-info' id="upload-file-info"></span>
 
 							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>

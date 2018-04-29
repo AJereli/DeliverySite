@@ -57,7 +57,7 @@ function printFooter(){
     <script src="assets/js/custom.js"></script>
     <script  type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/validator.min.js"></script>
-	<script type="text/javascript" src="form-scripts.js"></script>
+	
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	';
