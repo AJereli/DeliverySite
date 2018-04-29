@@ -19,9 +19,6 @@
 	$stmt->bind_param('sssds',$order, $FIO, $adress, $total, $number);
 
 	$stmt->execute();
-	if(!$result)
-			{
-				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));}
 			
 ?>
 <!DOCTYPE html>
