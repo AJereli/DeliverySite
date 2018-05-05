@@ -65,7 +65,11 @@ sideMenu();
 
 			while($row = mysql_fetch_array($result))
 			{
-				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$row['img_path']);
+				$image = "placeholder.jpg";
+				if ($row['image'] != ""){
+					$image = $row['image'];
+				}
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$image);
 				
 			}
 			
