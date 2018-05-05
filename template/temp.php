@@ -89,7 +89,7 @@ echo '
 			</div>
 			<div class="w3ls_logo_products_left1">
 				<ul class="phone_email">
-					<li><i class="fa fa-phone" aria-hidden="true"></i>+7 (978) 861-52-44</li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>+7 (918) 906-71-25</li>
 					
 				</ul>
 			</div>
