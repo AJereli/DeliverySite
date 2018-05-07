@@ -56,7 +56,9 @@ headerr();
 	<?php
 	sideMenu();
 	?>
-		<div class="w3l_banner_nav_right">
+
+<div style="    background: #f5f5f5;">
+	<div class="w3l_banner_nav_right">
 <!-- mail -->
 <div class="mail">
 <?php

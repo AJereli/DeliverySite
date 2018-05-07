@@ -47,6 +47,7 @@ echo '
 			<ul>
 				<li class="dropdown profile_details_drop">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars" aria-hidden="true"></i><span class="caret"></span></a>
+					<div style="">
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
@@ -55,6 +56,7 @@ echo '
 
 							</ul>
 						</div>                  
+					</div>
 					</div>	
 				</li>
 			</ul>

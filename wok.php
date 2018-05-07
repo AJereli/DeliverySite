@@ -38,7 +38,9 @@ headerr();
 <!-- banner -->
 	<?php
 sideMenu();
-	?><div class="top-brands">
+	?>
+<div style="    background: #f5f5f5;">
+	<div class="top-brands">
 		<div class="container">
 		<div class="w3l_banner_nav_right">
 			
@@ -128,7 +130,8 @@ sideMenu();
 	</div>
 	</div>
 <!-- //banner -->
-
+</div>
+</div>
 <!-- footer -->
 	<?php
 	footerr();

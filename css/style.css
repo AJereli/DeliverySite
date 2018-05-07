@@ -1807,6 +1807,12 @@ h2.typoh2{
 	.pagination {
 		margin: 20px 0 0px;
 	}
+    #PPMiniCart .minicart-footer {
+        height: 2em;
+    }
+    #PPMiniCart .minicart-subtotal {
+        position: initial!important;
+    }
 }
 @media (max-width: 320px){
 	.grid_4 {

@@ -34,6 +34,7 @@ headerr();
 <?php
 sideMenu();
 ?>
+<div style="    background: #f5f5f5;">
 		<div class="w3l_banner_nav_right">
 <!-- about -->
 		<div class="privacy about">
