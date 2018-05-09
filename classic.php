@@ -38,19 +38,18 @@ headerr();
 <!-- banner -->
 	<?php
 sideMenu();
-	?>
+	?>	
 <div style="    background: #f0f0f0;">
 	<div class="top-brands">
 		<div class="container">
 		<div class="w3l_banner_nav_right">
 			
 			<div class="w3ls_w3l_banner_nav_right_grid">
-				<h3>Вок</h3>
+				<h3>Роллы</h3>
 				<div class="w3ls_w3l_banner_nav_right_grid1">
 				
-			<?php 
-
-	
+				<?php 
+			
 			$conn = mysql_connect($db_host,$db_user,$db_pass); 
 			if(!$conn)
 			{
@@ -60,9 +59,7 @@ sideMenu();
 			{
 				throw new Exception("Cant select DB {$db_name}!");
 			}
-
-
-			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "'.$type.'")', $conn); 
+			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "Roll")', $conn); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
@@ -91,11 +88,12 @@ sideMenu();
 												<h2>Пример</h2>
 												Пример блока, при наведении на который появляется другой блок.
 											</div>
-											<img title=" "width="185" height="155" alt=" " src="images/'.$image.'" />		
+											<img title=" " alt=" " width="185" height="155" src="images/'.$image.'" />
 											<p>'.$name.'</p>
 											<div style="height:4em;overflow: hidden;margin-bottom:0.5em;">
 												<p style="margin:0 0 0;">'.$description.'</p>
 											</div>
+
 											<h4>'.$price.' р.</h4>
 										</div>
 										<div class="snipcart-details top_brand_home_details">

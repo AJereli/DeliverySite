@@ -61,7 +61,7 @@ headerr();
 <?php
 sideMenu();
 ?>
-<div style="    background: #f5f5f5;">
+<div style="    background: #f0f0f0;">
 		<div class="w3l_banner_nav_right" style="">
 <!-- about -->
 		<div class="privacy about">
@@ -81,7 +81,7 @@ sideMenu();
 				<div class="clearfix"> </div>
 			</div>
 			<h4>Номер телефона Кафе бара:</h4><p>
-+7 (978) 861-52-44</p><h4>
++7 (918) 906-71-25</p><h4>
 Рабочее время:</h4><p>
 Будние: с 11.00 до 23.00 </p><p>
 Выходные с 11.00 до 00.00</p><h4> 

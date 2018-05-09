@@ -45,12 +45,11 @@ sideMenu();
 		<div class="w3l_banner_nav_right">
 			
 			<div class="w3ls_w3l_banner_nav_right_grid">
-				<h3>Вок</h3>
+				<h3>Гунканы</h3>
 				<div class="w3ls_w3l_banner_nav_right_grid1">
 				
-			<?php 
-
-	
+				<?php 
+			
 			$conn = mysql_connect($db_host,$db_user,$db_pass); 
 			if(!$conn)
 			{
@@ -60,9 +59,7 @@ sideMenu();
 			{
 				throw new Exception("Cant select DB {$db_name}!");
 			}
-
-
-			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "'.$type.'")', $conn); 
+			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "Guncan")', $conn); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));

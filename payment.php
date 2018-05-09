@@ -51,7 +51,7 @@ sideMenu();
 ?>
 
 <!-- banner -->
-<div style="    background: #f5f5f5;">
+<div style="    background: #f0f0f0;">
 <!-- payment -->
 	<div class="paymennt">
 		<div class="privacy about">
