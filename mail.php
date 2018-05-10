@@ -47,8 +47,15 @@ $sdd_db_host='127.0.0.1';
 <body>
 <!-- header -->
 	
-<?php
-headerr();
+	<?php
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+headerr($resus);
 ?>
 <!-- script-for sticky-nav -->
 	<script>
@@ -65,13 +72,19 @@ headerr();
 		 
 	});
 	</script>
-<!-- //script-for sticky-nav -->
+ <!--script-for sticky-nav -->
 	
-<!-- //header -->
-<!-- banner -->
-	<?php
-	sideMenu();
-	?>
+<!--header -->
+
+<!--banner -->
+<?php	
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+sideMenu($resus);
+?>
 	<div style="    background: #f0f0f0;">
 		<div class="w3l_banner_nav_right">
 <!-- mail -->

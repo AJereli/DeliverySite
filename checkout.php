@@ -5,8 +5,15 @@
 	
 <body>
 <!-- header -->
-<?php
-headerr();
+	<?php
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+hheaderr($resus);
 ?>
 <!-- script-for sticky-nav -->
 	<script>
@@ -23,12 +30,18 @@ headerr();
 		 
 	});
 	</script>
-<!-- //script-for sticky-nav -->
+ <!--script-for sticky-nav -->
+	
+<!--header -->
 
-<!-- //header -->
-<!-- banner -->
-<?php
-sideMenu();
+<!--banner -->
+<?php	
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+sideMenu($resus);
 ?>
 <!-- banner -->
 <div style="    background: #f0f0f0;">

@@ -1,9 +1,4 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html>
 <? include("template/temp.php"); head();?>
@@ -11,7 +6,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 <!-- header -->
 	<?php
-headerr();
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+headerr($resus);
 ?>
 <!-- script-for sticky-nav -->
 	<script>
@@ -28,11 +30,18 @@ headerr();
 		 
 	});
 	</script>
-<!-- //script-for sticky-nav -->
-<!-- //header -->
-<!-- banner -->
-<?php
-sideMenu();
+ <!--script-for sticky-nav -->
+	
+<!--header -->
+
+<!--banner -->
+<?php	
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+sideMenu($resus);
 ?>
 <div style="    background: #f0f0f0;">
 		<div class="w3l_banner_nav_right">

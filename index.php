@@ -10,8 +10,15 @@
 	
 <body>
 <!-- header -->
-<?php
-headerr();
+	<?php
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+headerr($resus);
 ?>
 <!-- script-for sticky-nav -->
 	<script>
@@ -28,9 +35,18 @@ headerr();
 		 
 	});
 	</script>
-<!-- //script-for sticky-nav -->
-<?php
-sideMenu();
+ <!--script-for sticky-nav -->
+	
+<!--header -->
+
+<!--banner -->
+<?php	
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+sideMenu($resus);
 ?>
 
 <!-- banner -->
@@ -43,7 +59,7 @@ sideMenu();
 			<div class="agile_top_brands_grids">
 			<?php 
 			
-			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			
 			$result = $conn->query('SELECT * FROM `products`'); 
 			if(!$result)
 			{

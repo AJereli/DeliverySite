@@ -1,14 +1,21 @@
+
 <!DOCTYPE html>
 <html>
-<? include("template/temp.php"); 
+<? 
+include("template/temp.php");
 head();
 ?>
-	
 <body>
 <!-- header -->
 	<?php
-
-headerr();
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+headerr($resus);
 ?>
 <!-- script-for sticky-nav -->
 	<script>
@@ -25,44 +32,41 @@ headerr();
 		 
 	});
 	</script>
-<!-- //script-for sticky-nav -->
+ <!--script-for sticky-nav -->
 	
-<!-- //header -->
-<!-- products-breadcrumb -->
-	<div class="products-breadcrumb">
+<!--header -->
+
+<!--banner -->
+<?php	
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+		if(!$resus)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+	$type=mysqli_fetch_array(mysqli_query($conn,'SELECT * FROM `types` WHERE(`id` LIKE '.$_GET['t'].')'));
+sideMenu($resus);
+?>
+<div style="    background: #f0f0f0;">
+	<div class="top-brands">
 		<div class="container">
-			<ul>
-				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
-				<li>Branded Foods</li>
-			</ul>
-		</div>
-	</div>
-<!-- //products-breadcrumb -->
-<!-- banner -->
-	<?php
-sideMenu();
-	?>
 		<div class="w3l_banner_nav_right">
 			
 			<div class="w3ls_w3l_banner_nav_right_grid">
-				<h3>Роллы</h3>
+				<h3><?php echo $type['label'];?></h3>
 				<div class="w3ls_w3l_banner_nav_right_grid1">
 				
 				<?php 
-			$sdd_db_host='127.0.0.1'; 
-			$sdd_db_name='site'; 
-			$sdd_db_user='root'; 
-			$sdd_db_pass=''; 
-			$conn = mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
+			
+			$conn = mysql_connect($db_host,$db_user,$db_pass); 
 			if(!$conn)
 			{
 				throw new Exception('Connection with DB fail');
 			}
-			if(!mysql_select_db($sdd_db_name, $conn)) 
+			if(!mysql_select_db($db_name, $conn)) 
 			{
-				throw new Exception("Cant select DB {$ssd_db_name}!");
+				throw new Exception("Cant select DB {$db_name}!");
 			}
-			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "ролл")', $conn); 
+			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "'.$type['name'].'")', $conn); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
@@ -70,11 +74,15 @@ sideMenu();
 
 			while($row = mysql_fetch_array($result))
 			{
-				printProducts($row['id'], $row['name'], $row['description'], $row['price']);
+				$image = "placeholder.jpg";
+				if ($row['image'] != ""){
+					$image = $row['image'];
+				}
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$image);
 				
 			}
 			
-			function printProducts($id, $name, $description, $price) {
+			function printProducts($id, $name, $description, $price, $image) {
 				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
@@ -87,8 +95,12 @@ sideMenu();
 												<h2>Пример</h2>
 												Пример блока, при наведении на который появляется другой блок.
 											</div>
-											<a href="single.php"><img title=" " alt=" " src="images/'.$image.'.png" /></a>		
+											<img title=" " alt=" " width="185" height="155" src="images/'.$image.'" />
 											<p>'.$name.'</p>
+											<div style="height:4em;overflow: hidden;margin-bottom:0.5em;">
+												<p style="margin:0 0 0;">'.$description.'</p>
+											</div>
+
 											<h4>'.$price.' р.</h4>
 										</div>
 										<div class="snipcart-details top_brand_home_details">
@@ -124,8 +136,10 @@ sideMenu();
 		</div>
 		<div class="clearfix"></div>
 	</div>
+	</div>
 <!-- //banner -->
-
+</div>
+</div>
 <!-- footer -->
 	<?php
 	footerr();

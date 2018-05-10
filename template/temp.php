@@ -40,7 +40,7 @@ echo '
 }
 
 
-function headerr(){
+function headerr($resus){
 echo '
 	<div class="agileits_header">
 		<div class="w3l_header_right">
@@ -51,14 +51,13 @@ echo '
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-						<li><a href="wok.php?t=1">Вок</a></li>
-						<li><a href="big-mac.php">Биг маки</a></li>
-						<li><a href="california.php">Калифорнии</a></li>
-						<li><a href="classic.php">Классика</a></li>
-						<li><a href="cream.php">Cream роллы</a></li>
-						<li><a href="for-beer.php">Роллы к пиву</a></li>
-						<li><a href="gunkan.php">Гунканы</a></li>
-						<li><a href="cream.php">Cream роллы</a></li>
+						';
+						while($row = mysqli_fetch_array($resus))
+			{
+				echo'<li><a href="products.php?t='.$row['id'].'">'.$row['label'].'</a></li>';
+				
+			}
+			echo 			'
 
 							</ul>
 						</div>                  
@@ -107,7 +106,8 @@ echo '
 	//<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="bestpochta@grocery.com">bestpochta@grocery.com</a></li>
 	}
 
-function sideMenu(){
+function sideMenu($resus){
+
 	echo '
 	<div class="banner">
 		<div class="w3l_banner_nav_left">
@@ -121,23 +121,21 @@ function sideMenu(){
 					<span class="icon-bar"></span>
 				  </button>
 			   </div> 
-			   <!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+			   		<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
-						<li><a href="wok.php?t=1">Вок</a></li>
-						<li><a href="big-mac.php">Биг маки</a></li>
-						<li><a href="california.php">Калифорнии</a></li>
-						<li><a href="classic.php">Классика</a></li>
-						<li><a href="cream.php">Cream роллы</a></li>
-						<li><a href="for-beer.php">Роллы к пиву</a></li>
-						<li><a href="gunkan.php">Гунканы</a></li>
-						<li><a href="cream.php">Cream роллы</a></li>
+						';
+						while($row = mysqli_fetch_array($resus))
+			{
+				echo'<li><a href="products.php?t='.$row['id'].'">'.$row['label'].'</a></li>';
+				
+			}
+			echo 			'
 						<div style="padding-left:2em;" >
 						<ul class="agileits_social_icons">
 						
-<a href="http://vk.com/rpatrik"><img style="width:30px;" src="images/logoVK.png"></a>
+<a rel="nofollow" href="http://vk.com/rpatrik"><img style="width:30px;" src="images/logoVK.png"></a>
 <li style="margin-right: 10px;transition: opacity .3s;">
-<a style="padding-left: 1px;background: #e1306c;" href="https://www.instagram.com/rpatrik_yalta/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+<a rel="nofollow" style="padding-left: 1px;background: #e1306c;" href="https://www.instagram.com/rpatrik_yalta/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 						</ul>
 						</div>
 					</ul>
@@ -159,39 +157,23 @@ function footerr(){
 			</div>
 		</div>';
 }
-function listt()
-{
-			$conn = mysql_connect($db_host,$db_user,$db_pass); 
-			if(!$conn)
-			{
-				throw new Exception('Connection with DB fail');
-			}
-			if(!mysql_select_db($db_name, $conn)) 
-			{
-				throw new Exception("Cant select DB {$db_name}!");
-			}
-			$resus = mysql_query('SELECT * FROM `types`'); 
-			if(!$resus)
-			{
-				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-			}
+function listt($resus)
+{	
+	echo '<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					<ul class="nav navbar-nav nav_1">';
 
-			while($row = mysql_fetch_array($resus))
-			{
-				echo'<li><a href="'.$row['id'].'.php">'.$row['label'].'</a></li>';
-				
-			}
 }
 
 
-/*<li><a href="roll.php">Роллы</a></li>
-						<li><a href="wok.php?t=1">Вок</a></li>
+/*						<li><a href="wok.php?t=1">Вок</a></li>
 						<li><a href="big-mac.php">Биг маки</a></li>
 						<li><a href="california.php">Калифорнии</a></li>
 						<li><a href="classic.php">Классика</a></li>
 						<li><a href="cream.php">Cream роллы</a></li>
 						<li><a href="for-beer.php">Роллы к пиву</a></li>
 						<li><a href="gunkan.php">Гунканы</a></li>
-						<li><a href="cream.php">Cream роллы</a></li>*/
+						<li><a href="vip.php">Vip</a></li>
+						<li><a href="set.php">Сеты</a></li>
+						<li><a href="hot.php">Горячие роллы</a></li>*/
 ?>
 
