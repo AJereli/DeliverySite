@@ -59,7 +59,7 @@ sideMenu();
 			{
 				throw new Exception("Cant select DB {$db_name}!");
 			}
-			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "Guncan")', $conn); 
+			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "gunkan")', $conn); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
