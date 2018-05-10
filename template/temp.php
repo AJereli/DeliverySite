@@ -51,7 +51,7 @@ echo '
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-<<<<<<< HEAD
+
 						';
 						while($row = mysqli_fetch_array($resus))
 			{
@@ -59,18 +59,6 @@ echo '
 				
 			}
 			echo 			'
-=======
-						<li><a href="index.php">Меню</a></li>
-						<li><a href="big-mac.php">Биг маки</a></li>
-						<li><a href="california.php">Калифорнии</a></li>
-						<li><a href="classic.php">Классика</a></li>
-						<li><a href="cream.php">Cream роллы</a></li>
-						<li><a href="for-beer.php">Роллы к пиву</a></li>
-						<li><a href="gunkan.php">Гунканы</a></li>
-						<li><a href="vip.php">Vip</a></li>
-						<li><a href="set.php">Сеты</a></li>
-						<li><a href="hot.php">Горячие роллы</a></li>
->>>>>>> f7df2166d18215a094bb2f51a446a422d9319087
 
 							</ul>
 						</div>                  
@@ -136,7 +124,7 @@ function sideMenu($resus){
 			   </div> 
 			   		<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
-<<<<<<< HEAD
+
 						';
 						while($row = mysqli_fetch_array($resus))
 			{
@@ -144,17 +132,6 @@ function sideMenu($resus){
 				
 			}
 			echo 			'
-=======
-						<li><a href="big-mac.php">Биг маки</a></li>
-						<li><a href="california.php">Калифорнии</a></li>
-						<li><a href="classic.php">Классика</a></li>
-						<li><a href="cream.php">Cream роллы</a></li>
-						<li><a href="for-beer.php">Роллы к пиву</a></li>
-						<li><a href="gunkan.php">Гунканы</a></li>
-						<li><a href="vip.php">Vip</a></li>
-						<li><a href="set.php">Сеты</a></li>
-						<li><a href="hot.php">Горячие роллы</a></li>
->>>>>>> f7df2166d18215a094bb2f51a446a422d9319087
 						<div style="padding-left:2em;" >
 						<ul class="agileits_social_icons">
 						
