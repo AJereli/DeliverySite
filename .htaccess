@@ -10,7 +10,7 @@
 # dnwr_ip   127.0.0.2
 # dnwr_host custom-host
 # dnwr_port 8648
-##AddDefaultCharset UTF-8
+AddDefaultCharset UTF-8
 ##
 ## Все dnwr-директивы "разворачиваются" в шаблоне виртуального хоста (httpd.conf).
 ## Библиотеки Денвера напрямую (минуя подстановку в шаблоне) их не используют.
