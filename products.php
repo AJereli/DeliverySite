@@ -66,6 +66,7 @@ sideMenu($resus);
 			{
 				throw new Exception("Cant select DB {$db_name}!");
 			}
+			mysql_query("SET NAMES 'utf8'", $conn); 
 			$result = mysql_query('SELECT * FROM `products` WHERE(`type` LIKE "'.$type['name'].'")', $conn); 
 			if(!$result)
 			{
