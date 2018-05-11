@@ -62,30 +62,30 @@ if (!isset($_FILES['file'])){
 
 if ($errorMSG === ""){
     $image_name = "";
-	// if(isset($_FILES['file'])) {
+	if(isset($_FILES['file'])) {
 		 
-	// 	  $check = can_upload($_FILES['file']);
+		  $check = can_upload($_FILES['file']);
 		
-	// 	  if($check === true){
-	// 		$image_name = make_upload($_FILES['file']);
-	// 		echo "<strong>Файл успешно загружен!</strong>\n";
-	// 	  }
-	// 	  else{
+		  if($check === true){
+			$image_name = make_upload($_FILES['file']);
+			echo "<strong>Файл успешно загружен!</strong>\n";
+		  }
+		  else{
 
-	// 		echo "<strong>".$check."</strong>";  
+			echo "<strong>".$check."</strong>";  
 			
-	// 	  }
-	// 	}
-	// 	else {$image_name = "";}
-	echo "eqwe";
+		  }
+		}
+		else {$image_name = "";}
+	
 	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
-	echo "eqwe1";
+	
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	echo "eqwe2";
+	
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
 
 	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
