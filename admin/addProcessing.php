@@ -37,7 +37,7 @@ $errorCode = $file['error'];
   }
 
 $errorMSG = "";
-
+echo $_POST["name"];
 if (!isset($_POST["name"])) {
     $errorMSG = "Имя надо бы ввести<br>";
 } else {
