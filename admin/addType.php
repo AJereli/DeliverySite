@@ -34,7 +34,7 @@ if ($errorMSG === ""){
 	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
-
+mysqli_query($conn, "SET NAMES 'utf8'");
 	
 	$stmt = $conn->prepare('INSERT INTO types (label, name) VALUES (?, ?)');
 
@@ -44,7 +44,7 @@ if ($errorMSG === ""){
 	
 	
 	$stmt->execute();
-		printf("Errormessage: %s\n", $conn->error);
+	
 
 	echo "Позиция теперь на своем месте!";
 	$stmt->close();
