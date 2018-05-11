@@ -82,13 +82,13 @@
 							
 								while($row = mysqli_fetch_array($resus))
 								{
-									echo "<options>".$row["name"]."</options>";
-									echo "<option value=\"".$row["label"]."\">".$row["name"]."</option>";
+									
+									echo "<option value=\"".$row["name"]."\">".$row["label"]."</option>";
 
 									
 								}
 							?>
-							<options>test</options>
+							
 							
 							</select>
 							
