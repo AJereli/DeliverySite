@@ -10,52 +10,52 @@
  <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
 <?php
 
-// function can_upload($file){
-//     if($file['name'] == '')
-// 		return 'Вы не выбрали файл.\n';
+function can_upload($file){
+    if($file['name'] == '')
+		return 'Вы не выбрали файл.\n';
 
-// $errorCode = $file['error'];
+$errorCode = $file['error'];
 
-// 	if($file['size'] == 0)
-// 		return 'Файл слишком большой.\n';
+	if($file['size'] == 0)
+		return 'Файл слишком большой.\n';
 	
-// 	$getMime = explode('.', $file['name']);
-// 	$mime = strtolower(end($getMime));
+	$getMime = explode('.', $file['name']);
+	$mime = strtolower(end($getMime));
 
-// 	$types = array('jpg', 'png', 'gif', 'bmp', 'jpeg');
+	$types = array('jpg', 'png', 'gif', 'bmp', 'jpeg');
 	
-// 	if(!in_array($mime, $types))
-// 		return 'Недопустимый тип файла.\n';
+	if(!in_array($mime, $types))
+		return 'Недопустимый тип файла.\n';
 	
-// 	return true;
-//   }
+	return true;
+  }
   
-//   function make_upload($file){	
-// 	$image_name = mt_rand(0, 10000) . $file['name'];
-// 	move_uploaded_file($file['tmp_name'], '../images/' . $image_name);
-// 	return $image_name;
-//   }
+  function make_upload($file){	
+	$image_name = mt_rand(0, 10000) . $file['name'];
+	move_uploaded_file($file['tmp_name'], '../images/' . $image_name);
+	return $image_name;
+  }
 
 $errorMSG = "";
 
-if (isset($_POST["name"])) {
+if (!isset($_POST["name"])) {
     $errorMSG = "Имя надо бы ввести<br>";
 } else {
     $name = $_POST["name"];
 }
 
 
-// if (empty($_POST["price"])) {
-//     $errorMSG .= "Надо ввести цену<br>";
-// } else {
-//     $price = $_POST["price"];
-// }
+if (!isset($_POST["price"])) {
+    $errorMSG .= "Надо ввести цену<br>";
+} else {
+    $price = $_POST["price"];
+}
 
-// if (empty($_POST["description"])) {
-//     $errorMSG .= "Надо ввести описание<br>";
-// } else {
-//     $description = $_POST["description"];
-// }
+if (!isset($_POST["description"])) {
+    $errorMSG .= "Надо ввести описание<br>";
+} else {
+    $description = $_POST["description"];
+}
 
 
 // $file = $_FILES['file'];
