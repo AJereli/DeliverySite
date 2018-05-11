@@ -42,6 +42,7 @@ echo '
 
 function headerr($resus){
 echo '
+
 	<div class="agileits_header">
 		<div class="w3l_header_right">
 			<ul>
@@ -80,6 +81,7 @@ echo '
 		
 		<div class="clearfix"> </div>
 	</div>
+
 	<div class="logo_products">
 			<div class="w3l_banner_nav_right_banner6">
 				
@@ -103,14 +105,16 @@ echo '
 			</div>
 			<div class="clearfix"> </div>
 		</div>
-	</div>';
+	</div>
+	';
 	//<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="bestpochta@grocery.com">bestpochta@grocery.com</a></li>
 	}
 
 function sideMenu($resus){
 
 	echo '
-	<div class="banner">
+	<div id="aside1">
+	<div class="banner" style="padding-top:46px;">
 		<div class="w3l_banner_nav_left">
 			<nav class="navbar nav_bottom">
 			 <!-- Brand and toggle get grouped for better mobile display -->
@@ -145,7 +149,8 @@ function sideMenu($resus){
 			</nav>
 		</div>
 		<div class="clearfix"></div>	
-	</div>';
+	</div>
+</div>';
 }
 function footerr(){
 	echo '<div class="footer">

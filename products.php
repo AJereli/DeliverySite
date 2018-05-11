@@ -46,10 +46,14 @@ headerr($resus);
 	$type=mysqli_fetch_array(mysqli_query($conn,'SELECT * FROM `types` WHERE(`id` LIKE '.$_GET['t'].')'));
 sideMenu($resus);
 ?>
-<div style="    background: #f0f0f0;">
+
+
+<div  style="    background: #f0f0f0;">
 	<div class="top-brands">
+		<div id="article">
 		<div class="container">
-		<div class="w3l_banner_nav_right">
+		
+		<div style="float:right; width: 100%">
 			
 			<div class="w3ls_w3l_banner_nav_right_grid">
 				<h3><?php echo $type['label'];?></h3>
@@ -135,10 +139,12 @@ sideMenu($resus);
 			?>
 			</div>
 		</div>
+		
 		<div class="clearfix"></div>
 	</div>
 	</div>
 <!-- //banner -->
+</div>
 </div>
 </div>
 <!-- footer -->
@@ -194,12 +200,68 @@ $(document).ready(function(){
 				total += items[i].get('quantity');
 			}
 
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-				evt.preventDefault();
-			}
+
 		});
 
 	</script>
+
+<style>
+.sticky {
+  position: fixed;
+  z-index: 101;
+
+}
+.stop {
+  position: relative;
+  z-index: 101;
+
+}
+</style>
+
+<script>
+(function(){
+var a = document.querySelector('#aside1'), b = null, P = 0;
+window.addEventListener('scroll', Ascroll, false);
+document.body.addEventListener('scroll', Ascroll, false);
+function Ascroll() {
+  if (b == null) {
+    var Sa = getComputedStyle(a, ''), s = '';
+    for (var i = 0; i < Sa.length; i++) {
+      if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('height') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
+        s += Sa[i] + ': ' +Sa.getPropertyValue(Sa[i]) + '; '
+      }
+    }
+    b = document.createElement('div');
+    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+    a.insertBefore(b, a.firstChild);
+    var l = a.childNodes.length;
+    for (var i = 1; i < l; i++) {
+      b.appendChild(a.childNodes[1]);
+    }
+    a.style.height = '0';
+    a.style.padding = '0';
+    a.style.border = '0';
+;
+  }
+  var Ra = a.getBoundingClientRect(),
+      R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('#article').getBoundingClientRect().bottom);  
+  if ((Ra.top - P) <= 0) {
+    if ((Ra.top - P) <= R) {
+      b.className = 'stop';
+      b.style.top = - R +'px';
+    } else {
+      b.className = 'sticky';
+      b.style.top = P + 'px';
+    }
+  } else {
+    b.className = '';
+    b.style.top = '';
+  }
+  window.addEventListener('resize', function() {
+    a.children[0].style.width = getComputedStyle(a, '').width
+  }, false);
+}
+})()
+</script>
 </body>
 </html>
