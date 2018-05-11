@@ -47,11 +47,7 @@ if (empty($_POST["description"])) {
     $description = $_POST["description"];
 }
 
-if (!isset($_FILES['file'])){
-	$errorMSG .= "Необходимо выбрать картинку\n";
-}else{
-	$file = $_FILES['file'];
-}
+
 $type = $_POST["type"];
 if ($errorMSG === ""){
     $image_name = "";
@@ -61,15 +57,11 @@ if ($errorMSG === ""){
 		
 		  if($check === true){
 			$image_name = make_upload($_FILES['file']);
-			echo "<strong>Файл успешно загружен!</strong>\n";
-		  }
-		  else{
-
-			echo "<strong>".$check."</strong>";  
 			
 		  }
+		  
 		}
-		else {exit();}
+		
 	
 	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
