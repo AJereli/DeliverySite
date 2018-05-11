@@ -79,7 +79,10 @@ function printSideMenu(){
                         <a href="orders.php"><i class="fa fa-table "></i>Текущие заказы</a>
                     </li>
                      <li>
-                        <a href="promo.php"><i class="fa fa-table "></i>Добавить акцию</a>
+                        <a href="promo.php"><i class="fa fa-desktop "></i>Добавить акцию</a>
+                    </li>
+                    <li>
+                        <a href="type.php"><i class="fa fa-desktop "></i>Добавить тип</a>
                     </li>
                     <li>
                         <a href=""><i class="fa fa-edit "></i>Страница в разработке</a>
