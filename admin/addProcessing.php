@@ -60,6 +60,10 @@ if (!isset($_POST["description"])) {
 $type = $_POST["type"];
 // $file = $_FILES['file'];
 
+
+$image_name = "";
+
+
 echo "2n:".$name . "d:". $description ."p: ". $price ."t". $type;
 if ($errorMSG === ""){
     // $image_name = "";
