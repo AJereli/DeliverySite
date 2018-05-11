@@ -72,7 +72,7 @@
 								<textarea id="description" class="form-control" name="description" rows="5" placeholder="Введите описание" required></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
-						
+							
 							<label class="btn btn-primary" for="my-file-selector">
 							          <input type="file" name="file" id="file" >
 							</label>
@@ -85,7 +85,7 @@
 								while($row = mysqli_fetch_array($resus))
 								{
 									//value=\"".$row["name"]."\"
-									echo "<option value=\"".$row["name"]."\>".$row["name"]."</option>";
+									echo "<option value=\"".$row["name"]."\>".$row["label"]."</option>";
 
 									
 								}
