@@ -42,11 +42,6 @@ if (!isset($_POST["name"])) {
 } else {
     $name = $_POST["name"];
 }
-if (!isset($_POST["price"])) {
-    $errorMSG .= "Надо ввести цену<br>";
-} else {
-    $price = $_POST["price"];
-}
 
 if (!isset($_POST["description"])) {
     $errorMSG .= "Надо ввести описание<br>";
@@ -80,10 +75,10 @@ if ($errorMSG === ""){
 
 	
 	
-	$stmt = $conn->prepare('INSERT INTO products (name, description, price, img_path, type) VALUES (?, ?, ?, ?, ?)');
+	$stmt = $conn->prepare('INSERT INTO promo (label, description, image) VALUES (?, ?, ?)');
 
 
-	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
+	$stmt->bind_param("sss", $name, $description, $image_name);
 	
 	
 	
