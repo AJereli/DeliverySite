@@ -25,6 +25,11 @@
         <!-- /. NAV TOP  -->
       <?
 		printSideMenu();
+
+		$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+		mysqli_query($conn, "SET NAMES 'utf8'"); 
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+
 	  ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
@@ -74,9 +79,7 @@
 							
 							<select name="type" size="1"  form="contactForm">
 							<?
-								$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-								mysqli_query($conn, "SET NAMES 'utf8'"); 
-								$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+							
 								while($row = mysqli_fetch_array($resus))
 								{
 									echo '<options>' .$row['name'].'</options>';
@@ -84,7 +87,7 @@
 									
 								}
 							?>
-							
+							<options>test</options>
 							
 							</select>
 							
