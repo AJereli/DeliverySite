@@ -57,7 +57,7 @@ if (!isset($_POST["description"])) {
     $description = $_POST["description"];
 }
 
-
+$type = $_POST["type"];
 // $file = $_FILES['file'];
 
 echo "2n:".$name . "d:". $description ."p: ". $price ."t". $type;
