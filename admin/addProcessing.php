@@ -55,22 +55,22 @@ if (empty($_POST["description"])) {
 }
 
 
-$file = $_FILES['file'];
+// $file = $_FILES['file'];
 
 
 if ($errorMSG === ""){
-    $image_name = "";
-	if(isset($_FILES['file'])) {
+    // $image_name = "";
+	// if(isset($_FILES['file'])) {
 		 
-		  $check = can_upload($_FILES['file']);
+	// 	  $check = can_upload($_FILES['file']);
 		
-		  if($check === true){
-			$image_name = make_upload($_FILES['file']);
+	// 	  if($check === true){
+	// 		$image_name = make_upload($_FILES['file']);
 			
-		  }
+	// 	  }
 		  
-		}
-		else {$image_name = "";}
+	// 	}
+	// 	else {$image_name = "";}
 	
 	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
