@@ -29,7 +29,7 @@ $time=date("d.m.y G:i:s");
 	
 	<?php
 
-mysqli_query($conn, "SET NAMES 'utf8'"); 
+			
 		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
 		if(!$resus)
 		{
@@ -89,10 +89,10 @@ while($row = $result->fetch_assoc())
 
 	function printcomm($id,$name,$comm,$time){
 	echo '
-	<div style="padding:1em; border-bottom:2px dotted; width:60%">
+	<div style="border-bottom:2px dotted; width:80%">
 	<h2>'.$name.'</h2>
-	<div style="padding :5px;">	<h4>'.$comm.'</h4></div>
-	<div style="padding :5px;">	<h4>'.$time.'</h4></div>
+	<h4>'.$comm.'</h4>
+	<h4>'.$time.'</h4>
 	</div>
 ';}
 ?>
