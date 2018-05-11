@@ -44,67 +44,50 @@ headerr($resus);
 		}
 sideMenu($resus);
 ?>
-	<div style="    background: #f0f0f0;">
+
+<div style="    background: #f0f0f0;">
 		<div class="w3l_banner_nav_right">
 			<div id="article">
-
 <!-- events -->
 		<div class="events">
 			<h3>Акции</h3>
+
+<?php
+$result = $conn->query('SELECT * FROM `promo`'); 
+	if(!$result)
+	{
+		throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+	}
+	while($row = $result->fetch_assoc())
+	{
+		$image = "placeholder.jpg";
+		if ($row['image'] != ""){
+			$image = $row['image'];
+		}
+		printPromo($row['id'], $row['label'], $row['description'], $image);
+	}
+
+			
+	function printPromo($id, $label, $description, $image) {echo '	
+
+
 			<div class="w3agile_event_grids">
 				<div class="col-md-6 w3agile_event_grid">
-					<div class="col-md-3 w3agile_event_grid_left">
-						<i class="fa fa-bullhorn" aria-hidden="true"></i>
+					<div class="col-md-3 w3agile_event_grid_left" style="width:205px; height:155px; padding 0;">
+						<img title=" " width="185" height="155"  alt=" " src="images/'.$image.'" />	
 					</div>
-					<div class="col-md-9 w3agile_event_grid_right">
-						<h4>невероятно важная инфа</h4>
-						<p>пропустить которую просто грех</p>
+					<div class="col-md-9 w3agile_event_grid_right"style=" height:155px;">
+						<h4>"'.$label.'"</h4>
+						<p>"'.$description.'"</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				
 				<div class="clearfix"> </div>
 			</div>
-			
-			<div class="events-bottom">
-				<div class="col-md-6 events_bottom_left">
-					<div class="col-md-4 events_bottom_left1">
-						<div class="events_bottom_left1_grid">
-							<h4>20</h4>
-							<p>июля, 2018</p>
-						</div>
-					</div>
-					<div class="col-md-8 events_bottom_left2">	
-						<img src="images/15.jpg" alt=" " class="img-responsive" />
-						<h4>будем печь печь</h4>
-						<ul>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i>3:00 PM</li>
-							<li><i class="fa fa-user" aria-hidden="true"></i><a href="#">Admin</a></li>
-						</ul>
-						<p></p>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="col-md-6 events_bottom_left">
-					<div class="col-md-4 events_bottom_left1">
-						<div class="events_bottom_left1_grid">
-							<h4>21</h4>
-							<p>июля, 2018</p>
-						</div>
-					</div>
-					<div class="col-md-8 events_bottom_left2">	
-						<img src="images/19.jpg" alt=" " class="img-responsive" />
-						<h4>печи устанут</h4>
-						<ul>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i>3:30 PM</li>
-							<li><i class="fa fa-user" aria-hidden="true"></i><a href="#">Admin</a></li>
-						</ul>
-						<p></p>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
+		';
+	}
+		?>
 		</div>
 	</div>
 <!-- //events -->
