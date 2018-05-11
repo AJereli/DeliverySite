@@ -1814,6 +1814,12 @@ h2.typoh2{
     #PPMiniCart .minicart-subtotal {
         position: initial!important;
     }
+    .logo_products {
+    padding: 35px 0 1em;
+}
+.product_list_header {
+    padding-top: 5px;
+}
 }
 @media (max-width: 320px){
 	.grid_4 {
@@ -1845,6 +1851,9 @@ h2.typoh2{
 	table.table.table-striped,.table-bordered,.bs-docs-example {
 		display: none;
 	}
+        .logo_products {
+    padding: 33px 0 1em;
+}
 }
 .typo,.privacy,.faq,.services,.events,.mail,.agileinfo_single,.w3_login{
     padding: 5em;
