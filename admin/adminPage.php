@@ -85,7 +85,7 @@
 								while($row = mysqli_fetch_array($resus))
 								{
 									//value=\"".$row["name"]."\"
-									echo "<option value=\"".$row["name"]."\>".$row["label"]."</option>";
+									echo "<option".$row["name"]."</option>";
 
 									
 								}
