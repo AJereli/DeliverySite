@@ -35,7 +35,7 @@ $errorCode = $file['error'];
 	move_uploaded_file($file['tmp_name'], '../images/' . $image_name);
 	return $image_name;
   }
-
+  echo "0n:".$name . "d:". $description ."p: ". $price ."t". $type;
 $errorMSG = "";
 
 if (!isset($_POST["name"])) {
@@ -44,13 +44,13 @@ if (!isset($_POST["name"])) {
     $name = $_POST["name"];
 }
 
-
+echo "01n:".$name . "d:". $description ."p: ". $price ."t". $type;
 if (!isset($_POST["price"])) {
     $errorMSG .= "Надо ввести цену<br>";
 } else {
     $price = $_POST["price"];
 }
-
+echo "02n:".$name . "d:". $description ."p: ". $price ."t". $type;
 if (!isset($_POST["description"])) {
     $errorMSG .= "Надо ввести описание<br>";
 } else {
@@ -60,7 +60,7 @@ if (!isset($_POST["description"])) {
 
 // $file = $_FILES['file'];
 
-
+echo "2n:".$name . "d:". $description ."p: ". $price ."t". $type;
 if ($errorMSG === ""){
     // $image_name = "";
 	// if(isset($_FILES['file'])) {
@@ -74,7 +74,7 @@ if ($errorMSG === ""){
 		  
 	// 	}
 	// 	else {$image_name = "";}
-	
+	echo "3n:".$name . "d:". $description ."p: ". $price ."t". $type;
 	//try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
@@ -85,8 +85,11 @@ if ($errorMSG === ""){
 	
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
 
+	
 	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
-	echo "n:".$name . "d:". $description ."p: ". $price ."t". $type;
+	
+	echo "4n:".$name . "d:". $description ."p: ". $price ."t". $type;
+	
 	$stmt->execute();
 		printf("Errormessage: %s\n", $conn->error);
 
