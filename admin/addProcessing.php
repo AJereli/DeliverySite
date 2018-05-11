@@ -86,7 +86,7 @@ if ($errorMSG === ""){
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
 
 	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
-	echo $name . $description . $price . $type;
+	echo "n:".$name . "d:". $description ."p: ". $price ."t". $type;
 	$stmt->execute();
 		printf("Errormessage: %s\n", $conn->error);
 
