@@ -1,4 +1,11 @@
-﻿<?php
+﻿</<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	
+</head>
+<body>
+<?php
 include("config.php");
 function can_upload($file){
     if($file['name'] == '')
@@ -101,3 +108,6 @@ if ($errorMSG === ""){
 ?>
 <br>
  <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
+
+ </body>
+ </html>
