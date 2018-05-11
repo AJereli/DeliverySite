@@ -37,7 +37,7 @@ $errorCode = $file['error'];
   }
 
 $errorMSG = "";
-echo $_POST["name"];
+
 if (!isset($_POST["name"])) {
     $errorMSG = "Имя надо бы ввести<br>";
 } else {
@@ -75,7 +75,7 @@ if ($errorMSG === ""){
 	// 	}
 	// 	else {$image_name = "";}
 	
-	try {
+	//try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
 	
@@ -86,18 +86,18 @@ if ($errorMSG === ""){
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
 
 	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
-
+	echo $name . $description . $price . $type;
 	$stmt->execute();
 		printf("Errormessage: %s\n", $conn->error);
 
 	echo "Позиция теперь на своем месте!";
 	$stmt->close();
 	$conn->close();
-	}
-	catch(PDOException $e)
-    {
-		echo "Error: " . $e->getMessage();
-    }
+	// }
+	// catch(PDOException $e)
+    // {
+	// 	echo "Error: " . $e->getMessage();
+    // }
 	$conn = null;
 }else{
 	echo $errorMSG;
