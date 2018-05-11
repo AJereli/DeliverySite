@@ -36,20 +36,20 @@ $errorCode = $file['error'];
 $errorMSG = "";
 
 if (empty($_POST["name"])) {
-    $errorMSG = "Имя надо бы ввести\n";
+    $errorMSG = "Имя надо бы ввести<br>";
 } else {
     $name = $_POST["name"];
 }
 
 
 if (empty($_POST["price"])) {
-    $errorMSG .= "Надо ввести цену\n";
+    $errorMSG .= "Надо ввести цену<br>";
 } else {
     $price = $_POST["price"];
 }
 
 if (empty($_POST["description"])) {
-    $errorMSG .= "Надо ввести описание\n";
+    $errorMSG .= "Надо ввести описание<br>";
 } else {
     $description = $_POST["description"];
 }
@@ -66,13 +66,9 @@ if ($errorMSG === ""){
 		
 		  if($check === true){
 			$image_name = make_upload($_FILES['file']);
-			echo "<strong>Файл успешно загружен!</strong>\n";
-		  }
-		  else{
-
-			echo "<strong>".$check."</strong>";  
 			
 		  }
+		  
 		}
 		else {$image_name = "";}
 	
