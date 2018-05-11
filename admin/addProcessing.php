@@ -49,6 +49,7 @@ if (empty($_POST["description"])) {
 
 
 $type = $_POST["type"];
+echo $errorMSG;
 if ($errorMSG === ""){
     $image_name = "";
 	if(isset($_FILES['file'])) {
