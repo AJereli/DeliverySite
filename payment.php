@@ -24,6 +24,7 @@
 <!-- header -->
 	<?php
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+ 
 			
 		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
 		if(!$resus)
@@ -73,8 +74,8 @@ sideMenu($resus);
 			<form action="index.php" method="post" class="creditly-card-form agileinfo_form">
 
 						<section class="creditly-wrapper wthree, w3_agileits_wrapper">
-							<div class="information-wrapper">
-								<button class="submit check_out">Обратно</button>
+							<div onclick="clear()" class="information-wrapper">
+								<button  class="submit check_out">Обратно</button>
 							</div>
 						</section>
 					</form>
@@ -90,7 +91,7 @@ sideMenu($resus);
 
 
 <!-- footer -->
-<div style="    position: absolute;    left: 0;    bottom: 0;    width: 100%;    height: 80px;">
+<div style="position: absolute;left: 0;bottom: 0;width: 100%;height: 80px;">
 <?php
 footerr();
 
@@ -179,7 +180,10 @@ $(document).ready(function(){
 		});
 
 	</script>-->
-
+<script type="text/javascript">
+	function clear(){
+	item.length = 0;}
+</script>
 	<style>
 .sticky {
   position: fixed;
@@ -217,15 +221,18 @@ function Ascroll() {
   }
   var Ra = a.getBoundingClientRect(),
       R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('#article').getBoundingClientRect().bottom);  // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
-  if ((Ra.top - P) <= 0) {
+    if ((Ra.top - P) <= 0) {
     if ((Ra.top - P) <= R) {
+    	b.style.width = '100%';
       b.className = 'stop';
       b.style.top = - R +'px';
     } else {
+    	b.style.width = '19%';
       b.className = 'sticky';
       b.style.top = P + 'px';
     }
   } else {
+  	b.style.width = '100%';
     b.className = '';
     b.style.top = '';
   }

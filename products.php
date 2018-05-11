@@ -155,6 +155,8 @@ sideMenu($resus);
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script>
+
+
 $(document).ready(function(){
     $(".dropdown").hover(            
         function() {
@@ -170,6 +172,7 @@ $(document).ready(function(){
 </script>
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
+		
 		$(document).ready(function() {
 			/*
 				var defaults = {
@@ -187,6 +190,7 @@ $(document).ready(function(){
 <!-- //here ends scrolling icon -->
 <script src="js/minicart.js"></script>
 <script>
+
 		paypal.minicart.render();
 
 		paypal.minicart.cart.on('checkout', function (evt) {
@@ -245,15 +249,18 @@ function Ascroll() {
   }
   var Ra = a.getBoundingClientRect(),
       R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('#article').getBoundingClientRect().bottom);  
-  if ((Ra.top - P) <= 0) {
+    if ((Ra.top - P) <= 0) {
     if ((Ra.top - P) <= R) {
+    	b.style.width = '100%';
       b.className = 'stop';
       b.style.top = - R +'px';
     } else {
+    	b.style.width = '19%';
       b.className = 'sticky';
       b.style.top = P + 'px';
     }
   } else {
+  	b.style.width = '100%';
     b.className = '';
     b.style.top = '';
   }

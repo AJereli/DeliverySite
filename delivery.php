@@ -6,9 +6,9 @@
 <body>
 <!-- header -->
 	<?php
-	mysqli_query($conn, "SET NAMES 'utf8'"); 
+	 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-			
+	mysqli_query($conn, "SET NAMES 'utf8'");		
 		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
 		if(!$resus)
 		{

@@ -49,6 +49,7 @@ $sdd_db_host='127.0.0.1';
 	
 	<?php
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+ 
 			
 		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
 		if(!$resus)
@@ -227,15 +228,18 @@ function Ascroll() {
   }
   var Ra = a.getBoundingClientRect(),
       R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('#article').getBoundingClientRect().bottom);  // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
-  if ((Ra.top - P) <= 0) {
+    if ((Ra.top - P) <= 0) {
     if ((Ra.top - P) <= R) {
+    	b.style.width = '100%';
       b.className = 'stop';
       b.style.top = - R +'px';
     } else {
+    	b.style.width = '19%';
       b.className = 'sticky';
       b.style.top = P + 'px';
     }
   } else {
+  	b.style.width = '100%';
     b.className = '';
     b.style.top = '';
   }

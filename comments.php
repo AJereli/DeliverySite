@@ -8,12 +8,13 @@ $time=date("d.m.y G:i:s");
 
 	
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+ 
 	
 	if($email){
 		
 
 	$stmt = $conn->prepare ("INSERT INTO comments (name, comm, timee, email)VALUES(?,?,?,?)");
-	$stmt->bind_param('ssss',$name, $email, $comment, $time);
+	$stmt->bind_param('ssss',$name, $comment, $time, $email);
 	$stmt->execute();
 
 	}
@@ -88,10 +89,10 @@ while($row = $result->fetch_assoc())
 
 	function printcomm($id,$name,$comm,$time){
 	echo '
-	<div style="border-bottom:2px solid red";>
+	<div style="padding:1em; border-bottom:2px dotted; width:60%">
 	<h2>'.$name.'</h2>
-	<h4>'.$comm.'</h4>
-	<h4>'.$time.'</h4>
+	<div style="padding :5px;">	<h4>'.$comm.'</h4></div>
+	<div style="padding :5px;">	<h4>'.$time.'</h4></div>
 	</div>
 ';}
 ?>
@@ -213,15 +214,18 @@ function Ascroll() {
   }
   var Ra = a.getBoundingClientRect(),
       R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('#article').getBoundingClientRect().bottom);  // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
-  if ((Ra.top - P) <= 0) {
+    if ((Ra.top - P) <= 0) {
     if ((Ra.top - P) <= R) {
+    	b.style.width = '100%';
       b.className = 'stop';
       b.style.top = - R +'px';
     } else {
+    	b.style.width = '19%';
       b.className = 'sticky';
       b.style.top = P + 'px';
     }
   } else {
+  	b.style.width = '100%';
     b.className = '';
     b.style.top = '';
   }

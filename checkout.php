@@ -7,13 +7,14 @@
 <!-- header -->
 	<?php
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+ 
 			
 		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
 		if(!$resus)
 		{
 			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
 		}
-hheaderr($resus);
+headerr($resus);
 ?>
 <!-- script-for sticky-nav -->
 	<script>
@@ -69,6 +70,7 @@ sideMenu($resus);
 	      	<?php  
 	      	
 			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
 
 			if ($conn->connect_errno) {
 				throw new Exception(mysqli_connect_errno());
@@ -307,6 +309,39 @@ footerr();
 									});	  
 								});
 						   </script>
+						   <script>$(document).ready(function(c) {
+								$('.close8').on('click', function(c){
+									$('.rem8').fadeOut('slow', function(c){
+										$('.rem8').remove();
+									});
+									});	  
+								});
+						   </script>
+						   <script>$(document).ready(function(c) {
+								$('.close9').on('click', function(c){
+									$('.rem9').fadeOut('slow', function(c){
+										$('.rem9').remove();
+									});
+									});	  
+								});
+						   </script>
+						   <script>$(document).ready(function(c) {
+								$('.close10').on('click', function(c){
+									$('.rem10').fadeOut('slow', function(c){
+										$('.rem10').remove();
+									});
+									});	  
+								});
+						   </script>
+						   <script>$(document).ready(function(c) {
+								$('.close11').on('click', function(c){
+									$('.rem11').fadeOut('slow', function(c){
+										$('.rem11').remove();
+									});
+									});	  
+								});
+						   </script>
+
 
 
 <!-- //js -->
@@ -427,15 +462,18 @@ function Ascroll() {
   }
   var Ra = a.getBoundingClientRect(),
       R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('#article').getBoundingClientRect().bottom);  // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
-  if ((Ra.top - P) <= 0) {
+    if ((Ra.top - P) <= 0) {
     if ((Ra.top - P) <= R) {
+    	b.style.width = '100%';
       b.className = 'stop';
       b.style.top = - R +'px';
     } else {
+    	b.style.width = '19%';
       b.className = 'sticky';
       b.style.top = P + 'px';
     }
   } else {
+  	b.style.width = '100%';
     b.className = '';
     b.style.top = '';
   }

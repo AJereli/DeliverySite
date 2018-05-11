@@ -34,6 +34,7 @@ echo '
 			});
 		});
 	</script>
+	<script type="text/javascript" src="//vk.com/js/api/openapi.js?154"></script>
 	<!-- start-smoth-scrolling -->
 	</head>
 ';
@@ -113,7 +114,7 @@ echo '
 function sideMenu($resus){
 
 	echo '
-	<div id="aside1">
+	<div id="aside1" style="width:19%">
 	<div class="banner" style="padding-top:46px;">
 		<div class="w3l_banner_nav_left">
 			<nav class="navbar nav_bottom">
