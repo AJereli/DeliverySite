@@ -29,7 +29,7 @@ $time=date("d.m.y G:i:s");
 	
 	<?php
 
-			
+mysqli_query($conn, "SET NAMES 'utf8'"); 
 		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
 		if(!$resus)
 		{

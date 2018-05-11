@@ -5,6 +5,8 @@
 	
 </head>
 <body>
+<br>
+ <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
 <?php
 include("config.php");
 // function can_upload($file){
@@ -102,8 +104,7 @@ if ($errorMSG === ""){
 
 
 ?>
-<br>
- <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
+
 
  </body>
  </html>
