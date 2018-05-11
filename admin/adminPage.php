@@ -54,7 +54,7 @@
 					<div class="col-sm-6 col-sm-offset-3">
 						<div class="well" style="margin-top: 10%;">
 						<h3>Добавить позицию</h3>
-						<form enctype="multipart/form-data" role="form" method="post" action="addProcessing.php" id="contactForm" data-toggle="validator" class="shake">
+						<form enctype="multipart/form-data" method="post" action="addProcessing.php" id="contactForm" data-toggle="validator" class="shake">
 							<div class="row">
 								<div class="form-group col-sm-6">
 									<label for="name" class="h4">Название</label>
