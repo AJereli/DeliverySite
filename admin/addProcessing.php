@@ -74,7 +74,7 @@ if ($errorMSG === ""){
 		}
 		else {$image_name = "";}
 
-	//try {
+	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
 
