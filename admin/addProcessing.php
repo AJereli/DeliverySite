@@ -7,7 +7,7 @@
 <body>
 <br>
  <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
-<?php
+
 include("config.php");
 // function can_upload($file){
 //     if($file['name'] == '')
@@ -103,7 +103,7 @@ if ($errorMSG === ""){
 }
 
 
-?>
+
 
 
  </body>
