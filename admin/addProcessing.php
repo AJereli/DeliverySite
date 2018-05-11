@@ -54,11 +54,9 @@ if (empty($_POST["description"])) {
     $description = $_POST["description"];
 }
 
-if (!isset($_FILES['file'])){
-	$errorMSG .= "Необходимо выбрать картинку\n";
-}else{
-	$file = $_FILES['file'];
-}
+
+$file = $_FILES['file'];
+
 
 if ($errorMSG === ""){
     $image_name = "";
