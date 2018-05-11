@@ -54,7 +54,7 @@
 					<div class="col-sm-6 col-sm-offset-3">
 						<div class="well" style="margin-top: 10%;">
 						<h3>Добавить позицию</h3>
-						<form  method="post" action="addProcessing.php" id="contactForm" data-toggle="validator" class="shake">
+						<form enctype="multipart/form-data" role="form" method="post" action="addProcessing.php" id="contactForm" data-toggle="validator" class="shake">
 							<div class="row">
 								<div class="form-group col-sm-6">
 									<label for="name" class="h4">Название</label>
@@ -73,20 +73,19 @@
 								<div class="help-block with-errors"></div>
 							</div>
 							
-							<!--
 							<label class="btn btn-primary" for="my-file-selector">
 							          <input type="file" name="file" id="file" >
 							</label>
 							
 							<span class='label label-info' id="upload-file-info"></span>
-							-->
+							
 							<select name="type" size="1"  form="contactForm">
 							<?
 							
 								while($row = mysqli_fetch_array($resus))
 								{
 									//value=\"".$row["name"]."\"
-									echo "<option>".$row["name"]."</option>";
+									echo "<option >".$row["name"]."</option>";
 
 									
 								}

@@ -1,4 +1,5 @@
-﻿</<!DOCTYPE html>
+﻿<?include("config.php");?>
+</<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -8,7 +9,7 @@
 <br>
  <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
 <?php
-include("config.php");
+
 // function can_upload($file){
 //     if($file['name'] == '')
 // 		return 'Вы не выбрали файл.\n';
@@ -37,24 +38,24 @@ include("config.php");
 
 $errorMSG = "";
 
-if (empty($_POST["name"])) {
+if (isset($_POST["name"])) {
     $errorMSG = "Имя надо бы ввести<br>";
 } else {
     $name = $_POST["name"];
 }
 
 
-if (empty($_POST["price"])) {
-    $errorMSG .= "Надо ввести цену<br>";
-} else {
-    $price = $_POST["price"];
-}
+// if (empty($_POST["price"])) {
+//     $errorMSG .= "Надо ввести цену<br>";
+// } else {
+//     $price = $_POST["price"];
+// }
 
-if (empty($_POST["description"])) {
-    $errorMSG .= "Надо ввести описание<br>";
-} else {
-    $description = $_POST["description"];
-}
+// if (empty($_POST["description"])) {
+//     $errorMSG .= "Надо ввести описание<br>";
+// } else {
+//     $description = $_POST["description"];
+// }
 
 
 // $file = $_FILES['file'];
