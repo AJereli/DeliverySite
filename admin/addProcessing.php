@@ -77,13 +77,15 @@ if ($errorMSG === ""){
 	// 	  }
 	// 	}
 	// 	else {$image_name = "";}
-	
+	echo "eqwe";
 	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
+	echo "eqwe1";
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
+	echo "eqwe2";
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)');
 
 	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
