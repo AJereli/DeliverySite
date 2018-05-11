@@ -1,11 +1,7 @@
 <?
-/*$db_host='localhost:3306'; 
+$db_host='localhost:3306'; 
 $db_name='u0504700_site'; 
 $db_user='u0504700_root'; 
-$db_pass='magicPASSWORD_f1';*/
-$db_host='localhost'; 
-$db_name='site'; 
-$db_user='root'; 
-$db_pass='';
+$db_pass='magicPASSWORD_f1';
 
 ?>
