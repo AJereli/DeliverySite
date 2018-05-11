@@ -35,7 +35,6 @@ $errorCode = $file['error'];
 	move_uploaded_file($file['tmp_name'], '../images/' . $image_name);
 	return $image_name;
   }
-  echo "0n:".$name . "d:". $description ."p: ". $price ."t". $type;
 $errorMSG = "";
 
 if (!isset($_POST["name"])) {
@@ -43,14 +42,12 @@ if (!isset($_POST["name"])) {
 } else {
     $name = $_POST["name"];
 }
-
-echo "01n:".$name . "d:". $description ."p: ". $price ."t". $type;
 if (!isset($_POST["price"])) {
     $errorMSG .= "Надо ввести цену<br>";
 } else {
     $price = $_POST["price"];
 }
-echo "02n:".$name . "d:". $description ."p: ". $price ."t". $type;
+
 if (!isset($_POST["description"])) {
     $errorMSG .= "Надо ввести описание<br>";
 } else {
@@ -58,39 +55,37 @@ if (!isset($_POST["description"])) {
 }
 
 $type = $_POST["type"];
-// $file = $_FILES['file'];
+$file = $_FILES['file'];
 
 
 $image_name = "";
 
-
-echo "2n:".$name . "d:". $description ."p: ". $price ."t". $type;
 if ($errorMSG === ""){
-    // $image_name = "";
-	// if(isset($_FILES['file'])) {
+    $image_name = "";
+	if(isset($_FILES['file'])) {
 		 
-	// 	  $check = can_upload($_FILES['file']);
+		  $check = can_upload($_FILES['file']);
 		
-	// 	  if($check === true){
-	// 		$image_name = make_upload($_FILES['file']);
+		  if($check === true){
+			$image_name = make_upload($_FILES['file']);
 			
-	// 	  }
+		  }
 		  
-	// 	}
-	// 	else {$image_name = "";}
-	echo "3n:".$name . "d:". $description ."p: ". $price ."t". $type;
+		}
+		else {$image_name = "";}
+
 	//try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
-	echo "31n:".$name . "d:". $description ."p: ". $price ."t". $type;
+
 	
 	
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, img_path, type) VALUES (?, ?, ?, ?, ?)');
 
-	echo "32n:".$name . "d:". $description ."p: ". $price ."t". $type;
+
 	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
 	
-	echo "4n:".$name . "d:". $description ."p: ". $price ."t". $type;
+	
 	
 	$stmt->execute();
 		printf("Errormessage: %s\n", $conn->error);
@@ -98,11 +93,11 @@ if ($errorMSG === ""){
 	echo "Позиция теперь на своем месте!";
 	$stmt->close();
 	$conn->close();
-	// }
-	// catch(PDOException $e)
-    // {
-	// 	echo "Error: " . $e->getMessage();
-    // }
+	}
+	catch(PDOException $e)
+    {
+		echo "Error: " . $e->getMessage();
+    }
 	$conn = null;
 }else{
 	echo $errorMSG;
