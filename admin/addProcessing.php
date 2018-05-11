@@ -59,24 +59,24 @@ if (!isset($_FILES['file'])){
 }else{
 	$file = $_FILES['file'];
 }
-$type = $_POST["type"];
+
 if ($errorMSG === ""){
     $image_name = "";
-	if(isset($_FILES['file'])) {
+	// if(isset($_FILES['file'])) {
 		 
-		  $check = can_upload($_FILES['file']);
+	// 	  $check = can_upload($_FILES['file']);
 		
-		  if($check === true){
-			$image_name = make_upload($_FILES['file']);
-			echo "<strong>Файл успешно загружен!</strong>\n";
-		  }
-		  else{
+	// 	  if($check === true){
+	// 		$image_name = make_upload($_FILES['file']);
+	// 		echo "<strong>Файл успешно загружен!</strong>\n";
+	// 	  }
+	// 	  else{
 
-			echo "<strong>".$check."</strong>";  
+	// 		echo "<strong>".$check."</strong>";  
 			
-		  }
-		}
-		else {$image_name = "";}
+	// 	  }
+	// 	}
+	// 	else {$image_name = "";}
 	
 	try {
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
