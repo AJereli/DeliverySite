@@ -1,8 +1,7 @@
 ﻿<?php
 include("config.php");
 function can_upload($file){
-    if($file['name'] == '')
-		return 'Вы не выбрали файл.\n';
+    
 
 $errorCode = $file['error'];
 
