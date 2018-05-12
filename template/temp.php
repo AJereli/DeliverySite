@@ -74,7 +74,7 @@ echo '
                 <fieldset>
                     <input type="hidden" name="cmd" value="_cart" />
                     <input type="hidden" name="display" value="1" />
-                    <input type="submit" name="submit" value="Ваша корзина" class="button" />
+                    <input type="submit" name="submit" value="Ваша корзина" class="button" style="border-color:white;"/>
                 </fieldset>
             </form>
 		</div>
@@ -83,24 +83,24 @@ echo '
 		<div class="clearfix"> </div>
 	</div>
 
-	<div class="logo_products">
+	<div class="logo_products" style="background:#212121;">
 			<div class="w3l_banner_nav_right_banner6">
 				
 			</div>
 
 		<div class="container">
 			<div class="w3ls_logo_products_left1">
-				<ul class="special_items">
-					<li><a href="index.php">Меню</a><i>/</i></li>
-					<li><a href="delivery.php">Доставка</a><i>/</i></li>
-					<li><a href="comments.php">Отзывы</a><i>/</i></li>
-					<li><a href="promo.php">Акции</a><i>/</i></li>
-					<li><a href="about.php">Контакты</a></li>
+				<ul class="special_items" style="color:red;">
+					<li><a href="index.php" style="color: white;">Меню</a><i>/</i></li>
+					<li><a href="delivery.php" style="color: white;">Доставка</a><i>/</i></li>
+					<li><a href="comments.php" style="color: white;">Отзывы</a><i>/</i></li>
+					<li><a href="promo.php" style="color: white;">Акции</a><i>/</i></li>
+					<li><a href="about.php" style="color: white;">Контакты</a></li>
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left1">
 				<ul class="phone_email">
-					<li><i class="fa fa-phone" aria-hidden="true"></i>+7 (918) 906-71-25</li>
+					<li style="color:white;"><i class="fa fa-phone" aria-hidden="true"></i>+7 (918) 906-71-25</li>
 					
 				</ul>
 			</div>

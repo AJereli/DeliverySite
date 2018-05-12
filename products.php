@@ -80,8 +80,8 @@ sideMenu($resus);
 			while($row = mysql_fetch_array($result))
 			{
 				$image = "placeholder.jpg";
-				if ($row['image'] != ""){
-					$image = $row['image'];
+				if ($row['img_path'] != ""){
+					$image = $row['img_path'];
 				}
 				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$image);
 				
