@@ -10,7 +10,7 @@
 	if ($FIO == "" || $number == "" || $adress == "" || $order == "" || $total == ""){
 		echo $FIO . $number . $adress . $order . $total;
 		echo "Что-то пошло не так<br>";
-		echo '<a href="http://rpatrik.ru">На главную</a>';
+		echo '<a href="http://rp-dostavka.ru">На главную</a>';
 		exit();
 	}
 	$stmt = $conn->prepare ('INSERT INTO orders (products, client_name, address, summ, additional)VALUES(?,?,?,?,?)');
