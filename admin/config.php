@@ -84,6 +84,9 @@ function printSideMenu(){
                     <li>
                         <a href="type.php"><i class="fa fa-desktop "></i>Добавить тип</a>
                     </li>
+					  <li>
+                        <a href="settings.php"><i class="fa fa-desktop "></i>Настройки</a>
+                    </li>
                     <li>
                         <a href=""><i class="fa fa-edit "></i>Страница в разработке</a>
                     </li>
