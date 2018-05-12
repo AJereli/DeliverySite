@@ -64,7 +64,7 @@ sideMenu($resus);
 			<?php 
 			
 			
-			$result = $conn->query('SELECT * FROM `products` ORDER BY `id` DESC '); 
+			$result = $conn->query('SELECT * FROM `products` ORDER BY `id` DESC ';); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
