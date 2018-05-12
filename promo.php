@@ -78,7 +78,7 @@ $result = $conn->query('SELECT * FROM `promo`ORDER BY `id` DESC');
 						<img title=" " width="185" height="155"  alt=" " src="images/'.$image.'" />	
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right"style=" height:155px;">
-						<h4>'.$label.'</h4>
+						<h4 style="padding-top:1em;">'.$label.'</h4>
 						<p>'.$description.'</p>
 					</div>
 					<div class="clearfix"> </div>

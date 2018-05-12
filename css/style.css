@@ -2262,6 +2262,7 @@ ul.wmuSliderPagination {
     padding-left: 3em;
     border-bottom: 1px solid #D2D2D2;
     padding-bottom: 1.25em;
+    margin-left: 1em;
 }
 .w3agile_event_grid_right h4{
 	font-size: 1.1em;
@@ -2940,7 +2941,7 @@ input.checkbox:checked:after {
 		margin: 4.5em 0 0;
 	}
 	.w3agile_event_grid_right {
-		padding-left: 2em;
+		padding-left: 1em;
 	}
 	.w3agile_event_grid_right h4 {
 		font-size: 1em;
@@ -2962,6 +2963,10 @@ input.checkbox:checked:after {
 	.w3l_search {
 		margin: .1em 0 0em 6em;
 	}
+    .w3agile_event_grid_left {
+    border-bottom: 0;
+
+    }
 	.w3l_banner_nav_right_banner1, .w3l_banner_nav_right_banner, .w3l_banner_nav_right_banner2 {
 		padding: 7em 13em 0 0;
 		min-height: 375px;
@@ -3493,15 +3498,7 @@ input.checkbox:checked:after {
 		float: left;
 		width: 50%;
 	}
-	.w3agile_event_grid_right {
-		float: right;
-		width: 80%;
-	}
-	.w3agile_event_grid_left {
-		height: 117px;
-		float: left;
-		width: 20%;
-	}
+
 	.w3agile_event_grid_left i {
 		padding-top: 1em;
 	}
