@@ -74,7 +74,7 @@ echo '
                 <fieldset>
                     <input type="hidden" name="cmd" value="_cart" />
                     <input type="hidden" name="display" value="1" />
-                    <input type="submit" name="submit" value="Ваша корзина" class="button" />
+                    <input type="submit" name="submit" value="Ваша корзина" class="button" style="border-color:white;"/>
                 </fieldset>
             </form>
 		</div>
@@ -83,7 +83,7 @@ echo '
 		<div class="clearfix"> </div>
 	</div>
 
-	<div class="logo_products" style="background:black;">
+	<div class="logo_products" style="background:#212121;">
 			<div class="w3l_banner_nav_right_banner6">
 				
 			</div>

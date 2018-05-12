@@ -53,11 +53,12 @@ sideMenu($resus);
 			<h3>Акции</h3>
 
 <?php
-$result = $conn->query('SELECT * FROM `promo`'); 
+$result = $conn->query('SELECT * FROM `promo`ORDER BY `id` DESC'); 
 	if(!$result)
 	{
 		throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
 	}
+	
 	while($row = $result->fetch_assoc())
 	{
 		$image = "placeholder.jpg";
@@ -77,8 +78,8 @@ $result = $conn->query('SELECT * FROM `promo`');
 						<img title=" " width="185" height="155"  alt=" " src="images/'.$image.'" />	
 					</div>
 					<div class="col-md-9 w3agile_event_grid_right"style=" height:155px;">
-						<h4>"'.$label.'"</h4>
-						<p>"'.$description.'"</p>
+						<h4>'.$label.'</h4>
+						<p>'.$description.'</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
