@@ -8,6 +8,7 @@
 	$order = $conn->real_escape_string($_POST['order']);
 	$total = $conn->real_escape_string($_POST['total']);
 	if ($FIO == "" || $number == "" || $adress == "" || $order == "" || $total == ""){
+		echo $FIO . $number . $adress . $order . $total;
 		echo "Что-то пошло не так<br>";
 		echo '<a href="http://rpatrik.ru">На главную</a>';
 		exit();
