@@ -1,7 +1,11 @@
 <? include("template/temp.php");?>
 <!DOCTYPE html>
 <html>
-<? head();?>
+<?
+echo "<pre>"; 
+print_r($_POST); 
+echo "</pre><hr>";
+ head();?>
 	
 <body>
 <!-- header -->
@@ -63,7 +67,7 @@ sideMenu($resus);
 							<th>Название</th>
 						
 							<th>Цена</th>
-							<th>Убрать</th>
+
 						</tr>
 					</thead>
 					<tbody>
@@ -119,8 +123,8 @@ sideMenu($resus);
 					if($row['name']==$_POST[$key])
 					{	
 						$image = "placeholder.jpg";
-						if ($_POST['image'] != ""){
-							$image = $_POST['image'];
+						if ($row['img_path'] != ""){
+							$image = $row['img_path'];
 						}
 							
 						$in+=1;
