@@ -23,20 +23,17 @@
             </div>
         </div>
         <!-- /. NAV TOP  -->
-      <?
+      <?php
 		printSideMenu();
 
 		$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-		mysqli_query($conn, "SET NAMES 'utf8'"); 
-		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
-
 	  ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>Добавить позицию</h2>   
+                     <h2>Изменить состояние</h2>   
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -44,7 +41,7 @@
                 <div class="row">
                     <div class="col-lg-12 ">
                         <div class="alert alert-info">
-                             Для добавление информации заполните форму ниже
+                             Введите корректное название продукта чтоб поменять его состояние
                         </div>
                        
                     </div>
@@ -53,53 +50,17 @@
 				  <div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
 						<div class="well" style="margin-top: 10%;">
-						<h3>Добавить позицию</h3>
-						<form enctype="multipart/form-data" role="form" method="post" action="addProcessing.php" id="contactForm" data-toggle="validator" class="shake">
+						<h3>Добавить тип</h3>
+						<form enctype="multipart/form-data" role="form" method="post" action="addHot.php" id="contactForm" data-toggle="validator" class="shake">
 							<div class="row">
-								<div class="form-group col-sm-6">
+								<div class="form-group col-sm-6" style="width: 100%;">
 									<label for="name" class="h4">Название</label>
-									<input type="text" class="form-control" name="name" id="name" placeholder="Название" required data-error="NEW ERROR MESSAGE">
-									<div class="help-block with-errors"></div>
-								</div>
-								<div class="form-group col-sm-6">
-									<label for="text" class="h4">Цена</label>
-									<input type="text" class="form-control" name="price" id="price" placeholder="100" required>
-									<div class="help-block with-errors"></div>
-								</div>
-								<div class="form-group col-sm-6">
-									<label for="text" class="h4">Вес</label>
-									<input type="text" class="form-control" name="weight" id="weight" placeholder="150" required>
+									<input type="text" class="form-control" name="name" id="name" placeholder="Ролл" required data-error="NEW ERROR MESSAGE">
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="text" class="h4 ">Описание</label>
-								<textarea id="description" class="form-control" name="description" rows="5" placeholder="Введите описание" required></textarea>
-								<div class="help-block with-errors"></div>
-							</div>
-							
-							<label class="btn btn-primary" for="my-file-selector">
-							          <input type="file" name="file" id="file" >
-							</label>
-							
-							<span class='label label-info' id="upload-file-info"></span>
-							
-							<select name="type" size="1"  form="contactForm">
-							<?
-							
-								while($row = mysqli_fetch_array($resus))
-								{
-									//value=\"".$row["name"]."\"
-									echo "<option>".$row["name"]."</option>";
-
-									
-								}
-							?>
-							
-							
-							</select>
-							
-							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
+													
+							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Изменить</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>
 							<div class="clearfix"></div>
 						</form>

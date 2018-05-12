@@ -83,11 +83,11 @@ sideMenu($resus);
 				if ($row['img_path'] != ""){
 					$image = $row['img_path'];
 				}
-				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$image);
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'],$image,$row['weight']);
 				
 			}
 			
-			function printProducts($id, $name, $description, $price, $image) {
+			function printProducts($id, $name, $description, $price, $image,$weight) {
 				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
@@ -105,7 +105,7 @@ sideMenu($resus);
 											<div style="height:4em;overflow: hidden;margin-bottom:0.5em;">
 												<p style="margin:0 0 0;">'.$description.'</p>
 											</div>
-
+											<p style="margin-bottom:0.5em;">Вес: '.$weight.' гр.</p>
 											<h4>'.$price.' р.</h4>
 										</div>
 										<div class="snipcart-details top_brand_home_details">

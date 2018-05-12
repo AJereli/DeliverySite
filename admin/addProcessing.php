@@ -53,6 +53,11 @@ if (!isset($_POST["description"])) {
 } else {
     $description = $_POST["description"];
 }
+if (!isset($_POST["weight"])) {
+    $errorMSG = "Вес забыли указать<br>";
+} else {
+    $weight = $_POST["weight"];
+}
 
 $type = $_POST["type"];
 $file = $_FILES['file'];
@@ -80,10 +85,10 @@ if ($errorMSG === ""){
 	mysqli_query($conn, "SET NAMES 'utf8'");
 	
 	
-	$stmt = $conn->prepare('INSERT INTO products (name, description, price, img_path, type) VALUES (?, ?, ?, ?, ?)');
+	$stmt = $conn->prepare('INSERT INTO products (name, description, price, img_path, weight, type) VALUES (?, ?, ?, ?, ?, ?)');
 
 
-	$stmt->bind_param("sssss", $name, $description, $price, $image_name, $type);
+	$stmt->bind_param("ssssss", $name, $description, $price, $image_name, $weight, $type);
 	
 	
 	

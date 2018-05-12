@@ -64,7 +64,7 @@ sideMenu($resus);
 			<?php 
 			
 			
-			$result = $conn->query('SELECT * FROM `products`'); 
+			$result = $conn->query('SELECT * FROM `products` WHERE(`isHot` LIKE "1")'); 
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
@@ -76,11 +76,11 @@ sideMenu($resus);
 				if ($row['img_path'] != ""){
 					$image = $row['img_path'];
 				}
-				printProducts($row['id'], $row['name'], $row['description'], $row['price'], $image);
+				printProducts($row['id'], $row['name'], $row['description'], $row['price'], $image,$row['weight']);
 			}
 
 			
-			function printProducts($id, $name, $description, $price, $image) {
+			function printProducts($id, $name, $description, $price, $image,$weight) {
 				echo '
 				<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
@@ -100,6 +100,7 @@ sideMenu($resus);
 											<div style="height:60px;overflow: hidden;margin-bottom:0.5em;">
 												<p style="margin:0 0 0;">'.$description.'</p>
 											</div>
+											<p style="margin-bottom:0.5em;">Вес: '.$weight.' гр.</p>
 											<h4>'.$price.' р.</h4>
 										</div>
 										<div class="snipcart-details top_brand_home_details">
