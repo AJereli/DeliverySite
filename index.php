@@ -64,7 +64,11 @@ sideMenu($resus);
 			<?php 
 			
 			
+<<<<<<< HEAD
 			$result = $conn->query('SELECT * FROM `products` WHERE(`isHot` LIKE "1")'); 
+=======
+			$result = $conn->query('SELECT * FROM `products` ORDER BY `id`  ;'); 
+>>>>>>> 8a80741f9275b6d758b56789bbc4bf1e24b5cce6
 			if(!$result)
 			{
 				throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
