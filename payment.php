@@ -1,8 +1,6 @@
 
 <?php
-echo "<pre>"; 
-print_r($_POST); 
-echo "</pre><hr>";
+
 	include("config.php");
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	

@@ -2,9 +2,7 @@
 <!DOCTYPE html>
 <html>
 <?
-echo "<pre>"; 
-print_r($_POST); 
-echo "</pre><hr>";
+
  head();?>
 	
 <body>
