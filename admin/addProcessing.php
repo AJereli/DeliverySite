@@ -95,7 +95,7 @@ if ($errorMSG === ""){
 	$stmt->execute();
 	
 
-	echo "Позиция теперь на своем месте!";
+	header('Location:http://deliverysite/admin/');
 	$stmt->close();
 	$conn->close();
 	}

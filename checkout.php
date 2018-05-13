@@ -192,19 +192,19 @@ sideMenu($resus);
 								<div class="first-row form-group">
 									<div class="controls">
 										<label class="control-label">ФИО: </label>
-										<input class="billing-address-name form-control" type="text" name="ФИО" placeholder="Иванов Иван Иванович">
+										<input class="billing-address-name form-control" type="text" name="ФИО" required placeholder="Иванов Иван Иванович">
 									</div>
 									<div class="w3_agileits_card_number_grids">
 										<div class="w3_agileits_card_number_grid_left">
 											<div class="controls">
 												<label class="control-label">Номер телефона:</label>
-												<input class="form-control" type="text" name="Номер" placeholder="+79780000000">
+												<input class="form-control" type="text" name="Номер" required placeholder="+79780000000">
 											</div>
 										</div>
 										<div class="w3_agileits_card_number_grid_right">
 											<div class="controls">
 												<label class="control-label">Адрес: </label>
-												<input class="form-control" type="text" name="Адрес" placeholder="г. Симферополь, ул. Кирова 15">
+												<input class="form-control" type="text" name="Адрес" required placeholder="г. Симферополь, ул. Кирова 15">
 											</div>
 										</div>
 										<div class="clear"> </div>

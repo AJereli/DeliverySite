@@ -63,30 +63,33 @@
 					<div class="col-sm-6 col-sm-offset-3">
 						<div class="well" style="margin-top: 10%;">
 						<h3>Добавить позицию</h3>
-						<form enctype="multipart/form-data" role="form" method="post" action="edit_control.php" id="contactForm" data-toggle="validator" class="shake">
+						<?php
+						$resul = mysqli_query($conn,'SELECT * FROM `products` WHERE(`id` LIKE "'.$_POST['id'].'");');
+						$row2 = mysqli_fetch_array($resul);
+						echo '<form enctype="multipart/form-data" role="form" method="post" action="edit_control.php" id="contactForm" data-toggle="validator" class="shake">
 							<div class="row">
 								<div class="form-group col-sm-6">
 									<label for="name" class="h4">Название</label>
-									<input type="text" class="form-control" name="name" id="name" placeholder="Название"  data-error="NEW ERROR MESSAGE">
+									<input type="text" class="form-control" name="name" id="name" placeholder="Название" value="'.$row2['name'].'"  data-error="NEW ERROR MESSAGE">
 									<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group col-sm-6">
 									<label for="text" class="h4">Цена</label>
-									<input type="text" class="form-control" name="price" id="price" placeholder="100" >
+									<input type="text" class="form-control" name="price" id="price" placeholder="100" value="'.$row2['price'].'" >
 									<div class="help-block with-errors"></div>
-								</div>
-								<?php
-									echo '<input type="hidden" name="id" value="'.$_POST['id'].'" />';
-								?>
+								</div>';
+
+								echo '<input type="hidden" name="id" value="'.$_POST['id'].'" />';
+								echo '
 								<div class="form-group col-sm-6">
 									<label for="text" class="h4">Вес</label>
-									<input type="text" class="form-control" name="weight" id="weight" placeholder="150" >
+									<input type="text" class="form-control" name="weight" id="weight" placeholder="150" value="'.$row2['weight'].'">
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="text" class="h4 ">Описание</label>
-								<textarea id="description" class="form-control" name="description" rows="5" placeholder="Введите описание" ></textarea>
+								<textarea id="description" class="form-control" name="description" rows="5" placeholder="Введите описание" >'.$row2['description'].'</textarea>
 								<div class="help-block with-errors"></div>
 							</div>
 							
@@ -94,27 +97,31 @@
 							          <input type="file" name="file" id="file" >
 							</label>
 							
-							<span class='label label-info' id="upload-file-info"></span>
+							<span class="label label-info" id="upload-file-info"></span>
 							
-							<select name="type" size="1"  form="contactForm">
-							<?
+							<select name="type" size="1"  form="contactForm">';
+							
 							
 								while($row = mysqli_fetch_array($resus))
 								{
-									//value=\"".$row["name"]."\"
+									if($row['name']==$_POST['type'])
+									{
+										echo "<option selected>".$row["name"]."</option>";
+									}
 									echo "<option>".$row["name"]."</option>";
 
 									
 								}
-							?>
 							
 							
-							</select>
+							
+							echo '</select>
 							
 							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>
 							<div class="clearfix"></div>
-						</form>
+						</form>';
+						?>
 						</div>
 					</div>
 					</div>

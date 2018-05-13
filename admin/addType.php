@@ -46,9 +46,10 @@ mysqli_query($conn, "SET NAMES 'utf8'");
 	$stmt->execute();
 	
 
-	echo "Позиция теперь на своем месте!";
+	
 	$stmt->close();
 	$conn->close();
+	header('Location:http://deliverysite/admin/');
 	}
 	catch(PDOException $e)
     {

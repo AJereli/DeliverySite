@@ -113,6 +113,7 @@ printHead();
 					echo '<td>
 					<form action="edit_view.php" method="post" id="success_form">';
 						echo '<input type="hidden" name="id" value="'.$id.'"/>';
+						echo '<input type="hidden" name="type" value="'.$type.'"/>';
 					echo 
 					'<button type="submit" class="btn btn-success" value="Submit">Изменить</button>
 					</form></td>';

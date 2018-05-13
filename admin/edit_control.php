@@ -127,9 +127,9 @@ if ($errorMSG === ""){
 			$stmt->close();
 			}
 		}
-echo "Позиция теперь на своем месте!";
-}
 
+}
+header('Location:http://deliverysite/admin/edit.php');
 }
 ?>
 
