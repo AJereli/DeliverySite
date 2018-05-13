@@ -79,7 +79,7 @@ function printSideMenu(){
                         <a href="edit.php" ><i class="fa fa-edit "></i>Редактировать записи</a>
                     </li>
                     <li class="active-link">
-                        <a href="promo_view.php" ><i class="fa fa-times "></i>Редактировать записи</a>
+                        <a href="promo_view.php" ><i class="fa fa-times "></i>Редактировать акции</a>
                     </li>
                     <li>
                         <a href=""><i class="fa fa-edit "></i>Страница в разработке</a>

@@ -22,9 +22,26 @@ if ($_POST['delete']=="1") {
 		{
 			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
 		}
-	echo "удалилось!";
+	echo "Удалилось!";
 
-}else{
+}else if ($_POST['addHot']=="1") {
+	$result = mysqli_query ($conn,'UPDATE products SET isHot="1" WHERE id="'.$_POST['id'].'";');
+	if(!$result)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+	echo "ЭТО ЛУЧШЕЕ ПРЕДЛОЖЕНИЕ!";
+}
+else if ($_POST['delHot']=="1") {
+	$result = mysqli_query ($conn,'UPDATE products SET isHot="0" WHERE id="'.$_POST['id'].'";');
+	if(!$result)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+	echo "Это предложение уже не так хорошо!";
+}
+else
+{
 
 function can_upload($file){
     if($file['name'] == '')

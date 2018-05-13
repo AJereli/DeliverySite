@@ -197,42 +197,7 @@
 						</div>
 					</div>
 					</div>	
-					<div class="row">
-                    <div class="col-lg-12">
-                     <h2>Лучшие предложения</h2>   
-                    </div>
-                </div>              
-                 <!-- /. ROW  -->
-                  <hr />
-                <div class="row">
-                    <div class="col-lg-12 ">
-                        <div class="alert alert-info">
-                             Введите корректное название продукта чтоб поменять его состояние
-                        </div>
-                       
-                    </div>
-                    </div>
-                  <!-- /. ROW  --> 
-				  <div class="row">
-					<div class="col-sm-6 col-sm-offset-3">
-						<div class="well" style="margin-top: 10%;">
-						<h3>Добавить тип</h3>
-						<form enctype="multipart/form-data" role="form" method="post" action="addHot.php" id="contactForm" data-toggle="validator" class="shake">
-							<div class="row">
-								<div class="form-group col-sm-6" style="width: 100%;">
-									<label for="name" class="h4">Название</label>
-									<input type="text" class="form-control" name="name" id="name" placeholder="Ролл" required data-error="NEW ERROR MESSAGE">
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-													
-							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Изменить</button>
-							<div id="msgSubmit" class="h3 text-center hidden"></div>
-							<div class="clearfix"></div>
-						</form>
-						</div>
-					</div>
-					</div>
+					
                   <div class="row text-center pad-top">
 				  
 							

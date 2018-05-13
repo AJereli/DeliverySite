@@ -51,6 +51,7 @@ printHead();
 										<th>Изображение</th>
 										<th>Тип</th>
 										<th>Вес</th>
+										<th>Лучший</th>
 										<th>Изменить</th>
 										<th>Удалить</th>
                                     </tr>
@@ -69,14 +70,18 @@ printHead();
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					printProducts($row['id'], $row['name'], $row['description'], $row['price'], $row['img_path'], $row['type'], $row['weight']);
+					printProducts($row['id'], $row['name'], $row['description'], $row['price'], $row['img_path'], $row['isHot'], $row['type'], $row['weight']);
 				}
 			}
 
 			
 			
-			function printProducts($id, $name, $description, $price, $img_path, $type, $weight) {
-				
+			function printProducts($id, $name, $description, $price, $img_path, $isHot, $type, $weight) {
+				if ($isHot == 0){
+					echo '<tr class="info">';
+				}else if ($isHot == 1){
+					echo '<tr class="success">';
+				}
 					echo '<td>'.$id.'</td>';
 					echo '<td>'.$name.'</td>';
 					echo '<td>'.$description.'</td>';
@@ -84,6 +89,26 @@ printHead();
 					echo '<td>'.$img_path.'</td>';
 					echo '<td>'.$type.'</td>';
 					echo '<td>'.$weight.'</td>';
+									
+
+				if ($isHot == 0){
+					echo '<td>
+					<form action="edit_control.php" method="post" id="success_form">';
+						echo '<input type="hidden" name="id" value="'.$id.'"/>';
+						echo '<input type="hidden" name="addHot" value="1"/>';
+					echo 
+					'<button type="submit" class="btn btn-primary" value="Submit">Добавить</button>
+					</form></td>';
+				}else if ($isHot == 1){
+					echo '<td>
+					<form action="edit_control.php" method="post" id="success_form">';
+						echo '<input type="hidden" name="id" value="'.$id.'"/>';
+						echo '<input type="hidden" name="delHot" value="1"/>';
+					echo 
+					'<button type="submit" class="btn btn-primary" value="Submit">Убрать</button>
+					</form></td>';
+				}
+
 
 					echo '<td>
 					<form action="edit_view.php" method="post" id="success_form">';
