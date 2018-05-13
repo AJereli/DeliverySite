@@ -43,6 +43,7 @@ echo '
   VK.init({apiId: 6477907, onlyWidgets: true});
 </script>
 
+
 	</head>
 ';
 }

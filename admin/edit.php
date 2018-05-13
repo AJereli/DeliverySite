@@ -60,8 +60,8 @@ printHead();
 
 
 			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-			
-			
+			mysqli_query($conn, "SET NAMES 'utf8'"); 
+						
 			$sql = "SELECT * FROM products ORDER BY id DESC ";
 			$result = $conn->query($sql);
 
