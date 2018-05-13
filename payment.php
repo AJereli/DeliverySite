@@ -70,13 +70,13 @@ sideMenu($resus);
 <!-- payment -->
 <div id="article">
 
-	<div class="paymennt">
+	<div class="paymennt" style="text-align: center;">
 		<div class="privacy about">
 			<h3>Все готово!</h3>
 			<h4>Ваш заказ принят к рассмотрению, через пару минут вам перезвонят для уточнения заказа!</h4>
-			<form action="index.php" method="post" class="creditly-card-form agileinfo_form">
+			<form action="index.php" method="post" class="creditly-card-form agileinfo_form" style="margin-top: 2em;">
 
-						<section class="creditly-wrapper wthree, w3_agileits_wrapper">
+						<section class="creditly-wrapper wthree, w3_agileits_wrapper" style="margin-left: 40%;">
 							<div onclick="clear()" class="information-wrapper">
 								<button  class="submit check_out">Обратно</button>
 							</div>

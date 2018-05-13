@@ -52,6 +52,7 @@ printHead();
 										<th>Тип</th>
 										<th>Вес</th>
 										<th>Изменить</th>
+										<th>Удалить</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -75,13 +76,6 @@ printHead();
 			
 			
 			function printProducts($id, $name, $description, $price, $img_path, $type, $weight) {
-				if ($status == 0){
-					echo '<tr class="info">';
-				}else if ($status == 1){
-					echo '<tr class="success">';
-				}else {
-					echo '<tr class="danger">';
-				}
 				
 					echo '<td>'.$id.'</td>';
 					echo '<td>'.$name.'</td>';
@@ -91,17 +85,20 @@ printHead();
 					echo '<td>'.$type.'</td>';
 					echo '<td>'.$weight.'</td>';
 
-					if ($status == 0){
 					echo '<td>
 					<form action="edit_view.php" method="post" id="success_form">';
 						echo '<input type="hidden" name="id" value="'.$id.'"/>';
 					echo 
 					'<button type="submit" class="btn btn-success" value="Submit">Изменить</button>
 					</form></td>';
-					}else{
-					echo '<td></td>';
-					echo '<td></td>';
-					}
+					echo '<td>
+					<form action="edit_control.php" method="post" id="success_form">';
+						echo '<input type="hidden" name="id" value="'.$id.'"/>';
+						echo '<input type="hidden" name="delete" value="1"/>';
+					echo 
+					'<button type="submit" class="btn btn-danger" value="Submit">Удалить</button>
+					</form></td>';
+
 					
 				
 				

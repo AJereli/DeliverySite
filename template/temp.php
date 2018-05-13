@@ -169,7 +169,8 @@ function footerr(){
 			<div class="clearfix"> </div>
 		</div>
 			<div class="wthree_footer">
-				<p>Веселый ирландец, большие бока!<p>
+			<!--лучше бы<p>Веселый ирландец, большие бока!<p> но всё же написано-->
+			<p>Веселый япошка!<p>
 			</div>
 		</div>';
 }

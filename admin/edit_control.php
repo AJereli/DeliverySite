@@ -14,7 +14,18 @@
 $id=$_POST['id'];
 $result = mysqli_query($conn,'SELECT * FROM `products` WHERE(`id` LIKE "'.$_POST['id'].'");'); 
 $row = $result->fetch_assoc();
- 
+
+if ($_POST['delete']=="1") {
+	echo "хуй";
+	$result=mysqli_query($conn,'DELETE FROM `products` WHERE id="'.$_POST['id'].'";');
+	if(!$result)
+		{
+			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
+		}
+	echo "удалилось!";
+
+}else{
+
 function can_upload($file){
     if($file['name'] == '')
 		return 'Вы не выбрали файл.\n';
@@ -102,7 +113,7 @@ if ($errorMSG === ""){
 echo "Позиция теперь на своем месте!";
 }
 
-
+}
 ?>
 
 

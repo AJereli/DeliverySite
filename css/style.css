@@ -3820,6 +3820,9 @@ input.checkbox:checked:after {
 	.more {
 		margin-left: 34.5em;
 	}
+    .paymennt{
+        margin-left: 0;
+    }
 }
 @media (max-width: 736px){
 	.w3l_search {
@@ -3871,13 +3874,7 @@ input.checkbox:checked:after {
 	.more {
 		margin-left: 29.5em;
 	}
-	.footer {
-		padding: 3em 0;
-	}
-	.wthree_footer {
-		margin: 3em 0 0;
-		padding: 2.5em 0 0;
-	}
+
 	#PPMiniCart {
 		left: 36% !important;
 	}
@@ -4186,10 +4183,7 @@ input.checkbox:checked:after {
 	.agile_footer_grids_w3_footer:nth-child(1) {
 		margin-bottom: 2em !important;
 	}
-	.wthree_footer {
-		margin: 2em 0 0;
-		padding: 1.5em 0 0;
-	}
+
 	.w3l_banner_nav_right_banner3 h3, .w3l_banner_nav_right_banner4 h3, .w3l_banner_nav_right_banner5 h3, .w3l_banner_nav_right_banner6 h3, .w3l_banner_nav_right_banner7 h3, .w3l_banner_nav_right_banner8 h3, .w3l_banner_nav_right_banner9 h3, .w3l_banner_nav_right_banner10 h3 {
 		font-size: 1.2em;
 		width: 75%;
