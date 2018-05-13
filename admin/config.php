@@ -69,26 +69,14 @@ function printSideMenu(){
 	<nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                 
-
-
                     <li class="active-link">
-                        <a href="index.php" ><i class="fa fa-desktop "></i>Добавить позицию</a>
+                        <a href="index.php" ><i class="fa fa-desktop "></i>Добавить информацию</a>
                     </li>
                     <li>
                         <a href="orders.php"><i class="fa fa-table "></i>Текущие заказы</a>
                     </li>
-                     <li>
-                        <a href="promo.php"><i class="fa fa-desktop "></i>Добавить акцию</a>
-                    </li>
-                    <li>
-                        <a href="type.php"><i class="fa fa-desktop "></i>Добавить тип</a>
-                    </li>
-					  <li>
-                        <a href="settings.php"><i class="fa fa-desktop "></i>Настройки</a>
-                    </li>
-                    <li>
-                        <a href="isHot.php"><i class="fa fa-desktop "></i>Лучшие предложения</a>
+                    <li class="active-link">
+                        <a href="edit.php" ><i class="fa fa-edit "></i>Редактировать записи</a>
                     </li>
                     <li>
                         <a href=""><i class="fa fa-edit "></i>Страница в разработке</a>
@@ -96,9 +84,8 @@ function printSideMenu(){
 
               
                 </ul>
-                            </div>
-
-        </nav>
+            </div>
+    </nav>
 	';
 	
 	

@@ -105,7 +105,134 @@
 						</form>
 						</div>
 					</div>
-					</div>		
+					</div>
+					<div class="row">
+                    <div class="col-lg-12">
+                     <h2>Добавить тип продукта</h2>   
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                  <hr />
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div class="alert alert-info">
+                             Для добавление информации заполните форму ниже
+                        </div>
+                       
+                    </div>
+                    </div>
+                  <!-- /. ROW  --> 
+				  <div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="well" style="margin-top: 10%;">
+						<h3>Добавить тип</h3>
+						<form enctype="multipart/form-data" role="form" method="post" action="addType.php" id="contactForm" data-toggle="validator" class="shake">
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<label for="name" class="h4">Название</label>
+									<input type="text" class="form-control" name="label" id="name" placeholder="Ролл" required data-error="NEW ERROR MESSAGE">
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group col-sm-6">
+									<label for="text" class="h4">Бирка</label>
+									<input type="text" class="form-control" name="name" id="name" placeholder="roll" required data-error="NEW ERROR MESSAGE">
+									<div class="help-block with-errors"></div>
+								</div>
+
+							</div>
+													
+							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
+							<div id="msgSubmit" class="h3 text-center hidden"></div>
+							<div class="clearfix"></div>
+						</form>
+						</div>
+					</div>
+					</div>	
+					<div class="row">
+                    <div class="col-lg-12">
+                     <h2>Добавить Акцию</h2>   
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                  <hr />
+
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div class="alert alert-info">
+                             Для добавление информации заполните форму ниже
+                        </div>
+                       
+                    </div>
+                    </div>
+                  <!-- /. ROW  --> 
+				  <div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="well" style="margin-top: 10%;">
+						<h3>Добавить позицию</h3>
+						<form enctype="multipart/form-data" role="form" method="post" action="addPromo.php" id="contactForm" data-toggle="validator" class="shake">
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<label for="name" class="h4">Название</label>
+									<input type="text" class="form-control" name="name" id="name" placeholder="Заголовок" required data-error="NEW ERROR MESSAGE">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="text" class="h4 ">Описание</label>
+								<textarea id="description" class="form-control" name="description" rows="5" placeholder="Введите описание" required></textarea>
+								<div class="help-block with-errors"></div>
+							</div>
+							
+							<label class="btn btn-primary" for="my-file-selector">
+							          <input type="file" name="file" id="file" >
+							</label>
+							
+							<span class='label label-info' id="upload-file-info"></span>
+							
+														
+							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
+							<div id="msgSubmit" class="h3 text-center hidden"></div>
+							<div class="clearfix"></div>
+						</form>
+						</div>
+					</div>
+					</div>	
+					<div class="row">
+                    <div class="col-lg-12">
+                     <h2>Лучшие предложения</h2>   
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                  <hr />
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div class="alert alert-info">
+                             Введите корректное название продукта чтоб поменять его состояние
+                        </div>
+                       
+                    </div>
+                    </div>
+                  <!-- /. ROW  --> 
+				  <div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="well" style="margin-top: 10%;">
+						<h3>Добавить тип</h3>
+						<form enctype="multipart/form-data" role="form" method="post" action="addHot.php" id="contactForm" data-toggle="validator" class="shake">
+							<div class="row">
+								<div class="form-group col-sm-6" style="width: 100%;">
+									<label for="name" class="h4">Название</label>
+									<input type="text" class="form-control" name="name" id="name" placeholder="Ролл" required data-error="NEW ERROR MESSAGE">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+													
+							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Изменить</button>
+							<div id="msgSubmit" class="h3 text-center hidden"></div>
+							<div class="clearfix"></div>
+						</form>
+						</div>
+					</div>
+					</div>
                   <div class="row text-center pad-top">
 				  
 							

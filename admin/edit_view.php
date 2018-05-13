@@ -1,4 +1,13 @@
-﻿<body>
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+ <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/custom.css" rel="stylesheet" />
+   <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<body>
      
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
@@ -23,17 +32,20 @@
             </div>
         </div>
         <!-- /. NAV TOP  -->
-      <?php
+      <?include("config.php");
 		printSideMenu();
 
 		$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+		mysqli_query($conn, "SET NAMES 'utf8'"); 
+		$resus = mysqli_query($conn,'SELECT * FROM `types`'); 
+
 	  ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>Добавить Акцию</h2>   
+                     <h2>Добавить позицию</h2>   
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -51,17 +63,30 @@
 					<div class="col-sm-6 col-sm-offset-3">
 						<div class="well" style="margin-top: 10%;">
 						<h3>Добавить позицию</h3>
-						<form enctype="multipart/form-data" role="form" method="post" action="addPromo.php" id="contactForm" data-toggle="validator" class="shake">
+						<form enctype="multipart/form-data" role="form" method="post" action="edit_control.php" id="contactForm" data-toggle="validator" class="shake">
 							<div class="row">
 								<div class="form-group col-sm-6">
 									<label for="name" class="h4">Название</label>
-									<input type="text" class="form-control" name="name" id="name" placeholder="Заголовок" required data-error="NEW ERROR MESSAGE">
+									<input type="text" class="form-control" name="name" id="name" placeholder="Название"  data-error="NEW ERROR MESSAGE">
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group col-sm-6">
+									<label for="text" class="h4">Цена</label>
+									<input type="text" class="form-control" name="price" id="price" placeholder="100" >
+									<div class="help-block with-errors"></div>
+								</div>
+								<?php
+									echo '<input type="hidden" name="id" value="'.$_POST['id'].'" />';
+								?>
+								<div class="form-group col-sm-6">
+									<label for="text" class="h4">Вес</label>
+									<input type="text" class="form-control" name="weight" id="weight" placeholder="150" >
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="text" class="h4 ">Описание</label>
-								<textarea id="description" class="form-control" name="description" rows="5" placeholder="Введите описание" required></textarea>
+								<textarea id="description" class="form-control" name="description" rows="5" placeholder="Введите описание" ></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
 							
@@ -71,79 +96,30 @@
 							
 							<span class='label label-info' id="upload-file-info"></span>
 							
-														
+							<select name="type" size="1"  form="contactForm">
+							<?
+							
+								while($row = mysqli_fetch_array($resus))
+								{
+									//value=\"".$row["name"]."\"
+									echo "<option>".$row["name"]."</option>";
+
+									
+								}
+							?>
+							
+							
+							</select>
+							
 							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Добавить</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>
 							<div class="clearfix"></div>
 						</form>
 						</div>
 					</div>
-					</div>		
+					</div>
                   <div class="row text-center pad-top">
-				  
-							
-
-				<!--
-					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-						  <div class="div-square">
-							   <a href="blank.html" >
-	 <i class="fa fa-circle-o-notch fa-5x"></i>
-						  <h4>Check Data</h4>
-						  </a>
-						  </div>
-						 
-						 
-					  </div> 
-					 
-					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-						  <div class="div-square">
-							   <a href="orders.php" >
-	 <i class="fa fa-envelope-o fa-5x"></i>
-						  <h4>Текущие заказы</h4>
-						  </a>
-						  </div>
-						 
-						 
-					  </div>
-					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-						  <div class="div-square">
-							   <a href="blank.html" >
-	 <i class="fa fa-lightbulb-o fa-5x"></i>
-						  <h4>New Issues</h4>
-						  </a>
-						  </div>
-						 
-						 
-					  </div>
-					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-						  <div class="div-square">
-							   <a href="blank.html" >
-	 <i class="fa fa-users fa-5x"></i>
-						  <h4>See Users</h4>
-						  </a>
-						  </div>
-						 
-						 
-					  </div>
-					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-						  <div class="div-square">
-							   <a href="blank.html" >
-	 <i class="fa fa-key fa-5x"></i>
-						  <h4>Admin </h4>
-						  </a>
-						  </div>
-						 
-						 
-					  </div>
-					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-comments-o fa-5x"></i>
-                      <h4>Support</h4>
-                      </a>
-                      </div>
-                      -->
-                     
+                    
                   </div>
 				</div>
                  <!-- /. ROW  --> 
@@ -157,3 +133,6 @@
 	
    
 </body>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</html>

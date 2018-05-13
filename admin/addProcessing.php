@@ -83,7 +83,7 @@ if ($errorMSG === ""){
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
 	mysqli_query($conn, "SET NAMES 'utf8'");
-	
+	echo $image_name;
 	
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, img_path, weight, type) VALUES (?, ?, ?, ?, ?, ?)');
 

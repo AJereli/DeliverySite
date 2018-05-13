@@ -146,9 +146,9 @@ sideMenu($resus);
 			{
 				echo'
 					<tr class="rem'.$in.'">
-					 	<td class="invert">'.$in.'</td>
-						<td class="invert-image"><img src="images/'.$image.'" alt=" " class="img-responsive"></td>
-						<td class="invert">
+					 	<td class="invert" style="width:3em;">'.$in.'</td>
+						<td class="invert-image" style="width: 30%;"><img src="images/'.$image.'" alt=" " class="img-responsive"></td>
+						<td class="invert"style="width: 6em;">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           
 									<!--<div class="entry value-minus">&nbsp;</div>-->
@@ -159,7 +159,7 @@ sideMenu($resus);
 						</td>
 						<td class="invert">'.$name.'</td>
 						
-						<td class="invert">'.$price.'</td>
+						<td class="invert"style="width:5em;">'.$price.'</td>
 						<!-- <td class="invert">
 							<div class="rem">
 								<div class="close'.$in.'"> </div>
