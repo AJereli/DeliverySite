@@ -36,6 +36,13 @@ echo '
 	</script>
 	<script type="text/javascript" src="//vk.com/js/api/openapi.js?154"></script>
 	<!-- start-smoth-scrolling -->
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?154"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 6477907, onlyWidgets: true});
+</script>
+
 	</head>
 ';
 }

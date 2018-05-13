@@ -96,23 +96,12 @@ while($row = $result->fetch_assoc())
 	</div>
 ';}
 ?>
-			<div class="agileinfo_mail_grids">
-				<div class="col-md-8 agileinfo_mail_grid_right">
-					<form action="comments.php" method="post">
-						<div class="col-md-6 wthree_contact_left_grid">
-							
-							<input type="text" name="name" value="" required="" placeholder="Имя">
-							<label class="control-label">Email:</label>
-							<input type="email" name="email" value="" required="" placeholder="Почта">
-						</div>
-						<div class="clearfix"> </div>
+<!-- Put this div tag to the place, where the Comments block will be -->
+<div id="vk_comments"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 20, attach: "*"});
+</script>
 
-						<textarea  name="Message"  required="" placeholder="Комментарий"></textarea>
-						<input type="submit" value="Submit">
-					</form>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
 		</div>
 	</div>
 <!-- //mail -->
