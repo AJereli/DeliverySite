@@ -72,30 +72,7 @@ sideMenu($resus);
 <div id="article">
 
 <div class="mail">
-<?php
-  
-
-$result = $conn->query('SELECT * FROM `comments`'); 
-if(!$result)
-{
-	throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-}
-while($row = $result->fetch_assoc())
-{
-	printcomm($row['id'], $row['name'], $row['comm'], $row['timee']);
-}
-
-	
-
-	function printcomm($id,$name,$comm,$time){
-	echo '
-	<div style="border-bottom:2px dotted; width:80%">
-	<h2>'.$name.'</h2>
-	<h4>'.$comm.'</h4>
-	<h4>'.$time.'</h4>
-	</div>
-';}
-?>
+<h3>Отзывы</h3>
 <!-- Put this div tag to the place, where the Comments block will be -->
 <div id="vk_comments"></div>
 <script type="text/javascript">
