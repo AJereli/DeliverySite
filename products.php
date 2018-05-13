@@ -43,7 +43,8 @@ headerr($resus);
 		{
 			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
 		}
-	$type=mysqli_fetch_array(mysqli_query($conn,'SELECT * FROM `types` WHERE(`id` LIKE '.$_GET['t'].')'));
+		$typeid=mysql_real_escape_string($_GET['t'];
+	$type=mysqli_fetch_array(mysqli_query($conn,'SELECT * FROM `types` WHERE(`id` LIKE "'.$typeid.'")'));
 sideMenu($resus);
 ?>
 
