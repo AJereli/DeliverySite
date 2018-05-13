@@ -222,13 +222,13 @@ ul.dropdown-menu.drp-mnu li a i {
 }
 .w3ls_logo_products_left1 ul.phone_email li{
 	display:inline-block;
-	color:#212121;
+	color:white;
 	font-family: 'Ubuntu', sans-serif;
 /*-- w3layouts --*/
 	margin-right:2em;
 }
 .w3ls_logo_products_left1 ul.phone_email li a{
-	color:#212121;
+	color:white;
 	text-decoration:none;
 }
 .w3ls_logo_products_left1 ul.phone_email li i{
