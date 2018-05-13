@@ -72,11 +72,8 @@ sideMenu($resus);
 <div id="article">
 
 <div class="mail">
-<<<<<<< HEAD
-<h3>Отзывы</h3>
-=======
 
->>>>>>> 4608210c61257743eda8fb3ab7fa0d9eb394be36
+<h3>Отзывы</h3>
 <!-- Put this div tag to the place, where the Comments block will be -->
 <div id="vk_comments"></div>
 <script type="text/javascript">
