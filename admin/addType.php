@@ -49,7 +49,7 @@ mysqli_query($conn, "SET NAMES 'utf8'");
 	
 	$stmt->close();
 	$conn->close();
-	header('Location:http://deliverysite/admin/');
+
 	}
 	catch(PDOException $e)
     {

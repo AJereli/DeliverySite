@@ -86,7 +86,7 @@ if ($errorMSG === ""){
 	$stmt->execute();
 	//	printf("Errormessage: %s\n", $conn->error);
 
-	header('Location:http://deliverysite/admin/');
+
 	$stmt->close();
 	$conn->close();
 	}

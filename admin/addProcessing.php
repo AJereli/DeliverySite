@@ -2,12 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	
+<meta charset="utf-8" />
 </head>
 <body>
-<br>
- <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
 <?php
 
 function can_upload($file){
@@ -83,7 +80,7 @@ if ($errorMSG === ""){
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	// Check connection
 	mysqli_query($conn, "SET NAMES 'utf8'");
-	echo $image_name;
+
 	
 	$stmt = $conn->prepare('INSERT INTO products (name, description, price, img_path, weight, type) VALUES (?, ?, ?, ?, ?, ?)');
 
@@ -95,7 +92,7 @@ if ($errorMSG === ""){
 	$stmt->execute();
 	
 
-	header('Location:http://deliverysite/admin/');
+
 	$stmt->close();
 	$conn->close();
 	}
@@ -107,10 +104,7 @@ if ($errorMSG === ""){
 }else{
 	echo $errorMSG;
 }
-
-
 ?>
-
-
+<a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
  </body>
  </html>

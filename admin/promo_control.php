@@ -22,7 +22,7 @@ if ($_POST['delete']=="1") {
 		{
 			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
 		}
-	header('Location:http://deliverysite/admin/promo_view.php');
+
 
 }
 ?>

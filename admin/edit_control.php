@@ -129,7 +129,7 @@ if ($errorMSG === ""){
 		}
 
 }
-header('Location:http://deliverysite/admin/edit.php');
+
 }
 ?>
 
