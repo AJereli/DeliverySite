@@ -33,7 +33,7 @@ printHead();
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Список продуктов</h2>   
+                     <h2>Список акций</h2>   
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -47,11 +47,7 @@ printHead();
                                         <th>Id</th>
                                         <th>Название</th>
                                         <th>Описание</th>
-                                        <th>Стоимость</th>
 										<th>Изображение</th>
-										<th>Тип</th>
-										<th>Вес</th>
-										<th>Изменить</th>
 										<th>Удалить</th>
                                     </tr>
                                 </thead>
@@ -63,36 +59,27 @@ printHead();
 			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 			mysqli_query($conn, "SET NAMES 'utf8'"); 
 						
-			$sql = "SELECT * FROM products;";
+			$sql = "SELECT * FROM promo  ";
 			$result = $conn->query($sql);
 
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					printProducts($row['id'], $row['name'], $row['description'], $row['price'], $row['img_path'], $row['type'], $row['weight']);
+					printProducts($row['id'], $row['label'], $row['description'], $row['image']);
 				}
 			}
 
 			
 			
-			function printProducts($id, $name, $description, $price, $img_path, $type, $weight) {
+			function printProducts($id, $label, $description, $image) {
 				
 					echo '<td>'.$id.'</td>';
-					echo '<td>'.$name.'</td>';
-					echo '<td>'.$description.'</td>';
-					echo '<td>'.$price.'</td>';
-					echo '<td>'.$img_path.'</td>';
-					echo '<td>'.$type.'</td>';
-					echo '<td>'.$weight.'</td>';
-
-					echo '<td>
-					<form action="edit_view.php" method="post" id="success_form">';
-						echo '<input type="hidden" name="id" value="'.$id.'"/>';
-					echo 
-					'<button type="submit" class="btn btn-success" value="Submit">Изменить</button>
-					</form></td>';
-					echo '<td>
-					<form action="edit_control.php" method="post" id="success_form">';
+					echo '<td>'.$label.'</td>';
+                    echo '<td>'.$description.'</td>';
+					echo '<td>'.$image.'</td>';
+					
+                    echo '<td>
+					<form action="promo_control.php" method="post" id="success_form">';
 						echo '<input type="hidden" name="id" value="'.$id.'"/>';
 						echo '<input type="hidden" name="delete" value="1"/>';
 					echo 

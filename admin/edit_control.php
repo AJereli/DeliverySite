@@ -16,7 +16,7 @@ $result = mysqli_query($conn,'SELECT * FROM `products` WHERE(`id` LIKE "'.$_POST
 $row = $result->fetch_assoc();
 
 if ($_POST['delete']=="1") {
-	echo "хуй";
+
 	$result=mysqli_query($conn,'DELETE FROM `products` WHERE id="'.$_POST['id'].'";');
 	if(!$result)
 		{
