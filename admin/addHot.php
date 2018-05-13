@@ -28,14 +28,14 @@ if ($errorMSG === ""){
 	$value=1;
 	$product = mysqli_query($conn,'SELECT * FROM `products` WHERE(`name` LIKE "'.$name.'")');
 	$row = mysqli_fetch_array($product);
-	print_r($row);
+
 	if ($row['isHot']==1) {
 		$setHot = mysqli_query($conn,'UPDATE `products` SET isHot="0" WHERE id='.$row[id].'');
 	}else
 	{
 		$setHot = mysqli_query($conn,'UPDATE `products` SET isHot="1" WHERE id='.$row[id].'');
 	}
-	
+	echo "Позиция теперь на своем месте!";
 
 	}
 	catch(PDOException $e)

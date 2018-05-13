@@ -74,7 +74,7 @@ sideMenu($resus);
 	      	<?php  
 	      	
 			$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
+			mysqli_query($conn, "SET NAMES 'utf8'");
 
 			if ($conn->connect_errno) {
 				throw new Exception(mysqli_connect_errno());
