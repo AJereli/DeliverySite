@@ -106,7 +106,7 @@ sideMenu($resus);
 											<div style="height:4em;overflow: hidden;margin-bottom:0.5em;">
 												<p style="margin:0 0 0;">'.$description.'</p>
 											</div>
-											<p style="margin-bottom:0.5em;">Вес: '.$weight.' гр.</p>
+											<p style="margin-bottom:0.5em;">Вес: '.$weight.'</p>
 											<h4>'.$price.' р.</h4>
 										</div>
 										<div class="snipcart-details top_brand_home_details">
