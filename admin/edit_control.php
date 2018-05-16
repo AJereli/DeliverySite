@@ -9,6 +9,7 @@
 <br>
  <a href="index.php" ><i class="fa fa-desktop "></i>На главную</a>
 <?php
+$time=time();
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	mysqli_query($conn, "SET NAMES 'utf8'");
 $id=$_POST['id'];
@@ -25,11 +26,11 @@ if ($_POST['delete']=="1") {
 	echo "Удалилось!";
 
 }else if ($_POST['addHot']=="1") {
-	$result = mysqli_query ($conn,'UPDATE products SET isHot="1" WHERE id="'.$_POST['id'].'";');
-	if(!$result)
-		{
-			throw new Exception(sprintf('Не удалось выполнить запрос к БД, код ошибки %d, текст ошибки: %s', mysql_errno($conn), mysql_error($conn)));
-		}
+	$i=1;
+	$stmt = $conn->prepare('UPDATE `products` SET `time`=?, isHot=? WHERE id="'.$_POST['id'].'";');
+			$stmt->bind_param("ii", $time, $i);
+			$stmt->execute();
+			$stmt->close();
 	echo "ЭТО ЛУЧШЕЕ ПРЕДЛОЖЕНИЕ!";
 }
 else if ($_POST['delHot']=="1") {

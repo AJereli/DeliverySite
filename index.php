@@ -64,7 +64,7 @@ sideMenu($resus);
 			<?php 
 			
 			
-			$result = $conn->query('SELECT * FROM `products` WHERE(`isHot` LIKE "1")ORDER BY `id`  ;'); 
+			$result = $conn->query('SELECT * FROM `products` WHERE(`isHot` LIKE "1")ORDER BY `time` DESC ;');; 
 
 
 			if(!$result)
