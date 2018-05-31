@@ -1,6 +1,6 @@
 
 <?php
-
+	$date=date("m.d.y");
 	include("config.php");
 	$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 	
@@ -15,8 +15,8 @@
 		echo '<a href="http://rp-dostavka.ru">На главную</a>';
 		exit();
 	}
-	$stmt = $conn->prepare ('INSERT INTO orders (products, client_name, address, summ, additional)VALUES(?,?,?,?,?)');
-	$stmt->bind_param('sssds',$order, $FIO, $adress, $total, $number);
+	$stmt = $conn->prepare ('INSERT INTO orders (products, client_name, address, summ, additional, date )VALUES(?,?,?,?,?,?)');
+	$stmt->bind_param('sssdss',$order, $FIO, $adress, $total, $number, $date);
 	$stmt->execute();
 			
 ?>
@@ -82,7 +82,10 @@ sideMenu($resus);
 							</div>
 						</section>
 					</form>
-	         
+
+	         <div onclick="echo()" class="information-wrapper">
+								<button  class="submit check_out">Обратно</button>
+							</div>
 
 		</div>
 		</div>
@@ -183,9 +186,9 @@ $(document).ready(function(){
 		});
 
 	</script>-->
-<script type="text/javascript">
+<script src="js/minicart.js">
 	function clear(){
-	item.length = 0;}
+	Cart.prototype.destroy()}
 </script>
 	<style>
 .sticky {
@@ -245,6 +248,6 @@ function Ascroll() {
 }
 })()
 </script>
-
+<script>function echo(){ alert(Cart.prototype.items[1]);}</script>
 </body>
 </html>

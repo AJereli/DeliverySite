@@ -1088,7 +1088,8 @@ var cache = {};
 exports.clearCache = function(){
   cache = {};
 };
-
+  function clear(){
+  wrappedFn.length = 0;}
 /**
  * Translate filtered code into function calls.
  *
